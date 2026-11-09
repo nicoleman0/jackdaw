@@ -27,6 +27,14 @@
     --lime: #c4f01c;
     --ink: #17161f;
     --muted: #4a4a63;
+    --rank-oppose-0: var(--ink);
+    --rank-oppose-1: var(--muted);
+    --rank-oppose-2: color-mix(in srgb, var(--muted) 55%, var(--ground));
+    --rank-oppose-rest: color-mix(in srgb, var(--muted) 28%, var(--ground));
+    --rank-support-0: var(--lime);
+    --rank-support-1: color-mix(in srgb, var(--lime) 75%, var(--ground));
+    --rank-support-2: color-mix(in srgb, var(--lime) 52%, var(--ground));
+    --rank-support-rest: color-mix(in srgb, var(--lime) 34%, var(--ground));
     --rule: color-mix(in srgb, var(--ultra) 28%, transparent);
 
     /* Alpha mask for uneven riso ink: slow blotches times fine speckle. */
