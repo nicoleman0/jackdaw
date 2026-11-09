@@ -14,7 +14,28 @@
     "./legend.css": "./legend.css",
     "./rows.css": "./rows.css",
     "./text.css": "./text.css",
-    "./disclosure.css": "./disclosure.css"
+    "./disclosure.css": "./disclosure.css",
+    "./controls.css": "./controls.css",
+    "./typography.css": "./typography.css",
+    "./layout.css": "./layout.css",
+    "./navigation.css": "./navigation.css",
+    "./feedback.css": "./feedback.css",
+    "./table.css": "./table.css"
   },
-  "files": ["index.css", "tokens.css", "base.css", "bar.css", "legend.css", "rows.css", "text.css", "disclosure.css"]
+  "files": [
+    "index.css",
+    "tokens.css",
+    "base.css",
+    "bar.css",
+    "legend.css",
+    "rows.css",
+    "text.css",
+    "disclosure.css",
+    "controls.css",
+    "typography.css",
+    "layout.css",
+    "navigation.css",
+    "feedback.css",
+    "table.css"
+  ]
 }

@@ -8,10 +8,37 @@
   <style>
     body { max-width: 52rem; margin: 2rem auto; padding: 0 1rem; background: var(--ground); color: var(--ink); font-family: var(--font-body); }
     section { margin: var(--s-4) 0; }
+    .examples { display: flex; flex-wrap: wrap; gap: var(--s-2); align-items: center; }
+    .form-example { display: grid; gap: var(--s-2); max-width: 32rem; }
   </style>
 </head>
 <body>
   <h1><span class="jd-ink">Jackdaw specimen</span></h1>
+  <section>
+    <h2>Typography</h2>
+    <p class="jd-headline">A two-ink system.</p>
+    <p class="jd-heading">Section heading</p>
+    <p class="jd-title">A smaller title</p>
+    <p class="jd-prose">A reading column for longer text. Use <a class="jd-link" href="#controls">links</a> to connect the details.</p>
+    <span class="jd-tag">Research</span>
+  </section>
+  <section id="controls">
+    <h2>Controls</h2>
+    <div class="examples">
+      <button class="jd-button jd-button--primary" type="button">Primary action</button>
+      <button class="jd-button" type="button">Secondary action</button>
+      <button class="jd-button" type="button" disabled>Unavailable</button>
+    </div>
+  </section>
+  <section>
+    <h2>Form fields</h2>
+    <form class="form-example" onsubmit="return false">
+      <div class="jd-field"><label class="jd-label" for="name">Name</label><p class="jd-hint" id="name-hint">The name you use in public.</p><input class="jd-input" id="name" aria-describedby="name-hint" autocomplete="name"></div>
+      <div class="jd-field"><label class="jd-label" for="email">Email</label><input class="jd-input" id="email" type="email" aria-invalid="true" aria-describedby="email-error" value="example"><p class="jd-error" id="email-error">Enter a valid email address.</p></div>
+      <label class="jd-choice"><input class="jd-check" type="checkbox"> Send me updates</label>
+      <div class="jd-field"><label class="jd-label" for="message">Message</label><textarea class="jd-input" id="message"></textarea></div>
+    </form>
+  </section>
   <section>
     <h2>Disclosure</h2>
     <details class="jd-disclosure jd-disclosure--marked"><summary><span class="jd-disclosure__label">More information</span></summary><p>A detail.</p></details>

@@ -1,5 +1,6 @@
 @layer jackdaw.components {
   .jd-disclosure > summary { cursor: pointer; }
+  .jd-disclosure > summary:focus-visible { outline: 2px solid var(--ultra); outline-offset: 3px; }
   .jd-disclosure--marked > summary { list-style: none; }
   .jd-disclosure--marked > summary::-webkit-details-marker { display: none; }
   .jd-disclosure__label::after { content: " +"; color: var(--ultra); }

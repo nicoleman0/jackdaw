@@ -1,0 +1,52 @@
+@layer jackdaw.components {
+  .jd-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--s-1);
+    min-height: 2.75rem;
+    padding: 0.65rem 1.2rem;
+    border: 1px solid var(--ultra);
+    border-radius: 0;
+    background: transparent;
+    color: var(--ultra);
+    font: 700 1rem/1.2 var(--font-display);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .jd-button:hover { background: var(--paper); text-decoration: underline; text-underline-offset: 0.2em; }
+  .jd-button--primary { border-color: var(--lime); background: var(--lime); color: var(--ink); }
+  .jd-button--primary:hover { background: var(--lime); }
+  .jd-button:focus-visible, .jd-input:focus-visible, .jd-check:focus-visible, .jd-link:focus-visible {
+    outline: 2px solid var(--ultra);
+    outline-offset: 3px;
+  }
+  .jd-button:disabled { opacity: 0.55; cursor: not-allowed; }
+  .jd-button:disabled:hover { text-decoration: none; }
+  .jd-button:disabled:hover { background: transparent; }
+  .jd-button--primary:disabled:hover { background: var(--lime); }
+  .jd-link { color: var(--ultra); text-decoration: underline; text-underline-offset: 0.15em; }
+  .jd-link:hover { color: var(--ultra-deep); text-decoration-thickness: 2px; }
+  .jd-field { display: grid; gap: var(--s-1); }
+  .jd-label { color: var(--ink); font: 700 1rem/1.3 var(--font-display); }
+  .jd-hint { color: var(--muted); font-size: 0.9rem; margin: 0; }
+  .jd-input {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--muted);
+    border-radius: var(--radius);
+    background: var(--paper);
+    color: var(--ink);
+    font: 1rem/1.4 var(--font-body);
+  }
+  textarea.jd-input { min-height: 7rem; resize: vertical; }
+  .jd-input:disabled { opacity: 0.55; cursor: not-allowed; }
+  .jd-input[aria-invalid="true"] { border: 2px solid var(--ink); }
+  .jd-error { color: var(--ink); font-weight: 700; margin: 0; }
+  .jd-check { accent-color: var(--ultra); width: 1.125rem; height: 1.125rem; margin: 0; flex: none; }
+  .jd-choice { display: flex; align-items: baseline; gap: var(--s-1); }
+  .jd-choice .jd-check { align-self: center; }
+}

@@ -1,0 +1,9 @@
+@layer jackdaw.components {
+  .jd-headline, .jd-heading, .jd-title { color: var(--ultra); font-family: var(--font-display); }
+  .jd-headline { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; }
+  .jd-heading { font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; }
+  .jd-title { font-size: 1.75rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.015em; }
+  .jd-prose { max-width: var(--measure); font: 1.125rem/1.6 var(--font-body); }
+  .jd-code { font-family: var(--font-mono); font-size: 0.875em; }
+  .jd-tag { display: inline-block; padding: 0.1rem 0.6rem; border: 1px solid var(--ultra); border-radius: var(--radius); color: var(--ultra); font-size: 0.9rem; }
+}

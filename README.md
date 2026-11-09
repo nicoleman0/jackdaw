@@ -118,3 +118,59 @@ Jackdaw uses semantic version tags. Renaming or removing a token or class is a m
 ## Licence
 
 [MIT](LICENSE).
+
+## Typography and tags
+
+Use `jd-headline`, `jd-heading`, and `jd-title` for visual hierarchy on the appropriate heading element. `jd-prose` sets a reading measure and body type; `jd-code` applies the mono font. `jd-tag` styles a short label.
+
+```html
+<h1 class="jd-headline">A page title</h1>
+<p class="jd-prose">A reading column with a <a class="jd-link" href="/about">link</a>.</p>
+<span class="jd-tag">Research</span>
+```
+
+## Controls and forms
+
+Use `jd-button--primary` for the single primary action on a screen. The default `jd-button` is secondary. Use native buttons for actions and links for navigation. Disabled buttons use the native `disabled` attribute.
+
+```html
+<button class="jd-button jd-button--primary" type="submit">Save</button>
+<a class="jd-button" href="/">Cancel</a>
+```
+
+Use `jd-field` to group a label, hint, input and error. Connect hints and errors with `aria-describedby`; set `aria-invalid="true"` when a field has an error. The error must describe the problem in text. `jd-input` works on inputs, selects and textareas. For checkboxes and radios, use `jd-choice` and `jd-check`.
+
+```html
+<div class="jd-field">
+  <label class="jd-label" for="email">Email</label>
+  <input class="jd-input" id="email" type="email" aria-invalid="true" aria-describedby="email-error">
+  <p class="jd-error" id="email-error">Enter a valid email address.</p>
+</div>
+<label class="jd-choice"><input class="jd-check" type="checkbox"> Send me updates</label>
+```
+
+These styles are opt-in. They do not reset browser styles or load fonts. Applications own validation, form behaviour and disabled links.
+
+## Layout
+
+`jd-container` provides a centred wide container; add `jd-container--reading` for the reading measure. `jd-stack`, `jd-cluster` and `jd-grid` arrange children with a token-based gap. Override `--jd-gap` on the container and `--jd-column` on a grid when needed. `jd-section` adds vertical section spacing, `jd-rule` provides a major divider and `jd-sr-only` visually hides text while keeping it available to assistive technology.
+
+```html
+<div class="jd-container"><div class="jd-grid"><article>One</article><article>Two</article></div></div>
+```
+
+## Navigation
+
+Use `jd-nav` on a navigation landmark and `aria-current="page"` on the current link. `jd-breadcrumbs` styles an ordered list inside a labelled navigation landmark. `jd-pagination` styles page links; label the landmark and individual links, and mark the current page. `jd-skip` styles a skip link pointing to the main content.
+
+## Feedback
+
+`jd-notice` is an in-flow message; add `jd-notice--success` or `jd-notice--error` and include a descriptive title. Use a live region only when an application needs to announce a dynamic update. `jd-status` and `jd-status--pending` display short text labels. `jd-empty` frames an empty state. The application owns announcements and dismissal behaviour.
+
+## Tables
+
+Wrap a `jd-table` in `jd-table-wrap` for horizontal scrolling on narrow screens. Provide a caption and scoped headers. Use `jd-table__number` for right-aligned numeric cells and `jd-table--compact` for denser rows. Give the wrapper an accessible name and keyboard focus when it can scroll.
+
+## Visual catalogue
+
+Open [catalogue.html](catalogue.html) to inspect all shared components and adjust the colour, spacing, radius, body size and preview width. The editor copies a description of changed values for you to paste into a chat; it does not edit source files. Changes are temporary and the chosen fonts must be installed locally to appear in the standalone catalogue. After changing the package CSS, run `python3 scripts/build-catalogue.py` to regenerate the self-contained catalogue from the current styles and template.

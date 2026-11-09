@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jackdaw | Design catalogue</title>
+<style>
+/* JACKDAW_STYLES */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #17171d; color: #f6f6f2; font: 15px/1.5 system-ui, sans-serif; }
+.shell { display: grid; grid-template-columns: 19rem minmax(0,1fr); min-height: 100vh; }
+.editor { padding: 1.5rem; border-right: 1px solid #44444e; }
+.editor h1 { font-size: 1.3rem; margin: 0; }
+.editor p { color: #c2c2cb; font-size: .88rem; }
+.editor fieldset { border: 0; border-top: 1px solid #44444e; padding: 1rem 0 0; margin: 1rem 0; }
+.editor legend { font-weight: 700; padding-right: .5rem; }
+.editor label { display: flex; justify-content: space-between; align-items: center; gap: .5rem; margin: .65rem 0; font-size: .85rem; }
+.editor input[type=color] { width: 3rem; height: 2rem; padding: 0; border: 0; background: transparent; }
+.editor input[type=range] { width: 8rem; accent-color: #c4f01c; }
+.editor select, .editor button, .editor textarea { font: inherit; }
+.editor select, .editor button { padding: .5rem; border: 1px solid #777; background: #292930; color: white; }
+.editor button { cursor: pointer; }
+.editor textarea { width: 100%; min-height: 10rem; padding: .6rem; background: #111; color: #f3f3f0; border: 1px solid #777; resize: vertical; }
+.workspace { min-width: 0; padding: 1.5rem; }
+.workspace-bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; margin-bottom: 1rem; color: #c2c2cb; }
+.preview-frame { margin: auto; max-width: 100%; transition: width .2s; }
+.preview { background: var(--ground); color: var(--ink); font: 1.0625rem/1.6 var(--font-body); min-height: 100vh; }
+.preview a { overflow-wrap: anywhere; }
+.catalogue-header { padding-block: var(--s-4); border-bottom: 2px solid var(--ultra); }
+.catalogue-header h1 { margin: .2em 0; }
+.catalogue-header p { max-width: 42rem; }
+.catalogue-nav { margin-top: var(--s-3); }
+.catalogue-section { padding-block: var(--s-4); border-bottom: 1px solid var(--rule); }
+.catalogue-section h2 { margin: 0 0 var(--s-2); }
+.catalogue-section h3 { margin: var(--s-3) 0 var(--s-1); color: var(--ultra); font: 700 1.15rem var(--font-display); }
+.example { padding: var(--s-2) 0; }
+.swatches { display: grid; grid-template-columns: repeat(auto-fit,minmax(7rem,1fr)); gap: var(--s-1); }
+.swatch { border: 1px solid var(--rule); background: var(--paper); font-size: .8rem; }
+.swatch i { display: block; height: 4rem; background: var(--color); }
+.swatch span { display: block; padding: .4rem; }
+.demo-box { padding: var(--s-2); border: 1px solid var(--rule); background: var(--paper); }
+.demo-form { max-width: 35rem; }
+.demo-form fieldset { border: 0; padding: 0; margin: 0; }
+.demo-form legend { margin-bottom: var(--s-1); }
+.preview code { font-family: var(--font-mono); font-size: .85em; }
+@media(max-width: 850px) { .shell { display: block; } .editor { border-right: 0; border-bottom: 1px solid #444; } .workspace { padding: .75rem; } }
+@media(prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .preview-frame { transition: none; } }
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="editor" aria-label="Design controls">
+<h1>Jackdaw editor</h1><p>Adjust the design and inspect the catalogue. Copy your choices into the chat so they can be applied to the source.</p>
+<label>Preset <select id="preset"><option value="" hidden>Custom</option><option value="default">Jackdaw original</option><option value="compact">Compact print</option><option value="open">Open sheet</option><option value="warm">Warm paper</option></select></label>
+<fieldset><legend>Colour</legend>
+<label>Ground <input type="color" data-key="ground" value="#eef0f9"></label>
+<label>Paper <input type="color" data-key="paper" value="#ffffff"></label>
+<label>Ultramarine <input type="color" data-key="ultra" value="#2f17f0"></label>
+<label>Lime <input type="color" data-key="lime" value="#c4f01c"></label>
+<label>Text <input type="color" data-key="ink" value="#17161f"></label>
+<label>Muted <input type="color" data-key="muted" value="#4a4a63"></label>
+</fieldset>
+<fieldset><legend>Shape and space</legend>
+<label>Spacing <input type="range" data-key="spacing" min="0.7" max="1.4" step="0.05" value="1"><output data-output="spacing">1×</output></label>
+<label>Control radius <input type="range" data-key="radius" min="0" max="12" step="1" value="2"><output data-output="radius">2px</output></label>
+<label>Body size <input type="range" data-key="body" min="14" max="22" step="1" value="17"><output data-output="body">17px</output></label>
+<label>Preview width <input type="range" data-key="width" min="320" max="1400" step="20" value="1400"><output data-output="width">1400px</output></label>
+</fieldset>
+<fieldset><legend>Your direction</legend><textarea id="prompt" readonly aria-label="Generated design request"></textarea><div class="jd-cluster"><button id="copy" type="button">Copy request</button><button id="reset" type="button">Reset</button></div><p id="copy-status" role="status"></p></fieldset>
+</aside>
+<main class="workspace"><div class="workspace-bar"><strong>COMPONENT CATALOGUE / 01</strong><span>Live preview · resize with the control</span></div><div class="preview-frame" id="frame"><div class="preview" id="preview">
+<header class="catalogue-header jd-container"><p>JACKDAW / DESIGN SYSTEM</p><h1 class="jd-headline"><span class="jd-ink">A system in two inks.</span></h1><p>A working catalogue of shared patterns for clear, readable interfaces. All examples use the package CSS.</p><nav class="jd-nav catalogue-nav" aria-label="Catalogue sections"><a href="#foundations">Foundations</a><a href="#actions">Actions</a><a href="#forms">Forms</a><a href="#navigation">Navigation</a><a href="#feedback">Feedback</a><a href="#data">Data</a><a href="#layout">Layout</a></nav></header>
+<div class="jd-container">
+<section class="catalogue-section" id="foundations"><h2 class="jd-heading">01 / Foundations</h2><p>Colour, type and the marks that hold the system together.</p><div class="swatches"><div class="swatch"><i style="--color:var(--ground)"></i><span>Ground</span></div><div class="swatch"><i style="--color:var(--paper)"></i><span>Paper</span></div><div class="swatch"><i style="--color:var(--ultra)"></i><span>Ultramarine</span></div><div class="swatch"><i style="--color:var(--lime)"></i><span>Lime</span></div><div class="swatch"><i style="--color:var(--ink)"></i><span>Ink</span></div><div class="swatch"><i style="--color:var(--muted)"></i><span>Muted</span></div></div><h3>Type hierarchy</h3><p class="jd-headline">Headline</p><p class="jd-heading">Section heading</p><p class="jd-title">Title and label</p><p class="jd-prose">A reading column has room to breathe. <a class="jd-link" href="#actions">A link is always identifiable.</a> <code class="jd-code">Code uses mono.</code></p><p class="jd-note">A note about the example.</p><p class="jd-meta">Metadata · 9 November 2026</p><p><span class="jd-small">Small</span> · <span class="jd-secondary">Secondary</span> · <span class="jd-muted">Muted</span></p><span class="jd-tag">Research</span><hr class="jd-rule"></section>
+<section class="catalogue-section" id="actions"><h2 class="jd-heading">02 / Actions</h2><div class="jd-cluster"><button type="button" class="jd-button jd-button--primary">Primary action</button><button type="button" class="jd-button">Secondary action</button><button type="button" class="jd-button" disabled>Unavailable</button><a class="jd-link" href="#forms">Text link</a></div><p class="jd-note">Use one primary action per screen. Buttons perform actions; links navigate.</p></section>
+<section class="catalogue-section" id="forms"><h2 class="jd-heading">03 / Forms</h2><form class="demo-form jd-stack" onsubmit="return false"><div class="jd-field"><label class="jd-label" for="demo-name">Name</label><p class="jd-hint" id="name-hint">The name you use in public.</p><input class="jd-input" id="demo-name" aria-describedby="name-hint" placeholder="Your name"></div><div class="jd-field"><label class="jd-label" for="demo-email">Email</label><input class="jd-input" id="demo-email" type="email" value="example" aria-invalid="true" aria-describedby="email-error"><p class="jd-error" id="email-error">Enter a valid email address.</p></div><div class="jd-field"><label class="jd-label" for="demo-select">Subject</label><select class="jd-input" id="demo-select"><option>Choose a subject</option><option>Design</option><option>Research</option></select></div><div class="jd-field"><label class="jd-label" for="demo-message">Message</label><textarea class="jd-input" id="demo-message"></textarea></div><fieldset><legend class="jd-label">Format</legend><div class="jd-cluster"><label class="jd-choice"><input class="jd-check" type="radio" name="format" checked> Email</label><label class="jd-choice"><input class="jd-check" type="radio" name="format"> Post</label></div></fieldset><label class="jd-choice"><input class="jd-check" type="checkbox"> Send me updates</label><div><button class="jd-button jd-button--primary" type="submit">Send message</button></div></form></section>
+<section class="catalogue-section" id="navigation"><h2 class="jd-heading">04 / Navigation</h2><h3>Primary navigation</h3><nav class="jd-nav" aria-label="Example primary"><a href="#navigation" aria-current="page">Overview</a><a href="#navigation">Projects</a><a href="#navigation">About</a></nav><h3>Breadcrumbs</h3><nav aria-label="Breadcrumb"><ol class="jd-breadcrumbs"><li><a href="#navigation">Home</a></li><li><a href="#navigation">Projects</a></li><li aria-current="page">Jackdaw</li></ol></nav><h3>Pagination</h3><nav class="jd-pagination" aria-label="Example pages"><a href="#navigation" aria-label="Page 1" aria-current="page">1</a><a href="#navigation" aria-label="Page 2">2</a><a href="#navigation" aria-label="Page 3">3</a><a href="#navigation">Next →</a></nav><p class="jd-note">A skip link is also available for page-level navigation.</p></section>
+<section class="catalogue-section" id="feedback"><h2 class="jd-heading">05 / Feedback</h2><div class="jd-stack"><div class="jd-notice"><p class="jd-notice__title">Information</p><p>Your changes will be saved locally.</p></div><div class="jd-notice jd-notice--success"><p class="jd-notice__title">Saved</p><p>Your changes are ready to review.</p></div><div class="jd-notice jd-notice--error"><p class="jd-notice__title">Unable to save</p><p>Check the highlighted fields and try again.</p></div><div class="jd-cluster"><span class="jd-status">Published</span><span class="jd-status jd-status--pending">Pending</span></div><div class="jd-empty"><h3>No results yet</h3><p>Try another search or clear the filters.</p><a class="jd-link" href="#feedback">Clear filters</a></div></div><h3>Disclosure</h3><details class="jd-disclosure jd-disclosure--marked"><summary><span class="jd-disclosure__label">More information</span></summary><p>Native details work with keyboard and pointer.</p></details></section>
+<section class="catalogue-section" id="data"><h2 class="jd-heading">06 / Data</h2><div class="jd-table-wrap" tabindex="0" role="region" aria-label="Project activity table"><table class="jd-table"><caption>Project activity</caption><thead><tr><th scope="col">Project</th><th scope="col">Status</th><th scope="col" class="jd-table__number">Items</th></tr></thead><tbody><tr><th scope="row">Jackdaw</th><td>Active</td><td class="jd-table__number">24</td></tr><tr><th scope="row">Corvus</th><td>Published</td><td class="jd-table__number">12</td></tr></tbody></table></div><h3>Ruled rows</h3><ul class="jd-ruled jd-ruled--closed"><li>First row</li><li>Second row</li></ul><h3>Filled bar</h3><div class="jd-bar" role="img" aria-label="40 of 100, previous 65, target 75"><span class="jd-bar__fill jd-bar__fill--under" style="--v:65%"></span><span class="jd-bar__fill" style="--v:40%"></span><span class="jd-bar__mark" style="--v:75%"></span></div><ul class="jd-legend"><li><span class="jd-swatch"></span> Current 40</li><li><span class="jd-swatch jd-swatch--under"></span> Previous 65</li><li><span class="jd-swatch jd-swatch--mark"></span> Target 75</li></ul><div class="jd-tone--support"><h3>Segmented bar</h3><div class="jd-bar jd-bar--segmented" style="--v:80%" aria-hidden="true"><span class="jd-bar__segment" data-rank="0" style="--v:60">60</span><span class="jd-bar__segment" data-rank="1" style="--v:40">40</span></div><ul class="jd-legend"><li><span class="jd-swatch" data-rank="0"></span> First 60</li><li><span class="jd-swatch" data-rank="1"></span> Second 40</li></ul></div></section>
+<section class="catalogue-section" id="layout"><h2 class="jd-heading">07 / Layout</h2><p>Containers, stacks, clusters and grids adapt to the available width.</p><div class="jd-grid"><div class="demo-box"><strong>One</strong><p>A flexible column.</p></div><div class="demo-box"><strong>Two</strong><p>A flexible column.</p></div><div class="demo-box"><strong>Three</strong><p>A flexible column.</p></div></div></section>
+</div></div></div></main></div>
+<script>
+const defaults = {ground:'#eef0f9',paper:'#ffffff',ultra:'#2f17f0',lime:'#c4f01c',ink:'#17161f',muted:'#4a4a63',spacing:1,radius:2,body:17,width:1400};
+const presets = {default:defaults,compact:{...defaults,spacing:.8,body:16,radius:0},open:{...defaults,spacing:1.25,body:18},warm:{...defaults,ground:'#f4f0e7',paper:'#fffdf8',ultra:'#3023ad',lime:'#d9e85b',ink:'#24211e',muted:'#585452'}};
+let state = {...defaults};
+const preview = document.querySelector('#preview'), frame = document.querySelector('#frame'), prompt = document.querySelector('#prompt');
+function render() {
+  for (const key of ['ground','paper','ultra','lime','ink','muted']) preview.style.setProperty('--'+key,state[key]);
+  [0.5,1,1.5,2.5,4,6.5].forEach((n,i)=>preview.style.setProperty('--s-'+(i+1),(n*state.spacing)+'rem'));
+  preview.style.setProperty('--radius',state.radius+'px'); preview.style.fontSize=state.body+'px'; frame.style.width=state.width+'px';
+  document.querySelectorAll('[data-key]').forEach(el=>{el.value=state[el.dataset.key];});
+  document.querySelectorAll('[data-output]').forEach(el=>{const k=el.dataset.output; el.textContent=state[k]+(k==='spacing'?'×':'px');});
+  const changes=[];
+  for (const key of ['ground','paper','ultra','lime','ink','muted']) if(state[key]!==defaults[key]) changes.push(`set the ${key} colour to ${state[key]}`);
+  if(state.spacing!==defaults.spacing) changes.push(`scale the spacing tokens to ${state.spacing} times their current values`);
+  if(state.radius!==defaults.radius) changes.push(`set the small control radius to ${state.radius}px`);
+  if(state.body!==defaults.body) changes.push(`set the base preview body text to ${state.body}px and apply an equivalent shared type choice`);
+  prompt.value=changes.length ? 'Update the Jackdaw design system: '+changes.join('; ')+'. Keep the catalogue and documentation in sync. Review contrast and component states for the new palette.' : 'The original Jackdaw settings are selected. Describe any other changes you want to make in the chat.';
+}
+document.querySelectorAll('[data-key]').forEach(el=>el.addEventListener('input',()=>{state[el.dataset.key]=el.type==='range'?Number(el.value):el.value; document.querySelector('#preset').value=''; render();}));
+document.querySelector('#preset').addEventListener('change',e=>{if(presets[e.target.value]) {state={...presets[e.target.value]}; render();}});
+document.querySelector('#reset').addEventListener('click',()=>{state={...defaults}; document.querySelector('#preset').value='default'; render();});
+document.querySelector('#copy').addEventListener('click',async()=>{try {await navigator.clipboard.writeText(prompt.value); document.querySelector('#copy-status').textContent='Copied. Paste it into the chat.';} catch {prompt.focus(); prompt.select(); document.querySelector('#copy-status').textContent='Select and copy the request above.';}});
+render();
+</script>
+</body></html>
