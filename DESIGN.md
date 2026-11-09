@@ -8,6 +8,6 @@ Use spacing tokens for gaps and hairline rules to separate rows. Avoid shadows a
 
 Use a single primary lime action per screen. Keep links identifiable, provide visible keyboard focus, and retain native HTML semantics. Bars need a text equivalent; disclosures use native `details` and `summary`.
 
-The ink mask creates uneven print texture. Gracchi applies it to an inline span; the blog applies it to padded headings to avoid clipping descenders. Keep both approaches until the headings can be compared visually across browsers.
+The ink mask creates uneven print texture. Apply `jd-ink` to an inline span inside a heading so descenders remain visible.
 
 See [specimen.html](specimen.html) for the current shared components. The original [Corvus design document](docs/corvus-design.md) describes the blog-specific application and its artwork, rather than a contract for all consumers.

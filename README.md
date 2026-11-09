@@ -7,7 +7,7 @@ Jackdaw is a CSS design system with a two-ink print palette, design tokens, and 
 Install a tagged release from GitHub:
 
 ```sh
-npm install 'github:nicoleman0/jackdaw#v0.5.0'
+npm install 'github:nicoleman0/jackdaw#v0.6.0'
 ```
 
 Import the stylesheet before your own styles:
@@ -40,6 +40,14 @@ Jackdaw uses the `jackdaw.tokens`, `jackdaw.base`, and `jackdaw.components` casc
 ```
 
 Jackdaw is light-only by default and sets `color-scheme: light` on `:root`.
+
+## Ink texture
+
+Wrap heading text in an inline element with `jd-ink` to apply the ink mask and misregistered lime shadow.
+
+```html
+<h1><span class="jd-ink">A heading</span></h1>
+```
 
 ## Bars and legends
 
