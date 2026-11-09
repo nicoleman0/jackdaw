@@ -1,0 +1,25 @@
+name: Accessibility report
+description: Report a barrier when using Jackdaw
+labels: ["accessibility"]
+body:
+  - type: textarea
+    id: barrier
+    attributes:
+      label: What happened
+      description: Describe the barrier and what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps or example
+      description: Include a link or the smallest example that shows the problem, if possible.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Include Jackdaw version, browser, operating system and assistive technology, as relevant.
+    validations:
+      required: true

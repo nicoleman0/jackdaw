@@ -2,6 +2,17 @@
 
 All notable changes to Jackdaw are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions follow [Semantic Versioning](https://semver.org/).
 
+## 0.9.2 - 2026-11-09
+
+### Changed
+
+- Shorten the README and move component guidance to a separate reference.
+- Clarify the stylesheet’s root-level effects and contributor checks.
+
+### Added
+
+- An accessibility issue template and manual review guidance.
+
 ## 0.9.1 - 2026-11-09
 
 ### Changed

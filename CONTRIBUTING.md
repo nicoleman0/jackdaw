@@ -31,11 +31,17 @@ npm run screenshots
 - `npm run screenshots` writes review images to `screenshots/`, which is git-ignored. Local and CI fonts differ, so nothing compares them.
 - `npm run build` is the rebuild command above.
 
-CI runs all of these, plus a rebuild check that fails when `jackdaw.css` or `catalogue.html` is out of date.
+CI runs `npm test` and `npm run test:browser`, plus a rebuild check that fails when `jackdaw.css` or `catalogue.html` is out of date. Screenshots are for local review.
+
+## Accessibility review
+
+Automated checks do not cover every interaction or colour combination. Before a release, use the keyboard to exercise controls and focus states, check zoom and forced colours, and test representative pages with a screen reader. Record the browsers, assistive technology and results with the release. Review axe contrast checks marked incomplete by hand.
+
+The automated browser checks currently run in Chromium. Safari and Firefox support has not been verified by CI.
 
 ## Rules for a change
 
-- Use only the two inks, ultramarine and lime, for colour accents. Do not add hues.
+- Use the selected print and accent inks for colour accents.
 - Do not use colour alone to show state, errors or selection.
 - Use native HTML elements and keep their semantics. Use `details` and `summary` for disclosures.
 - Keep JavaScript out of the package.
