@@ -1,4 +1,6 @@
 @layer jackdaw.components {
+  /* Rules span the full row, so list markers and indent go. */
+  :is(ul, ol).jd-ruled { list-style: none; padding-inline-start: 0; }
   .jd-ruled > *, .jd-ruled-row { border-top: 1px solid var(--rule); }
   .jd-ruled--closed { border-bottom: 1px solid var(--rule); }
 }

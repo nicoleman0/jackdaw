@@ -7,7 +7,7 @@
     min-height: 2.75rem;
     padding: 0.65rem 1.2rem;
     border: 1px solid var(--ultra);
-    border-radius: 0;
+    border-radius: var(--radius);
     background: transparent;
     color: var(--ultra);
     font: 700 1rem/1.2 var(--font-display);
@@ -24,8 +24,7 @@
     outline-offset: 3px;
   }
   .jd-button:disabled { opacity: 0.55; cursor: not-allowed; }
-  .jd-button:disabled:hover { text-decoration: none; }
-  .jd-button:disabled:hover { background: transparent; }
+  .jd-button:disabled:hover { background: transparent; text-decoration: none; }
   .jd-button--primary:disabled { box-shadow: none; }
   .jd-button--primary:disabled:hover { background: var(--lime); transform: none; }
   .jd-link { color: var(--ultra); text-decoration: underline; text-underline-offset: 0.15em; }
@@ -46,7 +45,8 @@
   }
   textarea.jd-input { min-height: 7rem; resize: vertical; }
   .jd-input:disabled { opacity: 0.55; cursor: not-allowed; }
-  .jd-input[aria-invalid="true"] { border: 2px solid var(--ink); }
+  /* Inset shadow thickens the edge without moving the content. */
+  .jd-input[aria-invalid="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
   .jd-error { color: var(--ink); font-weight: 700; margin: 0; }
   .jd-check { accent-color: var(--ultra); width: 1.125rem; height: 1.125rem; margin: 0; flex: none; }
   .jd-choice { display: flex; align-items: baseline; gap: var(--s-1); }

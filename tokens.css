@@ -29,13 +29,19 @@
     --ink: #17161f;
     --muted: #4a4a63;
     --rank-oppose-0: var(--ink);
-    --rank-oppose-1: var(--muted);
+    --rank-oppose-1: color-mix(in srgb, var(--muted) 80%, var(--ground)); /* 3:1 against rank 0 */
     --rank-oppose-2: color-mix(in srgb, var(--muted) 55%, var(--ground));
     --rank-oppose-rest: color-mix(in srgb, var(--muted) 28%, var(--ground));
     --rank-support-0: var(--lime);
     --rank-support-1: color-mix(in srgb, var(--lime) 75%, var(--ground));
     --rank-support-2: color-mix(in srgb, var(--lime) 52%, var(--ground));
     --rank-support-rest: color-mix(in srgb, var(--lime) 34%, var(--ground));
+    /* Hatches and outlines carry rank and edges where tints are too close to the ground (WCAG 1.4.11). */
+    --hatch-fine: repeating-linear-gradient(45deg, var(--ultra) 0 1px, transparent 1px 5px);
+    --hatch-coarse: repeating-linear-gradient(45deg, var(--ultra) 0 1px, transparent 1px 10px);
+    --hatch-coarse-ink: repeating-linear-gradient(45deg, var(--ink) 0 1px, transparent 1px 10px);
+    --edge-ultra: inset 0 0 0 1px var(--ultra);
+    --edge-muted: inset 0 0 0 1px var(--muted);
     --rule: color-mix(in srgb, var(--ultra) 28%, transparent);
 
     /* Alpha mask for uneven riso ink: slow blotches times fine speckle. */

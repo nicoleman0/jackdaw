@@ -7,7 +7,7 @@ Jackdaw is a CSS design system with a two-ink print palette, design tokens, and 
 Install a tagged release from GitHub:
 
 ```sh
-npm install 'github:nicoleman0/jackdaw#v0.7.0'
+npm install 'github:nicoleman0/jackdaw#v0.8.0'
 ```
 
 Import the stylesheet before your own styles:
@@ -17,12 +17,14 @@ import "jackdaw/index.css";
 import "./styles.css";
 ```
 
-For plain HTML, copy the CSS files from a release into your project and link `index.css`. Keep the files together because it imports the other stylesheets.
+For plain HTML, copy `jackdaw.css` from a release into your project and link it. It is the same stylesheet in one file, so the browser makes one request.
 
 ```html
-<link rel="stylesheet" href="/css/jackdaw/index.css">
+<link rel="stylesheet" href="/css/jackdaw.css">
 <link rel="stylesheet" href="/css/styles.css">
 ```
+
+Use `index.css` with a bundler that resolves `@import`. Linking it directly from HTML loads its imports one after another.
 
 The package is private to prevent npm publication; the GitHub repository and tags are public. Jackdaw names Funnel Display, Funnel Sans, and JetBrains Mono in its font tokens but does not load them. Install and load those fonts separately or override the font tokens.
 

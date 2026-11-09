@@ -1,6 +1,6 @@
 {
   "name": "jackdaw",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Shared two-ink riso design system for corvus-dev.com and Gracchi.",
   "private": true,
   "license": "MIT",
@@ -8,6 +8,7 @@
   "exports": {
     ".": "./index.css",
     "./index.css": "./index.css",
+    "./jackdaw.css": "./jackdaw.css",
     "./tokens.css": "./tokens.css",
     "./base.css": "./base.css",
     "./bar.css": "./bar.css",
@@ -24,6 +25,7 @@
   },
   "files": [
     "index.css",
+    "jackdaw.css",
     "tokens.css",
     "base.css",
     "bar.css",

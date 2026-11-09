@@ -105,6 +105,7 @@ function render() {
 document.querySelectorAll('[data-key]').forEach(el=>el.addEventListener('input',()=>{state[el.dataset.key]=el.type==='range'?Number(el.value):el.value; document.querySelector('#preset').value=''; render();}));
 document.querySelector('#preset').addEventListener('change',e=>{if(presets[e.target.value]) {state={...presets[e.target.value]}; render();}});
 document.querySelector('#reset').addEventListener('click',()=>{state={...defaults}; document.querySelector('#preset').value='default'; render();});
+document.querySelector('#preset').value='default';
 document.querySelector('#copy').addEventListener('click',async()=>{try {await navigator.clipboard.writeText(prompt.value); document.querySelector('#copy-status').textContent='Settings copied.';} catch {prompt.focus(); prompt.select(); document.querySelector('#copy-status').textContent='Copy the selected settings above.';}});
 render();
 </script>

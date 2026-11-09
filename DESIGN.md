@@ -18,7 +18,7 @@ See [specimen.html](specimen.html) for the current shared components. The origin
 
 Buttons use native elements and retain visible focus. The primary button uses lime; the secondary button uses an ultramarine outline. Use an underlined text link for navigation within prose. Form controls use paper backgrounds, a visible label and text for errors. Do not rely on colour alone to communicate an error or selection. The package supplies styles, while applications own form validation and interaction.
 
-Typography classes are opt-in and do not determine heading level. Choose the HTML heading level for the document outline, then choose the visual class. Tags are labels, not interactive controls unless placed on a link or button.
+Typography classes are opt-in and do not determine heading level. Choose the HTML heading level for the document outline, then choose the visual class. Tags are labels, not interactive controls unless placed on a link or button. Muted text has two sizes: `jd-note`, `jd-meta` and `jd-muted` for supporting text, `jd-small` and `jd-secondary` for fine print.
 
 ## Layout, navigation and feedback
 
