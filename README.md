@@ -7,7 +7,7 @@ Jackdaw is a CSS design system with a two-ink print palette, design tokens, and 
 Install a tagged release from GitHub:
 
 ```sh
-npm install 'github:nicoleman0/jackdaw#v0.3.0'
+npm install 'github:nicoleman0/jackdaw#v0.4.0'
 ```
 
 Import the stylesheet before your own styles:
@@ -85,6 +85,10 @@ Add `jd-ruled` to a container to draw a rule above each direct child. Add `jd-ru
   <li>Second row</li>
 </ul>
 ```
+
+## Text roles
+
+Use `jd-note` for a muted note and `jd-meta` for a metadata paragraph. For smaller text without paragraph spacing, use `jd-small` (0.85rem), `jd-secondary` (0.9rem), or `jd-muted` (0.95rem).
 
 ## Versioning
 
