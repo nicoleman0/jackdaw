@@ -181,7 +181,7 @@ Wrap a `jd-table` in `jd-table-wrap` for horizontal scrolling on narrow screens.
 
 ## Visual catalogue
 
-Open [catalogue.html](catalogue.html) to inspect all shared components and adjust the colour, spacing, radius, body size and preview width. The editor copies a description of changed values for you to paste into a chat; it does not edit source files. Changes are temporary. The package includes the catalogue and preview fonts. Applications load their own fonts. After changing the package CSS, run `python3 scripts/build-catalogue.py` to regenerate the catalogue from the current styles and template.
+Open [catalogue.html](catalogue.html) to inspect all shared components and adjust the colour, spacing, radius, body size and preview width. You can copy the current preview settings. Changes are temporary and do not edit source files. The package includes the catalogue and preview fonts. Applications load their own fonts. After changing the package CSS, run `python3 scripts/build-catalogue.py` to regenerate the catalogue from the current styles and template.
 
 ## Example page
 
