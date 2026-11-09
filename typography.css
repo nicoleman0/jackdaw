@@ -1,11 +1,11 @@
 @layer jackdaw.components {
-  .jd-headline, .jd-heading, .jd-title { color: var(--ultra); font-family: var(--font-display); }
+  .jd-headline, .jd-heading, .jd-title { color: var(--jd-ink-print); font-family: var(--jd-font-display); }
   .jd-headline { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.03em; }
   .jd-heading { font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; }
   .jd-title { font-size: 1.75rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.015em; }
-  .jd-kicker { color: var(--ultra); font: 600 1rem/1.4 var(--font-label); }
-  .jd-prose { max-width: var(--measure); font: 1.125rem/1.6 var(--font-body); }
-  .jd-code { font-family: var(--font-mono); font-size: 0.875em; }
-  .jd-tag { display: inline-flex; align-items: baseline; gap: 0.4em; color: var(--muted); font: 0.9rem/1.4 var(--font-body); }
-  .jd-tag::before { content: ""; width: 0.65em; border-top: 2px solid var(--ultra); align-self: center; }
+  .jd-kicker { color: var(--jd-ink-print); font: 600 var(--jd-size-base)/1.4 var(--jd-font-label); }
+  .jd-prose { max-width: var(--jd-measure); font: var(--jd-size-prose)/1.6 var(--jd-font-body); }
+  .jd-code { font-family: var(--jd-font-mono); font-size: 0.875em; }
+  .jd-tag { display: inline-flex; align-items: baseline; gap: 0.4em; color: var(--jd-text-muted); font: var(--jd-size-sm)/1.4 var(--jd-font-body); }
+  .jd-tag::before { content: ""; width: 0.65em; border-top: 2px solid var(--jd-ink-print); align-self: center; }
 }

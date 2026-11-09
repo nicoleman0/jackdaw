@@ -1,0 +1,21 @@
+@layer jackdaw.components {
+  .jd-figure { margin-block: var(--jd-s-3); margin-inline: 0; }
+  .jd-figure img { display: block; max-inline-size: 100%; block-size: auto; }
+  .jd-figure figcaption { margin-block-start: var(--jd-s-1); padding-block-start: var(--jd-s-1); border-block-start: 1px solid var(--jd-rule); color: var(--jd-text-muted); font-size: var(--jd-size-xs); }
+  .jd-quote { margin-block: var(--jd-s-3); margin-inline: 0; padding-inline-start: var(--jd-s-2); border-inline-start: 1px solid var(--jd-ink-print); color: var(--jd-text-muted); }
+  .jd-quote > :first-child { margin-block-start: 0; }
+  .jd-quote > :last-child { margin-block-end: 0; }
+  .jd-quote > :is(cite, footer) { display: block; margin-block-start: var(--jd-s-1); font-size: var(--jd-size-sm); }
+  .jd-quote cite { font-style: normal; }
+  .jd-pullquote { margin-block: var(--jd-s-4); margin-inline: 0; padding-block: var(--jd-s-2); border-block: 2px solid var(--jd-ink-print); color: var(--jd-ink-print); font: 700 clamp(1.5rem, 3.5vw, 2.25rem)/1.2 var(--jd-font-display); letter-spacing: -0.015em; text-wrap: balance; }
+  .jd-footnote-ref { padding-inline: 0.15em; color: var(--jd-ink-print); font-size: 0.75em; font-weight: 700; line-height: 0; vertical-align: super; text-decoration: underline; }
+  .jd-footnote-ref:focus-visible, .jd-footnotes a:focus-visible { outline: var(--jd-focus-width) solid var(--jd-focus-color); outline-offset: var(--jd-focus-offset); }
+  .jd-footnotes { margin-block-start: var(--jd-s-4); padding-block-start: var(--jd-s-2); border-block-start: 2px solid var(--jd-ink-print); font-size: var(--jd-size-sm); }
+  .jd-footnotes li { padding: 0.25rem 0.5rem; scroll-margin-block: var(--jd-s-3); }
+  .jd-footnotes a { color: var(--jd-ink-print); }
+  /* Fill plus an edge, so the target reads without hue. */
+  .jd-footnotes :target { background: var(--jd-paper); box-shadow: var(--jd-edge-print); }
+  .jd-card { box-sizing: border-box; padding: var(--jd-s-3); border: 1px solid var(--jd-ink-print); border-radius: var(--jd-radius); background: var(--jd-paper); color: var(--jd-text); }
+  .jd-card > :last-child { margin-block-end: 0; }
+  .jd-card__title { margin-block: 0 var(--jd-s-1); color: var(--jd-ink-print); font: 700 1.35rem/1.2 var(--jd-font-display); }
+}

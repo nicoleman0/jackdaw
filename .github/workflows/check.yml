@@ -11,8 +11,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - run: npm ci
       - run: npx --yes lightningcss-cli@1.30.2 --bundle index.css -o /tmp/jackdaw.css
       - run: npm pack --dry-run
       - run: python3 scripts/build-catalogue.py && git diff --exit-code -- catalogue.html jackdaw.css
       - run: node tests/catalogue.cjs
       - run: node tests/bundle.cjs
+      - run: node tests/contrast.cjs
+      - run: npx playwright install --with-deps chromium
+      - run: node tests/browser.cjs

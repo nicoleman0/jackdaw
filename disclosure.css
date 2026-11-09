@@ -1,8 +1,8 @@
 @layer jackdaw.components {
   .jd-disclosure > summary { cursor: pointer; }
-  .jd-disclosure > summary:focus-visible { outline: 2px solid var(--ultra); outline-offset: 3px; }
+  .jd-disclosure > summary:focus-visible { outline: var(--jd-focus-width) solid var(--jd-focus-color); outline-offset: var(--jd-focus-offset); }
   .jd-disclosure--marked > summary { list-style: none; }
   .jd-disclosure--marked > summary::-webkit-details-marker { display: none; }
-  .jd-disclosure__label::after { content: " +"; color: var(--ultra); }
+  .jd-disclosure__label::after { content: " +"; color: var(--jd-ink-print); }
   .jd-disclosure[open] > summary .jd-disclosure__label::after { content: " −"; }
 }

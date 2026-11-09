@@ -1,0 +1,40 @@
+/* Windows High Contrast drops shadows and gradients; redraw data and state with system colours and outlines. */
+@layer jackdaw.components {
+  @media (forced-colors: active) {
+    .jd-bar:not(.jd-bar--segmented) { outline: 1px solid CanvasText; outline-offset: -1px; }
+    :is(.jd-bar__fill, .jd-bar__mark, .jd-swatch) { forced-color-adjust: none; background: CanvasText; }
+    :is(.jd-bar__fill--under, .jd-swatch--under) { background: Canvas; outline: 2px dashed CanvasText; outline-offset: -2px; }
+    :is(.jd-bar__fill--halftone, .jd-swatch--halftone) { background: Canvas; outline: 2px dotted CanvasText; outline-offset: -2px; }
+    /* Rank by fill, thick edge, thin edge, dashed edge: no hue or gradient needed. */
+    :is(.jd-tone--oppose, .jd-tone--support) [data-rank] { forced-color-adjust: none; background: Canvas; color: CanvasText; }
+    :is(.jd-tone--oppose, .jd-tone--support) [data-rank="0"] { background: CanvasText; color: Canvas; }
+    :is(.jd-tone--oppose, .jd-tone--support) [data-rank="1"] { outline: 3px solid CanvasText; outline-offset: -3px; }
+    :is(.jd-tone--oppose, .jd-tone--support) [data-rank="2"] { outline: 1px solid CanvasText; outline-offset: -1px; }
+    :is(.jd-tone--oppose, .jd-tone--support) [data-rank="rest"] { outline: 2px dashed CanvasText; outline-offset: -2px; }
+    .jd-status::before { forced-color-adjust: none; border-color: CanvasText; background: CanvasText; }
+    .jd-status--pending::before { background: Canvas; }
+    .jd-pagination a[aria-current="page"] { background: Highlight; color: HighlightText; }
+    .jd-button--primary, .jd-button--primary:hover { background: Highlight; color: HighlightText; outline: 2px solid ButtonText; outline-offset: 2px; }
+    .jd-skip { border: 2px solid CanvasText; background: Canvas; color: LinkText; }
+    .jd-input[aria-invalid="true"] { border-width: 3px; }
+    .jd-paper-sheet { outline: 1px solid CanvasText; }
+    /* Edges that are borders survive on their own; these redraw fills, gradients and shadows. */
+    .jd-switch { forced-color-adjust: none; border-color: CanvasText; background: Canvas; }
+    .jd-switch::before { background: CanvasText; }
+    .jd-switch:checked { background: CanvasText; }
+    .jd-switch:checked::before { background: Canvas; }
+    .jd-switch:disabled { border-style: dashed; }
+    select.jd-input:not([multiple]) { appearance: auto; background-image: none; padding-inline-end: 0.75rem; }
+    .jd-progress, .jd-meter { forced-color-adjust: none; background: Canvas; box-shadow: none; outline: 1px solid CanvasText; outline-offset: -1px; --_hatch: repeating-linear-gradient(45deg, CanvasText 0 1px, Canvas 1px 5px); }
+    .jd-progress::-webkit-progress-value { background: CanvasText; }
+    .jd-meter::-webkit-meter-optimum-value { background: CanvasText; }
+    .jd-progress::-moz-progress-bar, .jd-meter::-moz-meter-bar { background: CanvasText; }
+    .jd-meter::-webkit-meter-suboptimum-value, .jd-meter::-webkit-meter-even-less-good-value { background: var(--_hatch); box-shadow: none; }
+    .jd-meter:-moz-meter-sub-optimum::-moz-meter-bar, .jd-meter:-moz-meter-sub-sub-optimum::-moz-meter-bar { background: var(--_hatch); box-shadow: none; }
+    .jd-codeblock__caption { border: 1px solid CanvasText; }
+    .jd-action-strip { border-block: 2px solid CanvasText; }
+    .jd-footnotes :target { outline: 2px solid CanvasText; }
+    /* Multiply against a black canvas would hide the text. */
+    :is(.jd-mark, .jd-overprint) { mix-blend-mode: normal; }
+  }
+}
