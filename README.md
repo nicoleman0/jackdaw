@@ -7,7 +7,7 @@ Jackdaw is a CSS design system with a two-ink print palette, design tokens, and 
 Install a tagged release from GitHub:
 
 ```sh
-npm install 'github:nicoleman0/jackdaw#v0.2.1'
+npm install 'github:nicoleman0/jackdaw#v0.3.0'
 ```
 
 Import the stylesheet before your own styles:
@@ -74,6 +74,17 @@ For segments, set the bar's `--v` to its width as a percentage and each segment'
 ```
 
 Open [specimen.html](specimen.html) from a checkout to see the components. It is not included in the npm package.
+
+## Ruled rows
+
+Add `jd-ruled` to a container to draw a rule above each direct child. Add `jd-ruled--closed` for a bottom rule. Use `jd-ruled-row` for a single row. Set padding and layout in your own CSS.
+
+```html
+<ul class="jd-ruled jd-ruled--closed">
+  <li>First row</li>
+  <li>Second row</li>
+</ul>
+```
 
 ## Versioning
 

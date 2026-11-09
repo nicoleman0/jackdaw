@@ -1,0 +1,4 @@
+@layer jackdaw.components {
+  .jd-ruled > *, .jd-ruled-row { border-top: 1px solid var(--rule); }
+  .jd-ruled--closed { border-bottom: 1px solid var(--rule); }
+}
