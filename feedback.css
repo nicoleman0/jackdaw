@@ -1,0 +1,14 @@
+@layer jackdaw.components {
+  .jd-notice { padding: var(--s-2) var(--s-3); border-left: 3px solid var(--ultra); background: var(--paper); color: var(--ink); }
+  .jd-notice > :first-child { margin-top: 0; }
+  .jd-notice > :last-child { margin-bottom: 0; }
+  .jd-notice__title { font: 700 1.05rem/1.3 var(--font-display); }
+  .jd-notice--error { border-left-style: double; border-left-width: 6px; border-left-color: var(--ink); }
+  .jd-notice--success { border-left-color: var(--ink); }
+  .jd-status { display: inline-flex; align-items: center; gap: 0.4em; font-size: 0.9rem; font-weight: 700; }
+  .jd-status::before { content: ""; width: 0.55em; height: 0.55em; border: 1px solid currentColor; border-radius: 50%; background: currentColor; }
+  .jd-status--pending::before { background: transparent; }
+  .jd-empty { padding: var(--s-3); border: 1px solid var(--rule); }
+  .jd-empty > :first-child { margin-top: 0; }
+  .jd-empty > :last-child { margin-bottom: 0; }
+}

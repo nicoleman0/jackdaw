@@ -11,3 +11,15 @@ Use a single primary lime action per screen. Keep links identifiable, provide vi
 The ink mask creates uneven print texture. Apply `jd-ink` to an inline span inside a heading so descenders remain visible.
 
 See [specimen.html](specimen.html) for the current shared components. The original [Corvus design document](docs/corvus-design.md) describes the blog-specific application and its artwork, rather than a contract for all consumers.
+
+## Shared controls
+
+Buttons use native elements and retain visible focus. The primary button uses lime; the secondary button uses an ultramarine outline. Use an underlined text link for navigation within prose. Form controls use paper backgrounds, a visible label and text for errors. Do not rely on colour alone to communicate an error or selection. The package supplies styles, while applications own form validation and interaction.
+
+Typography classes are opt-in and do not determine heading level. Choose the HTML heading level for the document outline, then choose the visual class. Tags are labels, not interactive controls unless placed on a link or button.
+
+## Layout, navigation and feedback
+
+Containers set the page measure; stacks, clusters and grids handle spacing and reflow. Navigation uses landmarks and current-page semantics. Tables retain captions and headers and scroll within their container on narrow screens. Feedback uses a title and text, with a rule to distinguish the message; status must always be written out. Dynamic announcements and interactive behaviour belong to the application.
+
+The [visual catalogue](catalogue.html) shows the shared components and offers temporary token adjustments. Rebuild it from the template after changing the CSS.
