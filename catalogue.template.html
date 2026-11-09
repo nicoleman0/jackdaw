@@ -60,7 +60,7 @@ body { margin: 0; background: #17171d; color: #f6f6f2; font: 15px/1.5 system-ui,
 <body>
 <div class="shell">
 <aside class="editor" aria-label="Design controls">
-<div class="editor-intro"><span class="editor-kicker">Jackdaw / Studio</span><h1>Explore the system</h1><p>Try changes in the preview. Copy your choices to discuss them; this editor does not change the source.</p></div>
+<div class="editor-intro"><span class="editor-kicker">Jackdaw / Studio</span><h1>Explore the system</h1><p>Try different settings in the preview and copy your choices. Changes are temporary and do not edit the source.</p></div>
 <label>Preset <select id="preset"><option value="" hidden>Custom</option><option value="default">Jackdaw original</option><option value="compact">Compact print</option><option value="open">Open sheet</option><option value="warm">Warm paper</option></select></label>
 <fieldset><legend>Colour</legend>
 <label>Ground <input type="color" data-key="ground" value="#eef0f9"></label>
@@ -76,7 +76,7 @@ body { margin: 0; background: #17171d; color: #f6f6f2; font: 15px/1.5 system-ui,
 <label>Body size <input type="range" data-key="body" min="14" max="22" step="1" value="17"><output data-output="body">17px</output></label>
 <label>Preview width <input type="range" data-key="width" min="320" max="1400" step="20" value="1400"><output data-output="width">1400px</output></label>
 </fieldset>
-<fieldset><legend>Your direction</legend><textarea id="prompt" readonly aria-label="Generated design request"></textarea><div class="jd-cluster"><button id="copy" type="button">Copy request</button><button id="reset" type="button">Reset</button></div><p id="copy-status" role="status"></p></fieldset>
+<fieldset><legend>Your settings</legend><textarea id="prompt" readonly aria-label="Current preview settings"></textarea><div class="jd-cluster"><button id="copy" type="button">Copy settings</button><button id="reset" type="button">Reset</button></div><p id="copy-status" role="status"></p></fieldset>
 </aside>
 <main class="workspace"><div class="workspace-bar"><strong>COMPONENT CATALOGUE / 01</strong><span>Live preview · resize with the control</span></div><div class="preview-frame" id="frame"><div class="preview jd-paper-ground" id="preview">
 <header class="catalogue-header jd-container"><p class="catalogue-kicker">Jackdaw / Design system</p><h1 class="jd-headline"><span class="jd-ink">A system in two inks.</span></h1><p class="catalogue-intro">A practical set of foundations and components for interfaces with the character of a printed page.</p><div class="catalogue-principles"><p><strong>Ink &amp; paper</strong>Ultramarine gives structure. Lime marks the primary action.</p><p><strong>Built on HTML</strong>Native elements keep the interface familiar and accessible.</p><p><strong>Made to adapt</strong>Shared tokens carry the system across different projects.</p></div><nav class="jd-nav catalogue-nav" aria-label="Catalogue sections"><a href="#foundations">Foundations</a><a href="#actions">Actions</a><a href="#forms">Forms</a><a href="#navigation">Navigation</a><a href="#feedback">Feedback</a><a href="#data">Data</a><a href="#layout">Layout</a></nav></header>
@@ -100,17 +100,12 @@ function render() {
   preview.style.setProperty('--radius',state.radius+'px'); preview.style.fontSize=state.body+'px'; frame.style.width=state.width+'px';
   document.querySelectorAll('[data-key]').forEach(el=>{el.value=state[el.dataset.key];});
   document.querySelectorAll('[data-output]').forEach(el=>{const k=el.dataset.output; el.textContent=state[k]+(k==='spacing'?'×':'px');});
-  const changes=[];
-  for (const key of ['ground','paper','ultra','lime','ink','muted']) if(state[key]!==defaults[key]) changes.push(`set the ${key} colour to ${state[key]}`);
-  if(state.spacing!==defaults.spacing) changes.push(`scale the spacing tokens to ${state.spacing} times their current values`);
-  if(state.radius!==defaults.radius) changes.push(`set the small control radius to ${state.radius}px`);
-  if(state.body!==defaults.body) changes.push(`set the base preview body text to ${state.body}px and apply an equivalent shared type choice`);
-  prompt.value=changes.length ? 'Update the Jackdaw design system: '+changes.join('; ')+'. Keep the catalogue and documentation in sync. Review contrast and component states for the new palette.' : 'The original Jackdaw settings are selected. Describe any other changes you want to make in the chat.';
+  prompt.value = `Jackdaw preview settings\nGround: ${state.ground}\nPaper: ${state.paper}\nUltramarine: ${state.ultra}\nLime: ${state.lime}\nText: ${state.ink}\nMuted: ${state.muted}\nSpacing: ${state.spacing}×\nControl radius: ${state.radius}px\nBody size: ${state.body}px\nPreview width: ${state.width}px`;
 }
 document.querySelectorAll('[data-key]').forEach(el=>el.addEventListener('input',()=>{state[el.dataset.key]=el.type==='range'?Number(el.value):el.value; document.querySelector('#preset').value=''; render();}));
 document.querySelector('#preset').addEventListener('change',e=>{if(presets[e.target.value]) {state={...presets[e.target.value]}; render();}});
 document.querySelector('#reset').addEventListener('click',()=>{state={...defaults}; document.querySelector('#preset').value='default'; render();});
-document.querySelector('#copy').addEventListener('click',async()=>{try {await navigator.clipboard.writeText(prompt.value); document.querySelector('#copy-status').textContent='Copied. Paste it into the chat.';} catch {prompt.focus(); prompt.select(); document.querySelector('#copy-status').textContent='Select and copy the request above.';}});
+document.querySelector('#copy').addEventListener('click',async()=>{try {await navigator.clipboard.writeText(prompt.value); document.querySelector('#copy-status').textContent='Settings copied.';} catch {prompt.focus(); prompt.select(); document.querySelector('#copy-status').textContent='Copy the selected settings above.';}});
 render();
 </script>
 </body></html>
