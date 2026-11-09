@@ -1,0 +1,7 @@
+@layer jackdaw.components {
+  .jd-disclosure > summary { cursor: pointer; }
+  .jd-disclosure--marked > summary { list-style: none; }
+  .jd-disclosure--marked > summary::-webkit-details-marker { display: none; }
+  .jd-disclosure__label::after { content: " +"; color: var(--ultra); }
+  .jd-disclosure[open] > summary .jd-disclosure__label::after { content: " −"; }
+}
