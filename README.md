@@ -7,7 +7,7 @@ Jackdaw is a CSS design system with a two-ink print palette, design tokens, and 
 Install a tagged release from GitHub:
 
 ```sh
-npm install 'github:nicoleman0/jackdaw#v0.6.0'
+npm install 'github:nicoleman0/jackdaw#v0.7.0'
 ```
 
 Import the stylesheet before your own styles:
@@ -26,6 +26,10 @@ For plain HTML, copy the CSS files from a release into your project and link `in
 
 The package is private to prevent npm publication; the GitHub repository and tags are public. Jackdaw names Funnel Display, Funnel Sans, and JetBrains Mono in its font tokens but does not load them. Install and load those fonts separately or override the font tokens.
 
+## React
+
+Jackdaw works with React using the same stylesheet and HTML classes. Import the CSS once, then use `className`, for example `<button className="jd-button jd-button--primary">Save</button>`. Jackdaw does not provide React components or manage state.
+
 ## Tokens and overrides
 
 The tokens include colours (`--ground`, `--paper`, `--ultra`, `--lime`, `--ink`, `--muted`), spacing (`--s-1` through `--s-6`), font stacks, widths, and bar colours. See [tokens.css](tokens.css) for the full list and defaults.
@@ -40,6 +44,10 @@ Jackdaw uses the `jackdaw.tokens`, `jackdaw.base`, and `jackdaw.components` casc
 ```
 
 Jackdaw is light-only by default and sets `color-scheme: light` on `:root`.
+
+## Paper and ink texture
+
+Use `jd-paper-ground` on a page or section for a subtle paper grain, and `jd-paper-sheet` on a surface for a small offset shadow. Both are opt-in.
 
 ## Ink texture
 
@@ -121,7 +129,7 @@ Jackdaw uses semantic version tags. Renaming or removing a token or class is a m
 
 ## Typography and tags
 
-Use `jd-headline`, `jd-heading`, and `jd-title` for visual hierarchy on the appropriate heading element. `jd-prose` sets a reading measure and body type; `jd-code` applies the mono font. `jd-tag` styles a short label.
+Use `jd-kicker` for a short section label. Use `jd-headline`, `jd-heading`, and `jd-title` for visual hierarchy on the appropriate heading element. `jd-prose` sets a reading measure and body type; `jd-code` applies the mono font. `jd-tag` styles a short label.
 
 ```html
 <h1 class="jd-headline">A page title</h1>
@@ -173,4 +181,8 @@ Wrap a `jd-table` in `jd-table-wrap` for horizontal scrolling on narrow screens.
 
 ## Visual catalogue
 
-Open [catalogue.html](catalogue.html) to inspect all shared components and adjust the colour, spacing, radius, body size and preview width. The editor copies a description of changed values for you to paste into a chat; it does not edit source files. Changes are temporary and the chosen fonts must be installed locally to appear in the standalone catalogue. After changing the package CSS, run `python3 scripts/build-catalogue.py` to regenerate the self-contained catalogue from the current styles and template.
+Open [catalogue.html](catalogue.html) to inspect all shared components and adjust the colour, spacing, radius, body size and preview width. The editor copies a description of changed values for you to paste into a chat; it does not edit source files. Changes are temporary. The package includes the catalogue and preview fonts. Applications load their own fonts. After changing the package CSS, run `python3 scripts/build-catalogue.py` to regenerate the catalogue from the current styles and template.
+
+## Example page
+
+Open [Fieldnotes](examples/fieldnotes.html) from a checkout for a complete, responsive page using Jackdaw. Its content is fictional and its subscription form is disabled. The example is not included in the package.

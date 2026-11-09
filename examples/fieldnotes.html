@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fieldnotes | A quieter way to keep track</title>
+<link rel="stylesheet" href="../preview-fonts/fonts.css">
+<link rel="stylesheet" href="../index.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; color: var(--ink); font: 1.0625rem/1.6 var(--font-body); }
+  .site-header { border-bottom: 2px solid var(--ultra); }
+  .header-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--s-2); padding-block: var(--s-2); }
+  .brand { color: var(--ultra); font: 800 1.4rem/1 var(--font-display); text-decoration: none; }
+  .brand:focus-visible { outline: 2px solid var(--ultra); outline-offset: 3px; }
+  .hero { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(15rem, .65fr); gap: var(--s-5); padding-block: var(--s-5); align-items: end; }
+  .hero h1 { max-width: 13ch; margin: var(--s-2) 0; }
+  .hero p { max-width: 37rem; }
+  .hero-aside { border-top: 2px solid var(--ultra); padding-top: var(--s-2); }
+  .hero-aside p { margin: var(--s-1) 0 0; }
+  .section { padding-block: var(--s-5); border-top: 2px solid var(--ultra); }
+  .section-heading { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: var(--s-2); margin-bottom: var(--s-3); }
+  .section-heading h2 { margin: var(--s-1) 0 0; }
+  .section-heading p { max-width: 24rem; margin: 0; }
+  .notes { margin: 0; padding: 0; list-style: none; }
+  .note { display: grid; grid-template-columns: minmax(7rem, .5fr) minmax(0, 2fr) minmax(7rem, .5fr); gap: var(--s-2); padding-block: var(--s-3); }
+  .note p, .note h3 { margin: 0; }
+  .note h3 { font: 700 1.4rem/1.2 var(--font-display); }
+  .note-summary { margin-top: var(--s-1) !important; max-width: 42rem; }
+  .note-meta { color: var(--muted); font-size: .9rem; }
+  .note-tag { justify-self: end; align-self: start; }
+  .about-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: var(--s-5); }
+  .about-grid p:first-child { margin-top: 0; }
+  .subscribe { padding: var(--s-3); border-top: 2px solid var(--ultra); }
+  .subscribe h3 { margin: 0 0 var(--s-1); }
+  .subscribe p { margin: 0 0 var(--s-2); }
+  .subscribe form { display: flex; flex-wrap: wrap; align-items: end; gap: var(--s-2); }
+  .subscribe .jd-field { flex: 1 1 15rem; min-width: 0; }
+  footer { border-top: 2px solid var(--ultra); padding-block: var(--s-3) var(--s-5); }
+  footer p { margin: 0; }
+  @media (max-width: 48rem) { .hero, .about-grid { grid-template-columns: 1fr; gap: var(--s-3); } .note { grid-template-columns: 1fr auto; } .note-main { grid-column: 1 / -1; grid-row: 2; } .note-tag { grid-column: 2; grid-row: 1; } }
+</style>
+</head>
+<body class="jd-paper-ground">
+<a class="jd-skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="jd-container header-inner"><a class="brand" href="#top">Fieldnotes.</a><nav class="jd-nav" aria-label="Main navigation"><a href="#notes">Notes</a><a href="#about">About</a><a href="#subscribe">Subscribe</a></nav></div></header>
+<main id="main" class="jd-container">
+  <section class="hero" id="top" aria-labelledby="hero-title"><div><p class="jd-kicker">An independent notebook / Issue 01</p><h1 id="hero-title" class="jd-headline"><span class="jd-ink">A quieter way to keep track.</span></h1><p class="jd-prose">Notes on making useful things, learning in public, and paying attention to the details that last.</p><a class="jd-button jd-button--primary" href="#notes">Explore the notes ↓</a></div><aside class="hero-aside"><span class="jd-kicker">From the desk</span><p>Small observations, collected over time. No feed to keep up with, just a place to return to.</p></aside></section>
+  <section class="section" id="notes"><div class="section-heading"><div><span class="jd-kicker">The collection / 01—03</span><h2 class="jd-heading">Recent notes</h2></div><p class="jd-muted">Ideas in progress, field reports and practical guides.</p></div><ol class="notes jd-ruled jd-ruled--closed">
+    <li class="note"><p class="note-meta"><time datetime="2026-10-28">28 Oct 2026</time><br>6 min read</p><div class="note-main"><h3><a class="jd-link" href="#note-one">Making space for unfinished work</a></h3><p class="note-summary">A notebook can be a place for questions as well as answers. A few ways to keep ideas moving without polishing them too early.</p></div><span class="jd-tag note-tag">Practice</span></li>
+    <li class="note"><p class="note-meta"><time datetime="2026-10-14">14 Oct 2026</time><br>4 min read</p><div class="note-main"><h3><a class="jd-link" href="#note-two">A small system for useful decisions</a></h3><p class="note-summary">How a simple record of assumptions and outcomes makes the next decision easier.</p></div><span class="jd-tag note-tag">Methods</span></li>
+    <li class="note"><p class="note-meta"><time datetime="2026-09-30">30 Sep 2026</time><br>8 min read</p><div class="note-main"><h3><a class="jd-link" href="#note-three">What a good tool leaves out</a></h3><p class="note-summary">A field guide to choosing constraints that make an interface easier to understand.</p></div><span class="jd-tag note-tag">Design</span></li>
+  </ol></section>
+  <section class="section" aria-labelledby="reading-title"><p class="jd-kicker">Selected reading</p><h2 id="reading-title" class="jd-heading">Inside the notebook</h2><div class="jd-grid"><article id="note-one"><h3 class="jd-title">Making space for unfinished work</h3><p>Keep a short record of what you tried, what surprised you, and the question you want to return to. The point is to leave yourself a useful starting place.</p></article><article id="note-two"><h3 class="jd-title">A small system for useful decisions</h3><p>Write down the choice, the reason and what would change your mind. Revisit the record when you have new evidence.</p></article><article id="note-three"><h3 class="jd-title">What a good tool leaves out</h3><p>Start with the task in front of you. Add a feature when it removes a real obstacle, and make the common path easy to see.</p></article></div></section>
+  <section class="section about-grid" id="about"><div><p class="jd-kicker">About this project</p><h2 class="jd-heading">A record worth returning to.</h2><p class="jd-prose">Fieldnotes is a fictional publication made to explore how Jackdaw works beyond a component catalogue. Its words and dates are sample content.</p></div><aside class="subscribe jd-paper-sheet" id="subscribe"><p class="jd-kicker">Stay in the loop</p><h3 class="jd-title">A note now and then.</h3><p>This example form shows the layout of a subscription form. It does not collect or send your address.</p><form><div class="jd-field"><label class="jd-label" for="email">Email address</label><input class="jd-input" id="email" type="email" placeholder="you@example.com" disabled></div><button class="jd-button" type="button" disabled>Subscribe</button></form></aside></section>
+</main>
+<footer><div class="jd-container"><p><strong>Fieldnotes.</strong> A fictional example built with Jackdaw.</p><p><a class="jd-link" href="../catalogue.html">View the component catalogue</a> · <a class="jd-link" href="#top">Back to top ↑</a></p></div></footer>
+</body>
+</html>

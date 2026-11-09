@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jackdaw | Label options</title>
+<link rel="stylesheet" href="../preview-fonts/fonts.css">
+<link rel="stylesheet" href="../index.css">
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); font: 1.0625rem/1.6 var(--font-body); }
+main { padding-block: var(--s-5); }
+h1 { margin: 0 0 var(--s-2); }
+.intro { max-width: 42rem; }
+.options { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 23rem), 1fr)); gap: var(--s-3); margin-top: var(--s-4); }
+.option { padding: var(--s-3); border-top: 2px solid var(--ultra); }
+.option-number { margin: 0 0 var(--s-3); color: var(--muted); font: 700 .875rem/1.4 var(--font-body); }
+.option-label { color: var(--ultra); margin: 0 0 var(--s-2); }
+.option h2 { margin: 0 0 var(--s-1); }
+.option p:last-child { margin-bottom: 0; }
+.a { font: 600 1rem/1.4 "Avenir Next", sans-serif; }
+.b { font: 600 .9rem/1.4 "Trebuchet MS", sans-serif; letter-spacing: .025em; }
+.c { font: 500 .95rem/1.4 "Helvetica Neue", sans-serif; }
+.d { font: 600 .85rem/1.4 "Avenir Next", sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+</style>
+</head>
+<body class="jd-paper-ground"><main class="jd-container">
+<p><a class="jd-link" href="fieldnotes.html">← Back to Fieldnotes</a></p>
+<h1 class="jd-headline">Choose a label style.</h1>
+<p class="intro">The same section appears in four treatments. These use fonts commonly available on a Mac, with system fallbacks. Choose by number; the final font can be loaded explicitly for consistency across devices.</p>
+<div class="options">
+<section class="option jd-paper-sheet"><p class="option-number">01 / Avenir Next · sentence case</p><p class="option-label a">An independent notebook / Issue 01</p><h2 class="jd-title">Recent notes</h2><p>Friendly, open letterforms with a little weight.</p></section>
+<section class="option jd-paper-sheet"><p class="option-number">02 / Trebuchet MS · sentence case</p><p class="option-label b">An independent notebook / Issue 01</p><h2 class="jd-title">Recent notes</h2><p>A more distinctive sans with a slightly compact label.</p></section>
+<section class="option jd-paper-sheet"><p class="option-number">03 / Helvetica Neue · sentence case</p><p class="option-label c">An independent notebook / Issue 01</p><h2 class="jd-title">Recent notes</h2><p>A quiet label that lets the heading do the work.</p></section>
+<section class="option jd-paper-sheet"><p class="option-number">04 / Avenir Next · capitals</p><p class="option-label d">An independent notebook / Issue 01</p><h2 class="jd-title">Recent notes</h2><p>A more structured label with wider spacing.</p></section>
+</div></main></body></html>

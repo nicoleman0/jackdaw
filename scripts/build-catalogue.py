@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the self-contained design catalogue from the package styles."""
+"""Build the design catalogue from the package styles."""
 from pathlib import Path
 import re
 

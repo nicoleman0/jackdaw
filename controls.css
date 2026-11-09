@@ -16,8 +16,9 @@
     cursor: pointer;
   }
   .jd-button:hover { background: var(--paper); text-decoration: underline; text-underline-offset: 0.2em; }
-  .jd-button--primary { border-color: var(--lime); background: var(--lime); color: var(--ink); }
-  .jd-button--primary:hover { background: var(--lime); }
+  .jd-button--primary { border-color: var(--lime); background: var(--lime); color: var(--ink); box-shadow: 4px 4px 0 var(--ultra); }
+  .jd-button--primary:hover { background: var(--lime); box-shadow: 2px 2px 0 var(--ultra); transform: translate(2px, 2px); }
+  .jd-button--primary:active { box-shadow: none; transform: translate(4px, 4px); }
   .jd-button:focus-visible, .jd-input:focus-visible, .jd-check:focus-visible, .jd-link:focus-visible {
     outline: 2px solid var(--ultra);
     outline-offset: 3px;
@@ -25,7 +26,8 @@
   .jd-button:disabled { opacity: 0.55; cursor: not-allowed; }
   .jd-button:disabled:hover { text-decoration: none; }
   .jd-button:disabled:hover { background: transparent; }
-  .jd-button--primary:disabled:hover { background: var(--lime); }
+  .jd-button--primary:disabled { box-shadow: none; }
+  .jd-button--primary:disabled:hover { background: var(--lime); transform: none; }
   .jd-link { color: var(--ultra); text-decoration: underline; text-underline-offset: 0.15em; }
   .jd-link:hover { color: var(--ultra-deep); text-decoration-thickness: 2px; }
   .jd-field { display: grid; gap: var(--s-1); }
