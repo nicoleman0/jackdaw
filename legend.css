@@ -1,0 +1,16 @@
+@layer jackdaw.components {
+  .jd-legend { display: flex; flex-wrap: wrap; gap: 0.25rem var(--s-2); list-style: none; padding: 0; margin: var(--s-1) 0 0; font-size: 0.9rem; }
+  .jd-legend li { display: flex; align-items: center; gap: 0.4rem; }
+  .jd-swatch { display: inline-block; flex: none; width: 0.7rem; height: 0.7rem; border-radius: var(--radius); background: var(--ultra); }
+  .jd-swatch--under { background: color-mix(in srgb, var(--ultra) 32%, transparent); }
+  .jd-swatch--mark { width: 2px; height: 0.9rem; background: var(--ink); }
+  .jd-tone--oppose [data-rank="0"] { background: var(--rank-oppose-0); color: var(--paper); }
+  .jd-tone--oppose [data-rank="1"] { background: var(--rank-oppose-1); color: var(--paper); }
+  .jd-tone--oppose [data-rank="2"] { background: var(--rank-oppose-2); }
+  .jd-tone--oppose [data-rank="rest"] { background: var(--rank-oppose-rest); }
+  .jd-tone--support [data-rank="0"] { background: var(--rank-support-0); color: var(--ink); }
+  .jd-tone--support [data-rank="1"] { background: var(--rank-support-1); }
+  .jd-tone--support [data-rank="2"] { background: var(--rank-support-2); }
+  .jd-tone--support [data-rank="rest"] { background: var(--rank-support-rest); }
+  .jd-tone--support .jd-swatch { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 15%, transparent); }
+}
