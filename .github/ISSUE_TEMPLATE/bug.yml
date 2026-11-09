@@ -21,8 +21,8 @@ body:
     id: version
     attributes:
       label: Jackdaw version
-      description: The tag you installed, for example v0.8.0.
-      placeholder: v0.8.0
+      description: The version you installed, for example 0.9.1.
+      placeholder: 0.9.1
     validations:
       required: true
   - type: input
