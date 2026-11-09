@@ -7,7 +7,7 @@ Jackdaw is a CSS design system with a two-ink print palette, design tokens, and 
 Install a tagged release from GitHub:
 
 ```sh
-npm install 'github:nicoleman0/jackdaw#v0.4.0'
+npm install 'github:nicoleman0/jackdaw#v0.5.0'
 ```
 
 Import the stylesheet before your own styles:
@@ -89,6 +89,17 @@ Add `jd-ruled` to a container to draw a rule above each direct child. Add `jd-ru
 ## Text roles
 
 Use `jd-note` for a muted note and `jd-meta` for a metadata paragraph. For smaller text without paragraph spacing, use `jd-small` (0.85rem), `jd-secondary` (0.9rem), or `jd-muted` (0.95rem).
+
+## Disclosures
+
+Use `jd-disclosure` on a native `details` element. Add `jd-disclosure--marked` and `jd-disclosure__label` for a plus or minus indicator in place of the browser marker. The browser controls keyboard interaction and the open state.
+
+```html
+<details class="jd-disclosure jd-disclosure--marked">
+  <summary><span class="jd-disclosure__label">Details</span></summary>
+  <p>More information.</p>
+</details>
+```
 
 ## Versioning
 
