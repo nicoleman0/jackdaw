@@ -4,16 +4,16 @@ Jackdaw is a CSS design system with a two-ink print palette, design tokens, and 
 
 ## Install
 
-Install a tagged release from GitHub:
+Install from npm:
 
 ```sh
-npm install 'github:nicoleman0/jackdaw#v0.9.0'
+npm install jackdaw-css
 ```
 
 Import the stylesheet before your own styles:
 
 ```js
-import "jackdaw/index.css";
+import "jackdaw-css/index.css";
 import "./styles.css";
 ```
 
@@ -26,7 +26,7 @@ For plain HTML, copy `jackdaw.css` from a release into your project and link it.
 
 Use `index.css` with a bundler that resolves `@import`. Linking it directly from HTML loads its imports one after another.
 
-The package is private to prevent npm publication; the GitHub repository and tags are public. Jackdaw names Funnel Display, Funnel Sans, and JetBrains Mono in its font tokens but does not load them. Install and load those fonts separately or override the font tokens.
+Jackdaw names Funnel Display, Funnel Sans, and JetBrains Mono in its font tokens but does not load them. Install and load those fonts separately or override the font tokens.
 
 ## React
 
@@ -249,7 +249,7 @@ Open [specimen.html](specimen.html) from a checkout to see the components. It is
 ```html
 <figure class="jd-codeblock-figure">
   <figcaption class="jd-codeblock__caption">styles.css</figcaption>
-  <pre class="jd-codeblock" tabindex="0" aria-label="styles.css"><code>@import "jackdaw/index.css";</code></pre>
+  <pre class="jd-codeblock" tabindex="0" aria-label="styles.css"><code>@import "jackdaw-css/index.css";</code></pre>
 </figure>
 <p>Press <kbd class="jd-kbd">Ctrl</kbd> + <kbd class="jd-kbd">P</kbd>.</p>
 ```

@@ -1,8 +1,7 @@
 {
-  "name": "jackdaw",
-  "version": "0.9.0",
-  "description": "Shared two-ink riso design system for corvus-dev.com and Gracchi.",
-  "private": true,
+  "name": "jackdaw-css",
+  "version": "0.9.1",
+  "description": "A CSS design system inspired by two-ink printing.",
   "license": "MIT",
   "style": "index.css",
   "exports": {
@@ -67,5 +66,13 @@
   "devDependencies": {
     "axe-core": "^4.14.0",
     "playwright": "^1.65.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicoleman0/jackdaw.git"
+  },
+  "homepage": "https://corvus-dev.com/jackdaw/",
+  "bugs": {
+    "url": "https://github.com/nicoleman0/jackdaw/issues"
   }
 }
