@@ -101,6 +101,8 @@ Use `jd-disclosure` on a native `details` element. Add `jd-disclosure--marked` a
 </details>
 ```
 
+Read [DESIGN.md](DESIGN.md) for the shared design principles and [the Corvus design document](docs/corvus-design.md) for the blog-specific application.
+
 ## Versioning
 
 Jackdaw uses semantic version tags. Renaming or removing a token or class is a major change. Pin a tag and review changes before upgrading.
