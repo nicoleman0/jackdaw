@@ -1,0 +1,9 @@
+@layer jackdaw.components {
+  /* Focusable when it scrolls, so the author sets tabindex="0" and a label. */
+  pre.jd-codeblock { box-sizing: border-box; max-inline-size: 100%; margin: 0; padding: 1rem 1.15rem; overflow-x: auto; border: 1px solid var(--jd-rule); border-radius: var(--jd-radius); background: var(--jd-paper); color: var(--jd-text); font: var(--jd-size-sm)/1.55 var(--jd-font-mono); tab-size: 2; }
+  pre.jd-codeblock:focus-visible { outline: var(--jd-focus-width) solid var(--jd-focus-color); outline-offset: var(--jd-focus-offset); }
+  .jd-codeblock-figure { margin: 0; }
+  .jd-codeblock__caption { padding: 0.35rem 0.75rem; background: var(--jd-ink-print); color: var(--jd-paper); font: var(--jd-size-xs)/1.4 var(--jd-font-mono); }
+  .jd-codeblock__caption + pre.jd-codeblock { border-start-start-radius: 0; border-start-end-radius: 0; border-block-start: 0; }
+  .jd-kbd { padding: 0.1em 0.4em; border: 1px solid var(--jd-text-muted); border-block-end-width: 2px; border-radius: var(--jd-radius); background: var(--jd-paper); color: var(--jd-text); font: 0.85em/1.2 var(--jd-font-mono); white-space: nowrap; }
+}

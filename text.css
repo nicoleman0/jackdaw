@@ -1,9 +1,9 @@
 @layer jackdaw.components {
   /* Two muted sizes; the class names stay for existing consumers. */
-  .jd-note, .jd-meta, .jd-muted { color: var(--muted); font-size: 0.95rem; }
-  .jd-small, .jd-secondary { color: var(--muted); font-size: 0.85rem; }
+  .jd-note, .jd-meta, .jd-muted { color: var(--jd-text-muted); font-size: var(--jd-size-md); }
+  .jd-small, .jd-secondary { color: var(--jd-text-muted); font-size: var(--jd-size-xs); }
   .jd-note { max-width: 68ch; }
-  .jd-meta { font-variant-numeric: tabular-nums; margin: var(--s-1) 0 0; }
-  .jd-meta a { color: var(--muted); }
-  .jd-meta a:hover { color: var(--ultra); }
+  .jd-meta { font-variant-numeric: tabular-nums; margin: var(--jd-s-1) 0 0; }
+  .jd-meta a { color: var(--jd-text-muted); }
+  .jd-meta a:hover { color: var(--jd-ink-print); }
 }

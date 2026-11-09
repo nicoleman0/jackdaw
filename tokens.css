@@ -3,48 +3,71 @@
   :root {
     color-scheme: light;
 
-    --font-display: "Funnel Display Variable", "Helvetica Neue", Arial, sans-serif;
-    --font-body: "Funnel Sans Variable", "Helvetica Neue", Arial, sans-serif;
-    --font-label: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-    --font-mono: "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --jd-font-display: "Funnel Display Variable", "Helvetica Neue", Arial, sans-serif;
+    --jd-font-body: "Funnel Sans Variable", "Helvetica Neue", Arial, sans-serif;
+    --jd-font-label: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    --jd-font-mono: "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
-    --measure: 42rem;
-    --wide: 76rem;
-    --gutter: clamp(1.25rem, 5vw, 4rem);
-    --radius: 2px;
+    --jd-measure: 42rem;
+    --jd-wide: 76rem;
+    --jd-gutter: clamp(1.25rem, 5vw, 4rem);
+    --jd-radius: 2px;
+    --jd-control-height: 2.75rem;
 
-    --s-1: 0.5rem;
-    --s-2: 1rem;
-    --s-3: 1.5rem;
-    --s-4: 2.5rem;
-    --s-5: 4rem;
-    --s-6: 6.5rem;
+    --jd-size-xs: 0.85rem;
+    --jd-size-sm: 0.9rem;
+    --jd-size-md: 0.95rem;
+    --jd-size-base: 1rem;
+    --jd-size-lg: 1.05rem;
+    --jd-size-prose: 1.125rem;
 
-    --ground: #eef0f9;
-    --ground-deep: #e2e5f4;
-    --paper: #ffffff;
-    --ultra: #2f17f0;
-    --ultra-deep: #2410c4;
-    --lime: #c4f01c;
-    --ink: #17161f;
-    --muted: #4a4a63;
-    --rank-oppose-0: var(--ink);
-    --rank-oppose-1: color-mix(in srgb, var(--muted) 80%, var(--ground)); /* 3:1 against rank 0 */
-    --rank-oppose-2: color-mix(in srgb, var(--muted) 55%, var(--ground));
-    --rank-oppose-rest: color-mix(in srgb, var(--muted) 28%, var(--ground));
-    --rank-support-0: var(--lime);
-    --rank-support-1: color-mix(in srgb, var(--lime) 75%, var(--ground));
-    --rank-support-2: color-mix(in srgb, var(--lime) 52%, var(--ground));
-    --rank-support-rest: color-mix(in srgb, var(--lime) 34%, var(--ground));
-    /* Hatches and outlines carry rank and edges where tints are too close to the ground (WCAG 1.4.11). */
-    --hatch-fine: repeating-linear-gradient(45deg, var(--ultra) 0 1px, transparent 1px 5px);
-    --hatch-coarse: repeating-linear-gradient(45deg, var(--ultra) 0 1px, transparent 1px 10px);
-    --hatch-coarse-ink: repeating-linear-gradient(45deg, var(--ink) 0 1px, transparent 1px 10px);
-    --edge-ultra: inset 0 0 0 1px var(--ultra);
-    --edge-muted: inset 0 0 0 1px var(--muted);
-    --rule: color-mix(in srgb, var(--ultra) 28%, transparent);
+    --jd-focus-width: 2px;
+    --jd-focus-offset: 3px;
+    --jd-press: 80ms steps(2, end);
+    --jd-halftone-size: 4px;
+
+    --jd-s-1: 0.5rem;
+    --jd-s-2: 1rem;
+    --jd-s-3: 1.5rem;
+    --jd-s-4: 2.5rem;
+    --jd-s-5: 4rem;
+    --jd-s-6: 6.5rem;
+
+    --jd-ground: #eef0f9;
+    --jd-ground-deep: #e2e5f4;
+    --jd-paper: #ffffff;
+    --jd-ink-print: #2f17f0;
+    --jd-ink-print-deep: #2410c4;
+    --jd-ink-accent: #c4f01c;
+    --jd-text: #17161f;
+    --jd-text-muted: #4a4a63;
 
     /* Alpha mask for uneven riso ink: slow blotches times fine speckle. */
-    --ink-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='i' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.025' numOctaves='2' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0' result='a'/%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0' result='b'/%3E%3CfeComposite in='a' in2='b' operator='arithmetic' k2='-1.1' k3='-1' k4='2.05'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23i)'/%3E%3C/svg%3E");
+    --jd-ink-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='i' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.025' numOctaves='2' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0' result='a'/%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0' result='b'/%3E%3CfeComposite in='a' in2='b' operator='arithmetic' k2='-1.1' k3='-1' k4='2.05'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23i)'/%3E%3C/svg%3E");
+  }
+  /* Derived from the inks and stock, so they recompute wherever one changes. */
+  :root, .jd-scope, [class*="jd-inks-"], [class*="jd-stock-"] {
+    --jd-rank-oppose-0: var(--jd-text);
+    --jd-rank-oppose-1: color-mix(in srgb, var(--jd-text-muted) 80%, var(--jd-ground)); /* 3:1 against rank 0 */
+    --jd-rank-oppose-2: color-mix(in srgb, var(--jd-text-muted) 55%, var(--jd-ground));
+    --jd-rank-oppose-rest: color-mix(in srgb, var(--jd-text-muted) 28%, var(--jd-ground));
+    --jd-rank-support-0: var(--jd-ink-accent);
+    --jd-rank-support-1: color-mix(in srgb, var(--jd-ink-accent) 75%, var(--jd-ground));
+    --jd-rank-support-2: color-mix(in srgb, var(--jd-ink-accent) 52%, var(--jd-ground));
+    --jd-rank-support-rest: color-mix(in srgb, var(--jd-ink-accent) 34%, var(--jd-ground));
+    /* Hatches and outlines carry rank and edges where tints are too close to the ground (WCAG 1.4.11). */
+    --jd-hatch-fine: repeating-linear-gradient(45deg, var(--jd-ink-print) 0 1px, transparent 1px 5px);
+    --jd-hatch-coarse: repeating-linear-gradient(45deg, var(--jd-ink-print) 0 1px, transparent 1px 10px);
+    --jd-hatch-coarse-text: repeating-linear-gradient(45deg, var(--jd-text) 0 1px, transparent 1px 10px);
+    --jd-edge-print: inset 0 0 0 1px var(--jd-ink-print);
+    --jd-edge-muted: inset 0 0 0 1px var(--jd-text-muted);
+    --jd-halftone: radial-gradient(circle, var(--jd-ink-print) 0 36%, transparent 40%);
+    --jd-rule: color-mix(in srgb, var(--jd-ink-print) 28%, transparent);
+    --jd-focus-color: var(--jd-ink-print);
+  }
+  /* Heavier rules and full-strength secondary text for people who ask for more contrast. */
+  @media (prefers-contrast: more) {
+    :root { --jd-text-muted: var(--jd-text); }
+    :root, .jd-scope, [class*="jd-inks-"], [class*="jd-stock-"] { --jd-rule: var(--jd-ink-print); }
   }
 }

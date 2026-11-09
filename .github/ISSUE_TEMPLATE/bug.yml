@@ -1,0 +1,42 @@
+name: Bug report
+description: Report a rendering or behaviour problem with Jackdaw
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Describe what you saw and what you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal HTML to reproduce
+      description: Paste the smallest HTML that shows the problem. Include the Jackdaw class names used.
+      render: html
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Jackdaw version
+      description: The tag you installed, for example v0.8.0.
+      placeholder: v0.8.0
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      description: Name and version.
+      placeholder: Firefox 130
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: macOS 15.4
+    validations:
+      required: true

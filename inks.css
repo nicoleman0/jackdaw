@@ -1,0 +1,8 @@
+/* Ink pairs and paper stocks. A theme is two inks and a stock; apply a class to any element. */
+@layer jackdaw.tokens {
+  .jd-inks-federal { --jd-ink-print: #3d5588; --jd-ink-print-deep: #2f4570; --jd-ink-accent: #ff6c2f; }
+  .jd-inks-burgundy { --jd-ink-print: #8a3f64; --jd-ink-print-deep: #6f3050; --jd-ink-accent: #ffe800; }
+  .jd-inks-forest { --jd-ink-print: #2a6a4a; --jd-ink-print-deep: #1f5439; --jd-ink-accent: #ff48b0; }
+  .jd-stock-newsprint { --jd-ground: #e6e4dc; --jd-ground-deep: #d8d5ca; --jd-paper: #f4f2ec; }
+  .jd-stock-cream { --jd-ground: #f5eedc; --jd-ground-deep: #eadfc3; --jd-paper: #fffaef; }
+}

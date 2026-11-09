@@ -1,0 +1,30 @@
+/* Print effects. All opt-in; each class names one thing a press does. */
+@layer jackdaw.components {
+  .jd-mark { padding-inline: 0.15em; background: var(--jd-ink-accent); color: inherit; mix-blend-mode: multiply; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .jd-overprint { mix-blend-mode: multiply; }
+  /* Longhands only, so the dots sit over a paper surface or stock instead of replacing it. */
+  .jd-halftone, .jd-bar__fill--halftone, .jd-swatch--halftone { background-image: var(--jd-halftone); background-size: var(--jd-halftone-size) var(--jd-halftone-size); }
+  .jd-bar__fill--halftone, .jd-swatch--halftone { background-color: var(--jd-paper); box-shadow: var(--jd-edge-print); }
+  .jd-inked { -webkit-mask: var(--jd-ink-mask) 0 0 / 260px 260px repeat; mask: var(--jd-ink-mask) 0 0 / 260px 260px repeat; }
+  /* Ticks sit outside the block, in a pseudo-element, so the block's own background stays free. */
+  .jd-crop {
+    --jd-crop-len: 0.75rem;
+    --jd-crop-gap: 0.25rem;
+    --jd-crop-off: calc(var(--jd-crop-len) + var(--jd-crop-gap));
+    --jd-crop-tick: linear-gradient(var(--jd-ink-print), var(--jd-ink-print));
+    position: relative;
+  }
+  .jd-crop::before {
+    content: "";
+    position: absolute;
+    inset: calc(-1 * var(--jd-crop-off));
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-image: var(--jd-crop-tick), var(--jd-crop-tick), var(--jd-crop-tick), var(--jd-crop-tick), var(--jd-crop-tick), var(--jd-crop-tick), var(--jd-crop-tick), var(--jd-crop-tick);
+    background-size: var(--jd-crop-len) 1px, var(--jd-crop-len) 1px, var(--jd-crop-len) 1px, var(--jd-crop-len) 1px, 1px var(--jd-crop-len), 1px var(--jd-crop-len), 1px var(--jd-crop-len), 1px var(--jd-crop-len);
+    background-position: left 0 top var(--jd-crop-off), right 0 top var(--jd-crop-off), left 0 bottom var(--jd-crop-off), right 0 bottom var(--jd-crop-off), left var(--jd-crop-off) top 0, right var(--jd-crop-off) top 0, left var(--jd-crop-off) bottom 0, right var(--jd-crop-off) bottom 0;
+  }
+  hr.jd-perforation { height: 0; margin-block: var(--jd-s-3); border: 0; border-top: 2px dotted var(--jd-ink-print); }
+  .jd-tag--stamp { padding: 0.15em 0.6em; border: 2px solid var(--jd-ink-print); border-radius: var(--jd-radius); color: var(--jd-ink-print); font: 700 var(--jd-size-xs)/1.2 var(--jd-font-label); letter-spacing: 0.12em; text-transform: uppercase; transform: rotate(-2deg); }
+  .jd-tag--stamp::before { content: none; }
+}

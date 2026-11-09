@@ -1,15 +1,15 @@
 @layer jackdaw.components {
-  .jd-skip { position: absolute; z-index: 10; top: var(--s-1); left: var(--s-1); padding: var(--s-1) var(--s-2); background: var(--lime); color: var(--ink); transform: translateY(-200%); }
+  .jd-skip { position: absolute; z-index: 10; top: var(--jd-s-1); inset-inline-start: var(--jd-s-1); padding: var(--jd-s-1) var(--jd-s-2); background: var(--jd-ink-accent); color: var(--jd-text); transform: translateY(-200%); }
   .jd-skip:focus { transform: none; }
-  .jd-nav { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-3); }
-  .jd-nav a { color: var(--ink); font: 700 1rem/1.3 var(--font-display); text-decoration: none; }
-  .jd-nav a:hover, .jd-nav a[aria-current] { color: var(--ultra); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.25em; }
-  .jd-nav a:focus-visible, .jd-skip:focus-visible, .jd-breadcrumbs a:focus-visible { outline: 2px solid var(--ultra); outline-offset: 3px; }
+  .jd-nav { display: flex; flex-wrap: wrap; align-items: center; gap: var(--jd-s-2) var(--jd-s-3); }
+  .jd-nav a { color: var(--jd-text); font: 700 var(--jd-size-base)/1.3 var(--jd-font-display); text-decoration: none; }
+  .jd-nav a:hover, .jd-nav a[aria-current] { color: var(--jd-ink-print); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.25em; }
+  .jd-nav a:focus-visible, .jd-skip:focus-visible, .jd-breadcrumbs a:focus-visible { outline: var(--jd-focus-width) solid var(--jd-focus-color); outline-offset: var(--jd-focus-offset); }
   .jd-breadcrumbs { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; margin: 0; list-style: none; }
-  .jd-breadcrumbs li + li::before { content: "/"; margin-right: 0.4rem; color: var(--muted); }
-  .jd-breadcrumbs a { color: var(--ultra); }
-  .jd-pagination { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-1); }
-  .jd-pagination a { display: inline-flex; min-width: 2.75rem; min-height: 2.75rem; align-items: center; justify-content: center; color: var(--ultra); }
-  .jd-pagination a[aria-current="page"] { background: var(--ultra); color: var(--paper); text-decoration: none; }
-  .jd-pagination a:focus-visible { outline: 2px solid var(--ultra); outline-offset: 3px; }
+  .jd-breadcrumbs li + li::before { content: "/"; margin-inline-end: 0.4rem; color: var(--jd-text-muted); }
+  .jd-breadcrumbs a { color: var(--jd-ink-print); }
+  .jd-pagination { display: flex; flex-wrap: wrap; align-items: center; gap: var(--jd-s-1); }
+  .jd-pagination a { display: inline-flex; min-width: var(--jd-control-height); min-height: var(--jd-control-height); align-items: center; justify-content: center; color: var(--jd-ink-print); }
+  .jd-pagination a[aria-current="page"] { background: var(--jd-ink-print); color: var(--jd-paper); text-decoration: none; }
+  .jd-pagination a:focus-visible { outline: var(--jd-focus-width) solid var(--jd-focus-color); outline-offset: var(--jd-focus-offset); }
 }

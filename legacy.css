@@ -1,0 +1,43 @@
+/* Deprecated unprefixed aliases for the --jd-* tokens.
+   Removed in 1.0. Override the --jd-* names instead. */
+@layer jackdaw.tokens {
+  :root {
+    --ultra: var(--jd-ink-print);
+    --ultra-deep: var(--jd-ink-print-deep);
+    --lime: var(--jd-ink-accent);
+    --ink: var(--jd-text);
+    --muted: var(--jd-text-muted);
+    --ground: var(--jd-ground);
+    --ground-deep: var(--jd-ground-deep);
+    --paper: var(--jd-paper);
+    --rule: var(--jd-rule);
+    --rank-oppose-0: var(--jd-rank-oppose-0);
+    --rank-oppose-1: var(--jd-rank-oppose-1);
+    --rank-oppose-2: var(--jd-rank-oppose-2);
+    --rank-oppose-rest: var(--jd-rank-oppose-rest);
+    --rank-support-0: var(--jd-rank-support-0);
+    --rank-support-1: var(--jd-rank-support-1);
+    --rank-support-2: var(--jd-rank-support-2);
+    --rank-support-rest: var(--jd-rank-support-rest);
+    --hatch-fine: var(--jd-hatch-fine);
+    --hatch-coarse: var(--jd-hatch-coarse);
+    --hatch-coarse-ink: var(--jd-hatch-coarse-text);
+    --edge-ultra: var(--jd-edge-print);
+    --edge-muted: var(--jd-edge-muted);
+    --ink-mask: var(--jd-ink-mask);
+    --font-display: var(--jd-font-display);
+    --font-body: var(--jd-font-body);
+    --font-label: var(--jd-font-label);
+    --font-mono: var(--jd-font-mono);
+    --measure: var(--jd-measure);
+    --wide: var(--jd-wide);
+    --gutter: var(--jd-gutter);
+    --radius: var(--jd-radius);
+    --s-1: var(--jd-s-1);
+    --s-2: var(--jd-s-2);
+    --s-3: var(--jd-s-3);
+    --s-4: var(--jd-s-4);
+    --s-5: var(--jd-s-5);
+    --s-6: var(--jd-s-6);
+  }
+}

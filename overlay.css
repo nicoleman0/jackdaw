@@ -1,0 +1,9 @@
+/* Style only. The app calls showModal() or sets popovertarget; never set display here, the UA hides closed ones. */
+@layer jackdaw.components {
+  .jd-dialog { --jd-dialog-width: 30rem; box-sizing: border-box; inline-size: min(calc(100% - 2 * var(--jd-s-2)), var(--jd-dialog-width)); max-block-size: calc(100dvh - 2 * var(--jd-s-2)); overflow: auto; padding: var(--jd-s-3); border: 2px solid var(--jd-ink-print); border-radius: var(--jd-radius); background: var(--jd-paper); color: var(--jd-text); box-shadow: 0.25rem 0.25rem 0 color-mix(in srgb, var(--jd-ink-print) 14%, transparent); }
+  /* CanvasText covers engines where ::backdrop does not inherit custom properties. */
+  .jd-dialog::backdrop { background: color-mix(in srgb, var(--jd-text, CanvasText) 50%, transparent); }
+  .jd-dialog__title { margin-block: 0 var(--jd-s-1); color: var(--jd-ink-print); font: 700 1.35rem/1.2 var(--jd-font-display); }
+  .jd-dialog__actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--jd-s-1); margin-block-start: var(--jd-s-3); }
+  [popover].jd-popover { box-sizing: border-box; max-inline-size: min(calc(100% - 2 * var(--jd-s-2)), 20rem); padding: var(--jd-s-2); border: 1px solid var(--jd-ink-print); border-radius: var(--jd-radius); background: var(--jd-paper); color: var(--jd-text); font-size: var(--jd-size-sm); }
+}

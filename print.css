@@ -1,0 +1,18 @@
+/* Paper output: white stock, black text, and data that keeps its fills. */
+@layer jackdaw.components {
+  @media print {
+    :root, .jd-scope, [class*="jd-stock-"] { --jd-ground: #fff; --jd-ground-deep: #fff; --jd-paper: #fff; --jd-text: #000; }
+    .jd-paper-ground, .jd-paper-sheet { background: #fff; box-shadow: none; }
+    .jd-button--primary { box-shadow: none; }
+    :is(.jd-bar, .jd-bar__fill, .jd-bar__mark, .jd-bar__segment, .jd-swatch, .jd-status, .jd-button--primary, .jd-codeblock__caption, .jd-action-strip, .jd-switch, .jd-progress, .jd-meter), .jd-switch::before, .jd-crop::before { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .jd-skip, .jd-pagination { display: none; }
+    .jd-prose a[href^="http"]::after { content: " (" attr(href) ")"; }
+    .jd-notice, .jd-table tr, .jd-figure, .jd-codeblock-figure, .jd-bar, .jd-legend { break-inside: avoid; }
+    .jd-bar { break-after: avoid; }
+    .jd-quote, .jd-pullquote, .jd-card, .jd-codeblock, .jd-footnotes li, .jd-dialog { break-inside: avoid; }
+    /* Wrap instead of scrolling, so no code is cut off. */
+    pre.jd-codeblock { overflow: visible; white-space: pre-wrap; }
+    .jd-copy { display: none; }
+    .jd-table thead { display: table-header-group; }
+  }
+}

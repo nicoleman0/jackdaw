@@ -1,10 +1,10 @@
 @layer jackdaw.components {
-  .jd-bar { position: relative; height: 0.75rem; background: color-mix(in srgb, var(--ultra) 10%, transparent); box-shadow: var(--edge-ultra); border-radius: var(--radius); }
-  .jd-bar__fill { position: absolute; inset: 0 auto 0 0; width: var(--v); background: var(--ultra); border-radius: 0 var(--radius) var(--radius) 0; }
-  .jd-bar__fill--under { background: var(--hatch-fine); box-shadow: var(--edge-ultra); }
-  .jd-bar__mark { position: absolute; top: -0.3rem; bottom: -0.3rem; left: var(--v); width: 2px; background: var(--ink); }
+  .jd-bar { position: relative; height: 0.75rem; background: color-mix(in srgb, var(--jd-ink-print) 10%, transparent); box-shadow: var(--jd-edge-print); border-radius: var(--jd-radius); }
+  .jd-bar__fill { position: absolute; inset-block: 0; inset-inline-start: 0; width: var(--v); background: var(--jd-ink-print); border-start-end-radius: var(--jd-radius); border-end-end-radius: var(--jd-radius); }
+  .jd-bar__fill--under { background: var(--jd-hatch-fine); box-shadow: var(--jd-edge-print); }
+  .jd-bar__mark { position: absolute; top: -0.3rem; bottom: -0.3rem; inset-inline-start: var(--v); width: 2px; background: var(--jd-text); }
   .jd-bar--segmented { display: flex; gap: 2px; width: var(--v); min-width: 0.5rem; height: 2rem; overflow: hidden; background: none; box-shadow: none; }
-  .jd-bar__segment { flex: var(--v) 1 0; min-width: 3px; border-radius: var(--radius); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 0.85rem; line-height: 2rem; }
+  .jd-bar__segment { flex: var(--v) 1 0; min-width: 3px; border-radius: var(--jd-radius); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: var(--jd-size-xs); line-height: 2rem; }
   .jd-bar__segment:not(:empty) { padding: 0 0.6rem; }
   /* Keep rank hatches below the segment numbers so they stay legible. */
   :is(.jd-tone--support, .jd-tone--oppose) .jd-bar__segment[data-rank] { background-size: 100% 30%, auto; background-position: bottom, 0 0; background-repeat: no-repeat, repeat; }

@@ -1,6 +1,6 @@
 {
   "name": "jackdaw",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Shared two-ink riso design system for corvus-dev.com and Gracchi.",
   "private": true,
   "license": "MIT",
@@ -10,6 +10,8 @@
     "./index.css": "./index.css",
     "./jackdaw.css": "./jackdaw.css",
     "./tokens.css": "./tokens.css",
+    "./inks.css": "./inks.css",
+    "./legacy.css": "./legacy.css",
     "./base.css": "./base.css",
     "./bar.css": "./bar.css",
     "./legend.css": "./legend.css",
@@ -21,12 +23,20 @@
     "./layout.css": "./layout.css",
     "./navigation.css": "./navigation.css",
     "./feedback.css": "./feedback.css",
-    "./table.css": "./table.css"
+    "./code.css": "./code.css",
+    "./editorial.css": "./editorial.css",
+    "./overlay.css": "./overlay.css",
+    "./table.css": "./table.css",
+    "./press.css": "./press.css",
+    "./print.css": "./print.css",
+    "./forced-colors.css": "./forced-colors.css"
   },
   "files": [
     "index.css",
     "jackdaw.css",
     "tokens.css",
+    "inks.css",
+    "legacy.css",
     "base.css",
     "bar.css",
     "legend.css",
@@ -38,8 +48,24 @@
     "layout.css",
     "navigation.css",
     "feedback.css",
+    "code.css",
+    "editorial.css",
+    "overlay.css",
     "table.css",
+    "press.css",
+    "print.css",
+    "forced-colors.css",
     "catalogue.html",
     "preview-fonts"
-  ]
+  ],
+  "scripts": {
+    "build": "python3 scripts/build-catalogue.py",
+    "test": "node tests/bundle.cjs && node tests/catalogue.cjs && node tests/contrast.cjs",
+    "test:browser": "node tests/browser.cjs",
+    "screenshots": "node scripts/screenshots.cjs"
+  },
+  "devDependencies": {
+    "axe-core": "^4.14.0",
+    "playwright": "^1.65.0"
+  }
 }

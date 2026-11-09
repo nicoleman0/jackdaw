@@ -11,49 +11,125 @@
   :root {
     color-scheme: light;
 
-    --font-display: "Funnel Display Variable", "Helvetica Neue", Arial, sans-serif;
-    --font-body: "Funnel Sans Variable", "Helvetica Neue", Arial, sans-serif;
-    --font-label: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-    --font-mono: "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --jd-font-display: "Funnel Display Variable", "Helvetica Neue", Arial, sans-serif;
+    --jd-font-body: "Funnel Sans Variable", "Helvetica Neue", Arial, sans-serif;
+    --jd-font-label: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    --jd-font-mono: "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
-    --measure: 42rem;
-    --wide: 76rem;
-    --gutter: clamp(1.25rem, 5vw, 4rem);
-    --radius: 2px;
+    --jd-measure: 42rem;
+    --jd-wide: 76rem;
+    --jd-gutter: clamp(1.25rem, 5vw, 4rem);
+    --jd-radius: 2px;
+    --jd-control-height: 2.75rem;
 
-    --s-1: 0.5rem;
-    --s-2: 1rem;
-    --s-3: 1.5rem;
-    --s-4: 2.5rem;
-    --s-5: 4rem;
-    --s-6: 6.5rem;
+    --jd-size-xs: 0.85rem;
+    --jd-size-sm: 0.9rem;
+    --jd-size-md: 0.95rem;
+    --jd-size-base: 1rem;
+    --jd-size-lg: 1.05rem;
+    --jd-size-prose: 1.125rem;
 
-    --ground: #eef0f9;
-    --ground-deep: #e2e5f4;
-    --paper: #ffffff;
-    --ultra: #2f17f0;
-    --ultra-deep: #2410c4;
-    --lime: #c4f01c;
-    --ink: #17161f;
-    --muted: #4a4a63;
-    --rank-oppose-0: var(--ink);
-    --rank-oppose-1: color-mix(in srgb, var(--muted) 80%, var(--ground)); /* 3:1 against rank 0 */
-    --rank-oppose-2: color-mix(in srgb, var(--muted) 55%, var(--ground));
-    --rank-oppose-rest: color-mix(in srgb, var(--muted) 28%, var(--ground));
-    --rank-support-0: var(--lime);
-    --rank-support-1: color-mix(in srgb, var(--lime) 75%, var(--ground));
-    --rank-support-2: color-mix(in srgb, var(--lime) 52%, var(--ground));
-    --rank-support-rest: color-mix(in srgb, var(--lime) 34%, var(--ground));
-    /* Hatches and outlines carry rank and edges where tints are too close to the ground (WCAG 1.4.11). */
-    --hatch-fine: repeating-linear-gradient(45deg, var(--ultra) 0 1px, transparent 1px 5px);
-    --hatch-coarse: repeating-linear-gradient(45deg, var(--ultra) 0 1px, transparent 1px 10px);
-    --hatch-coarse-ink: repeating-linear-gradient(45deg, var(--ink) 0 1px, transparent 1px 10px);
-    --edge-ultra: inset 0 0 0 1px var(--ultra);
-    --edge-muted: inset 0 0 0 1px var(--muted);
-    --rule: color-mix(in srgb, var(--ultra) 28%, transparent);
+    --jd-focus-width: 2px;
+    --jd-focus-offset: 3px;
+    --jd-press: 80ms steps(2, end);
+    --jd-halftone-size: 4px;
+
+    --jd-s-1: 0.5rem;
+    --jd-s-2: 1rem;
+    --jd-s-3: 1.5rem;
+    --jd-s-4: 2.5rem;
+    --jd-s-5: 4rem;
+    --jd-s-6: 6.5rem;
+
+    --jd-ground: #eef0f9;
+    --jd-ground-deep: #e2e5f4;
+    --jd-paper: #ffffff;
+    --jd-ink-print: #2f17f0;
+    --jd-ink-print-deep: #2410c4;
+    --jd-ink-accent: #c4f01c;
+    --jd-text: #17161f;
+    --jd-text-muted: #4a4a63;
 
     /* Alpha mask for uneven riso ink: slow blotches times fine speckle. */
-    --ink-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='i' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.025' numOctaves='2' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0' result='a'/%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0' result='b'/%3E%3CfeComposite in='a' in2='b' operator='arithmetic' k2='-1.1' k3='-1' k4='2.05'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23i)'/%3E%3C/svg%3E");
+    --jd-ink-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='i' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.025' numOctaves='2' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0' result='a'/%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0' result='b'/%3E%3CfeComposite in='a' in2='b' operator='arithmetic' k2='-1.1' k3='-1' k4='2.05'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23i)'/%3E%3C/svg%3E");
+  }
+  /* Derived from the inks and stock, so they recompute wherever one changes. */
+  :root, .jd-scope, [class*="jd-inks-"], [class*="jd-stock-"] {
+    --jd-rank-oppose-0: var(--jd-text);
+    --jd-rank-oppose-1: color-mix(in srgb, var(--jd-text-muted) 80%, var(--jd-ground)); /* 3:1 against rank 0 */
+    --jd-rank-oppose-2: color-mix(in srgb, var(--jd-text-muted) 55%, var(--jd-ground));
+    --jd-rank-oppose-rest: color-mix(in srgb, var(--jd-text-muted) 28%, var(--jd-ground));
+    --jd-rank-support-0: var(--jd-ink-accent);
+    --jd-rank-support-1: color-mix(in srgb, var(--jd-ink-accent) 75%, var(--jd-ground));
+    --jd-rank-support-2: color-mix(in srgb, var(--jd-ink-accent) 52%, var(--jd-ground));
+    --jd-rank-support-rest: color-mix(in srgb, var(--jd-ink-accent) 34%, var(--jd-ground));
+    /* Hatches and outlines carry rank and edges where tints are too close to the ground (WCAG 1.4.11). */
+    --jd-hatch-fine: repeating-linear-gradient(45deg, var(--jd-ink-print) 0 1px, transparent 1px 5px);
+    --jd-hatch-coarse: repeating-linear-gradient(45deg, var(--jd-ink-print) 0 1px, transparent 1px 10px);
+    --jd-hatch-coarse-text: repeating-linear-gradient(45deg, var(--jd-text) 0 1px, transparent 1px 10px);
+    --jd-edge-print: inset 0 0 0 1px var(--jd-ink-print);
+    --jd-edge-muted: inset 0 0 0 1px var(--jd-text-muted);
+    --jd-halftone: radial-gradient(circle, var(--jd-ink-print) 0 36%, transparent 40%);
+    --jd-rule: color-mix(in srgb, var(--jd-ink-print) 28%, transparent);
+    --jd-focus-color: var(--jd-ink-print);
+  }
+  /* Heavier rules and full-strength secondary text for people who ask for more contrast. */
+  @media (prefers-contrast: more) {
+    :root { --jd-text-muted: var(--jd-text); }
+    :root, .jd-scope, [class*="jd-inks-"], [class*="jd-stock-"] { --jd-rule: var(--jd-ink-print); }
+  }
+}
+
+/* Ink pairs and paper stocks. A theme is two inks and a stock; apply a class to any element. */
+@layer jackdaw.tokens {
+  .jd-inks-federal { --jd-ink-print: #3d5588; --jd-ink-print-deep: #2f4570; --jd-ink-accent: #ff6c2f; }
+  .jd-inks-burgundy { --jd-ink-print: #8a3f64; --jd-ink-print-deep: #6f3050; --jd-ink-accent: #ffe800; }
+  .jd-inks-forest { --jd-ink-print: #2a6a4a; --jd-ink-print-deep: #1f5439; --jd-ink-accent: #ff48b0; }
+  .jd-stock-newsprint { --jd-ground: #e6e4dc; --jd-ground-deep: #d8d5ca; --jd-paper: #f4f2ec; }
+  .jd-stock-cream { --jd-ground: #f5eedc; --jd-ground-deep: #eadfc3; --jd-paper: #fffaef; }
+}
+
+/* Deprecated unprefixed aliases for the --jd-* tokens.
+   Removed in 1.0. Override the --jd-* names instead. */
+@layer jackdaw.tokens {
+  :root {
+    --ultra: var(--jd-ink-print);
+    --ultra-deep: var(--jd-ink-print-deep);
+    --lime: var(--jd-ink-accent);
+    --ink: var(--jd-text);
+    --muted: var(--jd-text-muted);
+    --ground: var(--jd-ground);
+    --ground-deep: var(--jd-ground-deep);
+    --paper: var(--jd-paper);
+    --rule: var(--jd-rule);
+    --rank-oppose-0: var(--jd-rank-oppose-0);
+    --rank-oppose-1: var(--jd-rank-oppose-1);
+    --rank-oppose-2: var(--jd-rank-oppose-2);
+    --rank-oppose-rest: var(--jd-rank-oppose-rest);
+    --rank-support-0: var(--jd-rank-support-0);
+    --rank-support-1: var(--jd-rank-support-1);
+    --rank-support-2: var(--jd-rank-support-2);
+    --rank-support-rest: var(--jd-rank-support-rest);
+    --hatch-fine: var(--jd-hatch-fine);
+    --hatch-coarse: var(--jd-hatch-coarse);
+    --hatch-coarse-ink: var(--jd-hatch-coarse-text);
+    --edge-ultra: var(--jd-edge-print);
+    --edge-muted: var(--jd-edge-muted);
+    --ink-mask: var(--jd-ink-mask);
+    --font-display: var(--jd-font-display);
+    --font-body: var(--jd-font-body);
+    --font-label: var(--jd-font-label);
+    --font-mono: var(--jd-font-mono);
+    --measure: var(--jd-measure);
+    --wide: var(--jd-wide);
+    --gutter: var(--jd-gutter);
+    --radius: var(--jd-radius);
+    --s-1: var(--jd-s-1);
+    --s-2: var(--jd-s-2);
+    --s-3: var(--jd-s-3);
+    --s-4: var(--jd-s-4);
+    --s-5: var(--jd-s-5);
+    --s-6: var(--jd-s-6);
   }
 }
 
@@ -63,85 +139,85 @@
     margin-inline: -0.04em;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
-    text-shadow: max(2px, 0.03em) max(1px, 0.02em) 0 var(--lime);
-    -webkit-mask: var(--ink-mask) 0 0 / 260px 260px repeat;
-    mask: var(--ink-mask) 0 0 / 260px 260px repeat;
+    text-shadow: max(2px, 0.03em) max(1px, 0.02em) 0 var(--jd-ink-accent);
+    -webkit-mask: var(--jd-ink-mask) 0 0 / 260px 260px repeat;
+    mask: var(--jd-ink-mask) 0 0 / 260px 260px repeat;
   }
   .jd-paper-ground {
-    background-color: var(--ground);
+    background-color: var(--jd-ground);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E");
   }
   .jd-paper-sheet {
-    background: var(--paper);
-    box-shadow: 0.25rem 0.25rem 0 color-mix(in srgb, var(--ultra) 14%, transparent);
+    background: var(--jd-paper);
+    box-shadow: 0.25rem 0.25rem 0 color-mix(in srgb, var(--jd-ink-print) 14%, transparent);
   }
 }
 
 @layer jackdaw.components {
-  .jd-bar { position: relative; height: 0.75rem; background: color-mix(in srgb, var(--ultra) 10%, transparent); box-shadow: var(--edge-ultra); border-radius: var(--radius); }
-  .jd-bar__fill { position: absolute; inset: 0 auto 0 0; width: var(--v); background: var(--ultra); border-radius: 0 var(--radius) var(--radius) 0; }
-  .jd-bar__fill--under { background: var(--hatch-fine); box-shadow: var(--edge-ultra); }
-  .jd-bar__mark { position: absolute; top: -0.3rem; bottom: -0.3rem; left: var(--v); width: 2px; background: var(--ink); }
+  .jd-bar { position: relative; height: 0.75rem; background: color-mix(in srgb, var(--jd-ink-print) 10%, transparent); box-shadow: var(--jd-edge-print); border-radius: var(--jd-radius); }
+  .jd-bar__fill { position: absolute; inset-block: 0; inset-inline-start: 0; width: var(--v); background: var(--jd-ink-print); border-start-end-radius: var(--jd-radius); border-end-end-radius: var(--jd-radius); }
+  .jd-bar__fill--under { background: var(--jd-hatch-fine); box-shadow: var(--jd-edge-print); }
+  .jd-bar__mark { position: absolute; top: -0.3rem; bottom: -0.3rem; inset-inline-start: var(--v); width: 2px; background: var(--jd-text); }
   .jd-bar--segmented { display: flex; gap: 2px; width: var(--v); min-width: 0.5rem; height: 2rem; overflow: hidden; background: none; box-shadow: none; }
-  .jd-bar__segment { flex: var(--v) 1 0; min-width: 3px; border-radius: var(--radius); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 0.85rem; line-height: 2rem; }
+  .jd-bar__segment { flex: var(--v) 1 0; min-width: 3px; border-radius: var(--jd-radius); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: var(--jd-size-xs); line-height: 2rem; }
   .jd-bar__segment:not(:empty) { padding: 0 0.6rem; }
   /* Keep rank hatches below the segment numbers so they stay legible. */
   :is(.jd-tone--support, .jd-tone--oppose) .jd-bar__segment[data-rank] { background-size: 100% 30%, auto; background-position: bottom, 0 0; background-repeat: no-repeat, repeat; }
 }
 
 @layer jackdaw.components {
-  .jd-legend { display: flex; flex-wrap: wrap; gap: 0.25rem var(--s-2); list-style: none; padding: 0; margin: var(--s-1) 0 0; font-size: 0.9rem; }
+  .jd-legend { display: flex; flex-wrap: wrap; gap: 0.25rem var(--jd-s-2); list-style: none; padding: 0; margin: var(--jd-s-1) 0 0; font-size: var(--jd-size-sm); }
   .jd-legend li { display: flex; align-items: center; gap: 0.4rem; }
-  .jd-swatch { display: inline-block; flex: none; width: 0.7rem; height: 0.7rem; border-radius: var(--radius); background: var(--ultra); }
-  .jd-swatch--under { background: var(--hatch-fine); box-shadow: var(--edge-ultra); }
-  .jd-swatch--mark { width: 2px; height: 0.9rem; background: var(--ink); }
-  .jd-tone--oppose [data-rank="0"] { background: var(--rank-oppose-0); color: var(--paper); }
-  .jd-tone--oppose [data-rank="1"] { background: var(--rank-oppose-1); color: var(--paper); }
-  .jd-tone--oppose [data-rank="2"] { background: var(--hatch-coarse-ink), var(--rank-oppose-2); box-shadow: var(--edge-muted); }
-  .jd-tone--oppose [data-rank="rest"] { background: var(--rank-oppose-rest); box-shadow: var(--edge-muted); }
-  .jd-tone--support [data-rank] { box-shadow: var(--edge-ultra); }
-  .jd-tone--support [data-rank="0"] { background: var(--rank-support-0); color: var(--ink); }
-  .jd-tone--support [data-rank="1"] { background: var(--hatch-fine), var(--rank-support-1); }
-  .jd-tone--support [data-rank="2"] { background: var(--hatch-coarse), var(--rank-support-2); }
-  .jd-tone--support [data-rank="rest"] { background: var(--rank-support-rest); }
+  .jd-swatch { display: inline-block; flex: none; width: 0.7rem; height: 0.7rem; border-radius: var(--jd-radius); background: var(--jd-ink-print); }
+  .jd-swatch--under { background: var(--jd-hatch-fine); box-shadow: var(--jd-edge-print); }
+  .jd-swatch--mark { width: 2px; height: 0.9rem; background: var(--jd-text); }
+  .jd-tone--oppose [data-rank="0"] { background: var(--jd-rank-oppose-0); color: var(--jd-paper); }
+  .jd-tone--oppose [data-rank="1"] { background: var(--jd-rank-oppose-1); color: var(--jd-paper); }
+  .jd-tone--oppose [data-rank="2"] { background: var(--jd-hatch-coarse-text), var(--jd-rank-oppose-2); box-shadow: var(--jd-edge-muted); }
+  .jd-tone--oppose [data-rank="rest"] { background: var(--jd-rank-oppose-rest); box-shadow: var(--jd-edge-muted); }
+  .jd-tone--support [data-rank] { box-shadow: var(--jd-edge-print); }
+  .jd-tone--support [data-rank="0"] { background: var(--jd-rank-support-0); color: var(--jd-text); }
+  .jd-tone--support [data-rank="1"] { background: var(--jd-hatch-fine), var(--jd-rank-support-1); }
+  .jd-tone--support [data-rank="2"] { background: var(--jd-hatch-coarse), var(--jd-rank-support-2); }
+  .jd-tone--support [data-rank="rest"] { background: var(--jd-rank-support-rest); }
 }
 
 @layer jackdaw.components {
   /* Rules span the full row, so list markers and indent go. */
   :is(ul, ol).jd-ruled { list-style: none; padding-inline-start: 0; }
-  .jd-ruled > *, .jd-ruled-row { border-top: 1px solid var(--rule); }
-  .jd-ruled--closed { border-bottom: 1px solid var(--rule); }
+  .jd-ruled > *, .jd-ruled-row { border-top: 1px solid var(--jd-rule); }
+  .jd-ruled--closed { border-bottom: 1px solid var(--jd-rule); }
 }
 
 @layer jackdaw.components {
   /* Two muted sizes; the class names stay for existing consumers. */
-  .jd-note, .jd-meta, .jd-muted { color: var(--muted); font-size: 0.95rem; }
-  .jd-small, .jd-secondary { color: var(--muted); font-size: 0.85rem; }
+  .jd-note, .jd-meta, .jd-muted { color: var(--jd-text-muted); font-size: var(--jd-size-md); }
+  .jd-small, .jd-secondary { color: var(--jd-text-muted); font-size: var(--jd-size-xs); }
   .jd-note { max-width: 68ch; }
-  .jd-meta { font-variant-numeric: tabular-nums; margin: var(--s-1) 0 0; }
-  .jd-meta a { color: var(--muted); }
-  .jd-meta a:hover { color: var(--ultra); }
+  .jd-meta { font-variant-numeric: tabular-nums; margin: var(--jd-s-1) 0 0; }
+  .jd-meta a { color: var(--jd-text-muted); }
+  .jd-meta a:hover { color: var(--jd-ink-print); }
 }
 
 @layer jackdaw.components {
   .jd-disclosure > summary { cursor: pointer; }
-  .jd-disclosure > summary:focus-visible { outline: 2px solid var(--ultra); outline-offset: 3px; }
+  .jd-disclosure > summary:focus-visible { outline: var(--jd-focus-width) solid var(--jd-focus-color); outline-offset: var(--jd-focus-offset); }
   .jd-disclosure--marked > summary { list-style: none; }
   .jd-disclosure--marked > summary::-webkit-details-marker { display: none; }
-  .jd-disclosure__label::after { content: " +"; color: var(--ultra); }
+  .jd-disclosure__label::after { content: " +"; color: var(--jd-ink-print); }
   .jd-disclosure[open] > summary .jd-disclosure__label::after { content: " −"; }
 }
 
 @layer jackdaw.components {
-  .jd-headline, .jd-heading, .jd-title { color: var(--ultra); font-family: var(--font-display); }
+  .jd-headline, .jd-heading, .jd-title { color: var(--jd-ink-print); font-family: var(--jd-font-display); }
   .jd-headline { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.03em; }
   .jd-heading { font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; }
   .jd-title { font-size: 1.75rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.015em; }
-  .jd-kicker { color: var(--ultra); font: 600 1rem/1.4 var(--font-label); }
-  .jd-prose { max-width: var(--measure); font: 1.125rem/1.6 var(--font-body); }
-  .jd-code { font-family: var(--font-mono); font-size: 0.875em; }
-  .jd-tag { display: inline-flex; align-items: baseline; gap: 0.4em; color: var(--muted); font: 0.9rem/1.4 var(--font-body); }
-  .jd-tag::before { content: ""; width: 0.65em; border-top: 2px solid var(--ultra); align-self: center; }
+  .jd-kicker { color: var(--jd-ink-print); font: 600 var(--jd-size-base)/1.4 var(--jd-font-label); }
+  .jd-prose { max-width: var(--jd-measure); font: var(--jd-size-prose)/1.6 var(--jd-font-body); }
+  .jd-code { font-family: var(--jd-font-mono); font-size: 0.875em; }
+  .jd-tag { display: inline-flex; align-items: baseline; gap: 0.4em; color: var(--jd-text-muted); font: var(--jd-size-sm)/1.4 var(--jd-font-body); }
+  .jd-tag::before { content: ""; width: 0.65em; border-top: 2px solid var(--jd-ink-print); align-self: center; }
 }
 
 @layer jackdaw.components {
@@ -149,108 +225,297 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--s-1);
-    min-height: 2.75rem;
+    gap: var(--jd-s-1);
+    min-height: var(--jd-control-height);
     padding: 0.65rem 1.2rem;
-    border: 1px solid var(--ultra);
-    border-radius: var(--radius);
+    border: 1px solid var(--jd-ink-print);
+    border-radius: var(--jd-radius);
     background: transparent;
-    color: var(--ultra);
-    font: 700 1rem/1.2 var(--font-display);
+    color: var(--jd-ink-print);
+    font: 700 var(--jd-size-base)/1.2 var(--jd-font-display);
     text-align: center;
     text-decoration: none;
     cursor: pointer;
   }
-  .jd-button:hover { background: var(--paper); text-decoration: underline; text-underline-offset: 0.2em; }
-  .jd-button--primary { border-color: var(--lime); background: var(--lime); color: var(--ink); box-shadow: 4px 4px 0 var(--ultra); }
-  .jd-button--primary:hover { background: var(--lime); box-shadow: 2px 2px 0 var(--ultra); transform: translate(2px, 2px); }
+  .jd-button:hover { background: var(--jd-paper); text-decoration: underline; text-underline-offset: 0.2em; }
+  .jd-button--primary { border-color: var(--jd-ink-accent); background: var(--jd-ink-accent); color: var(--jd-text); box-shadow: 4px 4px 0 var(--jd-ink-print); }
+  .jd-button--primary:hover { background: var(--jd-ink-accent); box-shadow: 2px 2px 0 var(--jd-ink-print); transform: translate(2px, 2px); }
   .jd-button--primary:active { box-shadow: none; transform: translate(4px, 4px); }
-  .jd-button:focus-visible, .jd-input:focus-visible, .jd-check:focus-visible, .jd-link:focus-visible {
-    outline: 2px solid var(--ultra);
-    outline-offset: 3px;
+  .jd-button--primary { transition: transform var(--jd-press), box-shadow var(--jd-press); }
+  @media (prefers-reduced-motion: reduce) { .jd-button--primary { transition: none; } }
+  .jd-button:focus-visible, .jd-input:focus-visible, .jd-check:focus-visible, .jd-link:focus-visible, .jd-switch:focus-visible, .jd-chip:focus-visible, .jd-copy:focus-visible {
+    outline: var(--jd-focus-width) solid var(--jd-focus-color);
+    outline-offset: var(--jd-focus-offset);
   }
   .jd-button:disabled { opacity: 0.55; cursor: not-allowed; }
   .jd-button:disabled:hover { background: transparent; text-decoration: none; }
   .jd-button--primary:disabled { box-shadow: none; }
-  .jd-button--primary:disabled:hover { background: var(--lime); transform: none; }
-  .jd-link { color: var(--ultra); text-decoration: underline; text-underline-offset: 0.15em; }
-  .jd-link:hover { color: var(--ultra-deep); text-decoration-thickness: 2px; }
-  .jd-field { display: grid; gap: var(--s-1); }
-  .jd-label { color: var(--ink); font: 700 1rem/1.3 var(--font-display); }
-  .jd-hint { color: var(--muted); font-size: 0.9rem; margin: 0; }
+  .jd-button--primary:disabled:hover { background: var(--jd-ink-accent); transform: none; }
+  .jd-link { color: var(--jd-ink-print); text-decoration: underline; text-underline-offset: 0.15em; }
+  .jd-link:hover { color: var(--jd-ink-print-deep); text-decoration-thickness: 2px; }
+  .jd-field { display: grid; gap: var(--jd-s-1); }
+  .jd-label { color: var(--jd-text); font: 700 var(--jd-size-base)/1.3 var(--jd-font-display); }
+  .jd-hint { color: var(--jd-text-muted); font-size: var(--jd-size-sm); margin: 0; }
   .jd-input {
     box-sizing: border-box;
     width: 100%;
-    min-height: 2.75rem;
+    min-height: var(--jd-control-height);
     padding: 0.6rem 0.75rem;
-    border: 1px solid var(--muted);
-    border-radius: var(--radius);
-    background: var(--paper);
-    color: var(--ink);
-    font: 1rem/1.4 var(--font-body);
+    border: 1px solid var(--jd-text-muted);
+    border-radius: var(--jd-radius);
+    background: var(--jd-paper);
+    color: var(--jd-text);
+    font: var(--jd-size-base)/1.4 var(--jd-font-body);
   }
   textarea.jd-input { min-height: 7rem; resize: vertical; }
   .jd-input:disabled { opacity: 0.55; cursor: not-allowed; }
   /* Inset shadow thickens the edge without moving the content. */
-  .jd-input[aria-invalid="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
-  .jd-error { color: var(--ink); font-weight: 700; margin: 0; }
-  .jd-check { accent-color: var(--ultra); width: 1.125rem; height: 1.125rem; margin: 0; flex: none; }
-  .jd-choice { display: flex; align-items: baseline; gap: var(--s-1); }
-  .jd-choice .jd-check { align-self: center; }
+  .jd-input[aria-invalid="true"] { border-color: var(--jd-text); box-shadow: inset 0 0 0 1px var(--jd-text); }
+  .jd-error { color: var(--jd-text); font-weight: 700; margin: 0; }
+  .jd-check { accent-color: var(--jd-ink-print); width: 1.125rem; height: 1.125rem; margin: 0; flex: none; }
+  .jd-choice { display: flex; align-items: baseline; gap: var(--jd-s-1); }
+  .jd-choice :is(.jd-check, .jd-switch) { align-self: center; }
+  /* One drawn triangle on the print ink token (two halves left a seam); :dir() flips the side. */
+  select.jd-input:not([multiple]) {
+    appearance: none;
+    padding-inline-end: 2.25rem;
+    background-image: conic-gradient(from -45deg at 50% 100%, var(--jd-ink-print) 90deg, transparent 0);
+    background-size: 0.8rem 0.4rem;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 0.75rem) 50%;
+  }
+  select.jd-input:not([multiple]):dir(rtl) { background-position: 0.75rem 50%; }
+  .jd-switch {
+    appearance: none;
+    position: relative;
+    box-sizing: border-box;
+    flex: none;
+    inline-size: 2.75rem;
+    block-size: 1.5rem;
+    margin: 0;
+    border: 1px solid var(--jd-ink-print);
+    border-radius: var(--jd-radius);
+    background: var(--jd-paper);
+    cursor: pointer;
+  }
+  .jd-switch::before { content: ""; position: absolute; inset-block: 3px; inset-inline-start: 3px; inline-size: 1rem; border-radius: var(--jd-radius); background: var(--jd-ink-print); }
+  .jd-switch:checked { background: var(--jd-ink-print); }
+  .jd-switch:checked::before { inset-inline: auto 3px; background: var(--jd-paper); }
+  .jd-switch:disabled { opacity: 0.55; cursor: not-allowed; }
+  .jd-chip { display: inline-flex; align-items: center; padding: 0.1rem 0.6rem; border: 1px solid var(--jd-ink-print); border-radius: var(--jd-radius); background: transparent; color: var(--jd-ink-print); font: var(--jd-size-sm)/1.4 var(--jd-font-body); text-decoration: none; }
+  :is(a, button).jd-chip { cursor: pointer; }
+  :is(a, button).jd-chip:hover { background: var(--jd-paper); text-decoration: underline; text-underline-offset: 0.2em; }
+  .jd-copy { padding: 0.15rem 0.5rem; border: 1px solid var(--jd-ink-print); border-radius: var(--jd-radius); background: var(--jd-paper); color: var(--jd-ink-print); font: 600 var(--jd-size-xs)/1.4 var(--jd-font-body); cursor: pointer; }
+  .jd-copy:hover { background: var(--jd-ink-accent); color: var(--jd-text); }
+  .jd-copy:disabled { opacity: 0.55; cursor: not-allowed; }
+  .jd-action-strip { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--jd-s-2); padding: var(--jd-s-2) var(--jd-s-3); background: var(--jd-ink-accent); color: var(--jd-text); }
+  .jd-action-strip a:not(.jd-button) { color: var(--jd-text); font-weight: 700; }
+  .jd-action-strip .jd-button--primary { border-color: var(--jd-text); }
+  /* Print ink can fall under 3:1 on the accent, so the ring uses text colour here. */
+  .jd-action-strip :focus-visible { outline: var(--jd-focus-width) solid var(--jd-text); outline-offset: var(--jd-focus-offset); }
 }
 
 @layer jackdaw.components {
-  .jd-container { box-sizing: border-box; width: min(100%, calc(var(--wide) + 2 * var(--gutter))); margin-inline: auto; padding-inline: var(--gutter); }
-  .jd-container--reading { max-width: calc(var(--measure) + 2 * var(--gutter)); }
-  .jd-stack { display: flex; flex-direction: column; gap: var(--jd-gap, var(--s-2)); }
-  .jd-cluster { display: flex; flex-wrap: wrap; align-items: center; gap: var(--jd-gap, var(--s-2)); }
-  .jd-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--jd-column, 16rem)), 1fr)); gap: var(--jd-gap, var(--s-3)); }
-  .jd-section { padding-block: var(--s-5); }
-  .jd-rule { border: 0; border-top: 2px solid var(--ultra); margin-block: var(--s-3); }
+  .jd-container { box-sizing: border-box; width: min(100%, calc(var(--jd-wide) + 2 * var(--jd-gutter))); margin-inline: auto; padding-inline: var(--jd-gutter); }
+  .jd-container--reading { max-width: calc(var(--jd-measure) + 2 * var(--jd-gutter)); }
+  .jd-stack { display: flex; flex-direction: column; gap: var(--jd-gap, var(--jd-s-2)); }
+  .jd-cluster { display: flex; flex-wrap: wrap; align-items: center; gap: var(--jd-gap, var(--jd-s-2)); }
+  .jd-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--jd-column, 16rem)), 1fr)); gap: var(--jd-gap, var(--jd-s-3)); }
+  .jd-section { padding-block: var(--jd-s-5); }
+  .jd-rule { border: 0; border-top: 2px solid var(--jd-ink-print); margin-block: var(--jd-s-3); }
   .jd-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 }
 
 @layer jackdaw.components {
-  .jd-skip { position: absolute; z-index: 10; top: var(--s-1); left: var(--s-1); padding: var(--s-1) var(--s-2); background: var(--lime); color: var(--ink); transform: translateY(-200%); }
+  .jd-skip { position: absolute; z-index: 10; top: var(--jd-s-1); inset-inline-start: var(--jd-s-1); padding: var(--jd-s-1) var(--jd-s-2); background: var(--jd-ink-accent); color: var(--jd-text); transform: translateY(-200%); }
   .jd-skip:focus { transform: none; }
-  .jd-nav { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-3); }
-  .jd-nav a { color: var(--ink); font: 700 1rem/1.3 var(--font-display); text-decoration: none; }
-  .jd-nav a:hover, .jd-nav a[aria-current] { color: var(--ultra); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.25em; }
-  .jd-nav a:focus-visible, .jd-skip:focus-visible, .jd-breadcrumbs a:focus-visible { outline: 2px solid var(--ultra); outline-offset: 3px; }
+  .jd-nav { display: flex; flex-wrap: wrap; align-items: center; gap: var(--jd-s-2) var(--jd-s-3); }
+  .jd-nav a { color: var(--jd-text); font: 700 var(--jd-size-base)/1.3 var(--jd-font-display); text-decoration: none; }
+  .jd-nav a:hover, .jd-nav a[aria-current] { color: var(--jd-ink-print); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.25em; }
+  .jd-nav a:focus-visible, .jd-skip:focus-visible, .jd-breadcrumbs a:focus-visible { outline: var(--jd-focus-width) solid var(--jd-focus-color); outline-offset: var(--jd-focus-offset); }
   .jd-breadcrumbs { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; margin: 0; list-style: none; }
-  .jd-breadcrumbs li + li::before { content: "/"; margin-right: 0.4rem; color: var(--muted); }
-  .jd-breadcrumbs a { color: var(--ultra); }
-  .jd-pagination { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-1); }
-  .jd-pagination a { display: inline-flex; min-width: 2.75rem; min-height: 2.75rem; align-items: center; justify-content: center; color: var(--ultra); }
-  .jd-pagination a[aria-current="page"] { background: var(--ultra); color: var(--paper); text-decoration: none; }
-  .jd-pagination a:focus-visible { outline: 2px solid var(--ultra); outline-offset: 3px; }
+  .jd-breadcrumbs li + li::before { content: "/"; margin-inline-end: 0.4rem; color: var(--jd-text-muted); }
+  .jd-breadcrumbs a { color: var(--jd-ink-print); }
+  .jd-pagination { display: flex; flex-wrap: wrap; align-items: center; gap: var(--jd-s-1); }
+  .jd-pagination a { display: inline-flex; min-width: var(--jd-control-height); min-height: var(--jd-control-height); align-items: center; justify-content: center; color: var(--jd-ink-print); }
+  .jd-pagination a[aria-current="page"] { background: var(--jd-ink-print); color: var(--jd-paper); text-decoration: none; }
+  .jd-pagination a:focus-visible { outline: var(--jd-focus-width) solid var(--jd-focus-color); outline-offset: var(--jd-focus-offset); }
 }
 
 @layer jackdaw.components {
-  .jd-notice { padding: var(--s-2) var(--s-3); border-left: 3px solid var(--ultra); background: var(--paper); color: var(--ink); }
+  .jd-notice { padding: var(--jd-s-2) var(--jd-s-3); border-inline-start: 3px solid var(--jd-ink-print); background: var(--jd-paper); color: var(--jd-text); }
   .jd-notice > :first-child { margin-top: 0; }
   .jd-notice > :last-child { margin-bottom: 0; }
-  .jd-notice__title { font: 700 1.05rem/1.3 var(--font-display); }
-  .jd-notice--error { border-left-style: double; border-left-width: 6px; border-left-color: var(--ink); }
-  .jd-notice--success { border-left-color: var(--ink); }
-  .jd-status { display: inline-flex; align-items: center; gap: 0.4em; font-size: 0.9rem; font-weight: 700; }
+  .jd-notice__title { font: 700 var(--jd-size-lg)/1.3 var(--jd-font-display); }
+  .jd-notice--error { border-inline-start-style: double; border-inline-start-width: 6px; border-inline-start-color: var(--jd-text); }
+  .jd-notice--success { border-inline-start-color: var(--jd-text); }
+  .jd-status { display: inline-flex; align-items: center; gap: 0.4em; font-size: var(--jd-size-sm); font-weight: 700; }
   .jd-status::before { content: ""; width: 0.55em; height: 0.55em; border: 1px solid currentColor; border-radius: 50%; background: currentColor; }
   .jd-status--pending::before { background: transparent; }
-  .jd-empty { padding: var(--s-3); border: 1px solid var(--rule); }
+  .jd-empty { padding: var(--jd-s-3); border: 1px solid var(--jd-rule); }
   .jd-empty > :first-child { margin-top: 0; }
   .jd-empty > :last-child { margin-bottom: 0; }
+  /* Same track and fill as jd-bar. The track is painted once, on the element; the WebKit bars stay clear. */
+  .jd-progress, .jd-meter { --_track: color-mix(in srgb, var(--jd-ink-print) 10%, transparent); appearance: none; display: block; box-sizing: border-box; inline-size: 100%; block-size: 0.75rem; overflow: hidden; border: 0; border-radius: var(--jd-radius); background: var(--_track); box-shadow: var(--jd-edge-print); color: var(--jd-ink-print); }
+  .jd-progress::-webkit-progress-bar { background: transparent; }
+  .jd-progress::-webkit-progress-value { background: var(--jd-ink-print); }
+  .jd-progress::-moz-progress-bar { background: var(--jd-ink-print); }
+  .jd-meter::-webkit-meter-bar { block-size: 100%; border: 0; background: transparent; }
+  /* Separate rules: an engine that drops one pseudo-element would drop the whole list. */
+  .jd-meter::-webkit-meter-optimum-value { background: var(--jd-ink-print); }
+  .jd-meter::-moz-meter-bar { background: var(--jd-ink-print); }
+  /* Worse values change texture, not hue. */
+  .jd-meter::-webkit-meter-suboptimum-value { background: var(--jd-hatch-fine); box-shadow: var(--jd-edge-print); }
+  .jd-meter::-webkit-meter-even-less-good-value { background: var(--jd-hatch-coarse); box-shadow: var(--jd-edge-print); }
+  .jd-meter:-moz-meter-sub-optimum::-moz-meter-bar { background: var(--jd-hatch-fine); box-shadow: var(--jd-edge-print); }
+  .jd-meter:-moz-meter-sub-sub-optimum::-moz-meter-bar { background: var(--jd-hatch-coarse); box-shadow: var(--jd-edge-print); }
+}
+
+@layer jackdaw.components {
+  /* Focusable when it scrolls, so the author sets tabindex="0" and a label. */
+  pre.jd-codeblock { box-sizing: border-box; max-inline-size: 100%; margin: 0; padding: 1rem 1.15rem; overflow-x: auto; border: 1px solid var(--jd-rule); border-radius: var(--jd-radius); background: var(--jd-paper); color: var(--jd-text); font: var(--jd-size-sm)/1.55 var(--jd-font-mono); tab-size: 2; }
+  pre.jd-codeblock:focus-visible { outline: var(--jd-focus-width) solid var(--jd-focus-color); outline-offset: var(--jd-focus-offset); }
+  .jd-codeblock-figure { margin: 0; }
+  .jd-codeblock__caption { padding: 0.35rem 0.75rem; background: var(--jd-ink-print); color: var(--jd-paper); font: var(--jd-size-xs)/1.4 var(--jd-font-mono); }
+  .jd-codeblock__caption + pre.jd-codeblock { border-start-start-radius: 0; border-start-end-radius: 0; border-block-start: 0; }
+  .jd-kbd { padding: 0.1em 0.4em; border: 1px solid var(--jd-text-muted); border-block-end-width: 2px; border-radius: var(--jd-radius); background: var(--jd-paper); color: var(--jd-text); font: 0.85em/1.2 var(--jd-font-mono); white-space: nowrap; }
+}
+
+@layer jackdaw.components {
+  .jd-figure { margin-block: var(--jd-s-3); margin-inline: 0; }
+  .jd-figure img { display: block; max-inline-size: 100%; block-size: auto; }
+  .jd-figure figcaption { margin-block-start: var(--jd-s-1); padding-block-start: var(--jd-s-1); border-block-start: 1px solid var(--jd-rule); color: var(--jd-text-muted); font-size: var(--jd-size-xs); }
+  .jd-quote { margin-block: var(--jd-s-3); margin-inline: 0; padding-inline-start: var(--jd-s-2); border-inline-start: 1px solid var(--jd-ink-print); color: var(--jd-text-muted); }
+  .jd-quote > :first-child { margin-block-start: 0; }
+  .jd-quote > :last-child { margin-block-end: 0; }
+  .jd-quote > :is(cite, footer) { display: block; margin-block-start: var(--jd-s-1); font-size: var(--jd-size-sm); }
+  .jd-quote cite { font-style: normal; }
+  .jd-pullquote { margin-block: var(--jd-s-4); margin-inline: 0; padding-block: var(--jd-s-2); border-block: 2px solid var(--jd-ink-print); color: var(--jd-ink-print); font: 700 clamp(1.5rem, 3.5vw, 2.25rem)/1.2 var(--jd-font-display); letter-spacing: -0.015em; text-wrap: balance; }
+  .jd-footnote-ref { padding-inline: 0.15em; color: var(--jd-ink-print); font-size: 0.75em; font-weight: 700; line-height: 0; vertical-align: super; text-decoration: underline; }
+  .jd-footnote-ref:focus-visible, .jd-footnotes a:focus-visible { outline: var(--jd-focus-width) solid var(--jd-focus-color); outline-offset: var(--jd-focus-offset); }
+  .jd-footnotes { margin-block-start: var(--jd-s-4); padding-block-start: var(--jd-s-2); border-block-start: 2px solid var(--jd-ink-print); font-size: var(--jd-size-sm); }
+  .jd-footnotes li { padding: 0.25rem 0.5rem; scroll-margin-block: var(--jd-s-3); }
+  .jd-footnotes a { color: var(--jd-ink-print); }
+  /* Fill plus an edge, so the target reads without hue. */
+  .jd-footnotes :target { background: var(--jd-paper); box-shadow: var(--jd-edge-print); }
+  .jd-card { box-sizing: border-box; padding: var(--jd-s-3); border: 1px solid var(--jd-ink-print); border-radius: var(--jd-radius); background: var(--jd-paper); color: var(--jd-text); }
+  .jd-card > :last-child { margin-block-end: 0; }
+  .jd-card__title { margin-block: 0 var(--jd-s-1); color: var(--jd-ink-print); font: 700 1.35rem/1.2 var(--jd-font-display); }
+}
+
+/* Style only. The app calls showModal() or sets popovertarget; never set display here, the UA hides closed ones. */
+@layer jackdaw.components {
+  .jd-dialog { --jd-dialog-width: 30rem; box-sizing: border-box; inline-size: min(calc(100% - 2 * var(--jd-s-2)), var(--jd-dialog-width)); max-block-size: calc(100dvh - 2 * var(--jd-s-2)); overflow: auto; padding: var(--jd-s-3); border: 2px solid var(--jd-ink-print); border-radius: var(--jd-radius); background: var(--jd-paper); color: var(--jd-text); box-shadow: 0.25rem 0.25rem 0 color-mix(in srgb, var(--jd-ink-print) 14%, transparent); }
+  /* CanvasText covers engines where ::backdrop does not inherit custom properties. */
+  .jd-dialog::backdrop { background: color-mix(in srgb, var(--jd-text, CanvasText) 50%, transparent); }
+  .jd-dialog__title { margin-block: 0 var(--jd-s-1); color: var(--jd-ink-print); font: 700 1.35rem/1.2 var(--jd-font-display); }
+  .jd-dialog__actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--jd-s-1); margin-block-start: var(--jd-s-3); }
+  [popover].jd-popover { box-sizing: border-box; max-inline-size: min(calc(100% - 2 * var(--jd-s-2)), 20rem); padding: var(--jd-s-2); border: 1px solid var(--jd-ink-print); border-radius: var(--jd-radius); background: var(--jd-paper); color: var(--jd-text); font-size: var(--jd-size-sm); }
 }
 
 @layer jackdaw.components {
   .jd-table-wrap { max-width: 100%; overflow-x: auto; }
-  .jd-table-wrap:focus-visible { outline: 2px solid var(--ultra); outline-offset: 3px; }
-  .jd-table { width: 100%; border-collapse: collapse; text-align: left; font-variant-numeric: tabular-nums; }
-  .jd-table caption { padding-bottom: var(--s-1); color: var(--ink); font: 700 1.05rem/1.3 var(--font-display); text-align: left; }
-  .jd-table th, .jd-table td { padding: 0.75rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
-  .jd-table thead th { border-bottom: 2px solid var(--ultra); color: var(--ultra); font-family: var(--font-display); }
+  .jd-table-wrap:focus-visible { outline: var(--jd-focus-width) solid var(--jd-focus-color); outline-offset: var(--jd-focus-offset); }
+  .jd-table { width: 100%; border-collapse: collapse; text-align: start; font-variant-numeric: tabular-nums; }
+  .jd-table caption { padding-bottom: var(--jd-s-1); color: var(--jd-text); font: 700 var(--jd-size-lg)/1.3 var(--jd-font-display); text-align: start; }
+  /* UA centres th; :where keeps .jd-table__number able to override. */
+  :where(.jd-table) th { text-align: start; }
+  .jd-table th, .jd-table td { padding: 0.75rem; border-bottom: 1px solid var(--jd-rule); vertical-align: top; }
+  .jd-table thead th { border-bottom: 2px solid var(--jd-ink-print); color: var(--jd-ink-print); font-family: var(--jd-font-display); }
   .jd-table tbody th { font-weight: 700; }
   .jd-table--compact th, .jd-table--compact td { padding: 0.4rem 0.6rem; }
-  .jd-table__number { text-align: right; }
+  .jd-table__number { text-align: end; }
+}
+
+/* Print effects. All opt-in; each class names one thing a press does. */
+@layer jackdaw.components {
+  .jd-mark { padding-inline: 0.15em; background: var(--jd-ink-accent); color: inherit; mix-blend-mode: multiply; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .jd-overprint { mix-blend-mode: multiply; }
+  /* Longhands only, so the dots sit over a paper surface or stock instead of replacing it. */
+  .jd-halftone, .jd-bar__fill--halftone, .jd-swatch--halftone { background-image: var(--jd-halftone); background-size: var(--jd-halftone-size) var(--jd-halftone-size); }
+  .jd-bar__fill--halftone, .jd-swatch--halftone { background-color: var(--jd-paper); box-shadow: var(--jd-edge-print); }
+  .jd-inked { -webkit-mask: var(--jd-ink-mask) 0 0 / 260px 260px repeat; mask: var(--jd-ink-mask) 0 0 / 260px 260px repeat; }
+  /* Ticks sit outside the block, in a pseudo-element, so the block's own background stays free. */
+  .jd-crop {
+    --jd-crop-len: 0.75rem;
+    --jd-crop-gap: 0.25rem;
+    --jd-crop-off: calc(var(--jd-crop-len) + var(--jd-crop-gap));
+    --jd-crop-tick: linear-gradient(var(--jd-ink-print), var(--jd-ink-print));
+    position: relative;
+  }
+  .jd-crop::before {
+    content: "";
+    position: absolute;
+    inset: calc(-1 * var(--jd-crop-off));
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-image: var(--jd-crop-tick), var(--jd-crop-tick), var(--jd-crop-tick), var(--jd-crop-tick), var(--jd-crop-tick), var(--jd-crop-tick), var(--jd-crop-tick), var(--jd-crop-tick);
+    background-size: var(--jd-crop-len) 1px, var(--jd-crop-len) 1px, var(--jd-crop-len) 1px, var(--jd-crop-len) 1px, 1px var(--jd-crop-len), 1px var(--jd-crop-len), 1px var(--jd-crop-len), 1px var(--jd-crop-len);
+    background-position: left 0 top var(--jd-crop-off), right 0 top var(--jd-crop-off), left 0 bottom var(--jd-crop-off), right 0 bottom var(--jd-crop-off), left var(--jd-crop-off) top 0, right var(--jd-crop-off) top 0, left var(--jd-crop-off) bottom 0, right var(--jd-crop-off) bottom 0;
+  }
+  hr.jd-perforation { height: 0; margin-block: var(--jd-s-3); border: 0; border-top: 2px dotted var(--jd-ink-print); }
+  .jd-tag--stamp { padding: 0.15em 0.6em; border: 2px solid var(--jd-ink-print); border-radius: var(--jd-radius); color: var(--jd-ink-print); font: 700 var(--jd-size-xs)/1.2 var(--jd-font-label); letter-spacing: 0.12em; text-transform: uppercase; transform: rotate(-2deg); }
+  .jd-tag--stamp::before { content: none; }
+}
+
+/* Paper output: white stock, black text, and data that keeps its fills. */
+@layer jackdaw.components {
+  @media print {
+    :root, .jd-scope, [class*="jd-stock-"] { --jd-ground: #fff; --jd-ground-deep: #fff; --jd-paper: #fff; --jd-text: #000; }
+    .jd-paper-ground, .jd-paper-sheet { background: #fff; box-shadow: none; }
+    .jd-button--primary { box-shadow: none; }
+    :is(.jd-bar, .jd-bar__fill, .jd-bar__mark, .jd-bar__segment, .jd-swatch, .jd-status, .jd-button--primary, .jd-codeblock__caption, .jd-action-strip, .jd-switch, .jd-progress, .jd-meter), .jd-switch::before, .jd-crop::before { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .jd-skip, .jd-pagination { display: none; }
+    .jd-prose a[href^="http"]::after { content: " (" attr(href) ")"; }
+    .jd-notice, .jd-table tr, .jd-figure, .jd-codeblock-figure, .jd-bar, .jd-legend { break-inside: avoid; }
+    .jd-bar { break-after: avoid; }
+    .jd-quote, .jd-pullquote, .jd-card, .jd-codeblock, .jd-footnotes li, .jd-dialog { break-inside: avoid; }
+    /* Wrap instead of scrolling, so no code is cut off. */
+    pre.jd-codeblock { overflow: visible; white-space: pre-wrap; }
+    .jd-copy { display: none; }
+    .jd-table thead { display: table-header-group; }
+  }
+}
+
+/* Windows High Contrast drops shadows and gradients; redraw data and state with system colours and outlines. */
+@layer jackdaw.components {
+  @media (forced-colors: active) {
+    .jd-bar:not(.jd-bar--segmented) { outline: 1px solid CanvasText; outline-offset: -1px; }
+    :is(.jd-bar__fill, .jd-bar__mark, .jd-swatch) { forced-color-adjust: none; background: CanvasText; }
+    :is(.jd-bar__fill--under, .jd-swatch--under) { background: Canvas; outline: 2px dashed CanvasText; outline-offset: -2px; }
+    :is(.jd-bar__fill--halftone, .jd-swatch--halftone) { background: Canvas; outline: 2px dotted CanvasText; outline-offset: -2px; }
+    /* Rank by fill, thick edge, thin edge, dashed edge: no hue or gradient needed. */
+    :is(.jd-tone--oppose, .jd-tone--support) [data-rank] { forced-color-adjust: none; background: Canvas; color: CanvasText; }
+    :is(.jd-tone--oppose, .jd-tone--support) [data-rank="0"] { background: CanvasText; color: Canvas; }
+    :is(.jd-tone--oppose, .jd-tone--support) [data-rank="1"] { outline: 3px solid CanvasText; outline-offset: -3px; }
+    :is(.jd-tone--oppose, .jd-tone--support) [data-rank="2"] { outline: 1px solid CanvasText; outline-offset: -1px; }
+    :is(.jd-tone--oppose, .jd-tone--support) [data-rank="rest"] { outline: 2px dashed CanvasText; outline-offset: -2px; }
+    .jd-status::before { forced-color-adjust: none; border-color: CanvasText; background: CanvasText; }
+    .jd-status--pending::before { background: Canvas; }
+    .jd-pagination a[aria-current="page"] { background: Highlight; color: HighlightText; }
+    .jd-button--primary, .jd-button--primary:hover { background: Highlight; color: HighlightText; outline: 2px solid ButtonText; outline-offset: 2px; }
+    .jd-skip { border: 2px solid CanvasText; background: Canvas; color: LinkText; }
+    .jd-input[aria-invalid="true"] { border-width: 3px; }
+    .jd-paper-sheet { outline: 1px solid CanvasText; }
+    /* Edges that are borders survive on their own; these redraw fills, gradients and shadows. */
+    .jd-switch { forced-color-adjust: none; border-color: CanvasText; background: Canvas; }
+    .jd-switch::before { background: CanvasText; }
+    .jd-switch:checked { background: CanvasText; }
+    .jd-switch:checked::before { background: Canvas; }
+    .jd-switch:disabled { border-style: dashed; }
+    select.jd-input:not([multiple]) { appearance: auto; background-image: none; padding-inline-end: 0.75rem; }
+    .jd-progress, .jd-meter { forced-color-adjust: none; background: Canvas; box-shadow: none; outline: 1px solid CanvasText; outline-offset: -1px; --_hatch: repeating-linear-gradient(45deg, CanvasText 0 1px, Canvas 1px 5px); }
+    .jd-progress::-webkit-progress-value { background: CanvasText; }
+    .jd-meter::-webkit-meter-optimum-value { background: CanvasText; }
+    .jd-progress::-moz-progress-bar, .jd-meter::-moz-meter-bar { background: CanvasText; }
+    .jd-meter::-webkit-meter-suboptimum-value, .jd-meter::-webkit-meter-even-less-good-value { background: var(--_hatch); box-shadow: none; }
+    .jd-meter:-moz-meter-sub-optimum::-moz-meter-bar, .jd-meter:-moz-meter-sub-sub-optimum::-moz-meter-bar { background: var(--_hatch); box-shadow: none; }
+    .jd-codeblock__caption { border: 1px solid CanvasText; }
+    .jd-action-strip { border-block: 2px solid CanvasText; }
+    .jd-footnotes :target { outline: 2px solid CanvasText; }
+    /* Multiply against a black canvas would hide the text. */
+    :is(.jd-mark, .jd-overprint) { mix-blend-mode: normal; }
+  }
 }
 
 * { box-sizing: border-box; }
@@ -274,32 +539,37 @@ body { margin: 0; background: #17171d; color: #f6f6f2; font: 15px/1.5 system-ui,
 .workspace { min-width: 0; padding: 1.5rem; }
 .workspace-bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; margin-bottom: 1rem; color: #c2c2cb; }
 .preview-frame { margin: auto; max-width: 100%; transition: width .2s; }
-.preview { color: var(--ink); font: 1.0625rem/1.6 var(--font-body); min-height: 100vh; }
+.preview { color: var(--jd-text); font: 1.0625rem/1.6 var(--jd-font-body); min-height: 100vh; }
 .preview a { overflow-wrap: anywhere; }
-.catalogue-header { padding-block: var(--s-5) var(--s-4); border-bottom: 2px solid var(--ultra); }
-.catalogue-kicker { margin: 0; color: var(--ultra); font: 700 .85rem/1.3 var(--font-display); letter-spacing: .08em; text-transform: uppercase; }
+.catalogue-header { padding-block: var(--jd-s-5) var(--jd-s-4); border-bottom: 2px solid var(--jd-ink-print); }
+.catalogue-kicker { margin: 0; color: var(--jd-ink-print); font: 700 .85rem/1.3 var(--jd-font-display); letter-spacing: .08em; text-transform: uppercase; }
 .catalogue-intro { font-size: 1.125rem; }
-.catalogue-principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: var(--s-2) var(--s-3); margin-top: var(--s-4); padding-top: var(--s-2); border-top: 1px solid var(--rule); }
+.catalogue-principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: var(--jd-s-2) var(--jd-s-3); margin-top: var(--jd-s-4); padding-top: var(--jd-s-2); border-top: 1px solid var(--jd-rule); }
 .catalogue-principles p { margin: 0; font-size: .9rem; }
-.catalogue-principles strong { display: block; color: var(--ultra); font-family: var(--font-display); }
+.catalogue-principles strong { display: block; color: var(--jd-ink-print); font-family: var(--jd-font-display); }
 .catalogue-header h1 { margin: .2em 0; }
 .catalogue-header p { max-width: 42rem; }
-.catalogue-nav { margin-top: var(--s-4); padding: var(--s-2) 0; border-top: 1px solid var(--rule); }
-.catalogue-section { padding-block: var(--s-4); border-bottom: 1px solid var(--rule); }
-.catalogue-section h2 { margin: 0 0 var(--s-2); }
-.catalogue-section > p { max-width: var(--measure); }
+.catalogue-nav { margin-top: var(--jd-s-4); padding: var(--jd-s-2) 0; border-top: 1px solid var(--jd-rule); }
+.catalogue-section { padding-block: var(--jd-s-4); border-bottom: 1px solid var(--jd-rule); }
+.catalogue-section h2 { margin: 0 0 var(--jd-s-2); }
+.catalogue-section > p { max-width: var(--jd-measure); }
 .catalogue-section { scroll-margin-top: 1rem; }
-.catalogue-section h3 { margin: var(--s-3) 0 var(--s-1); color: var(--ultra); font: 700 1.15rem var(--font-display); }
-.example { padding: var(--s-2) 0; }
-.swatches { display: grid; grid-template-columns: repeat(auto-fit,minmax(7rem,1fr)); gap: var(--s-1); }
-.swatch { border: 1px solid var(--rule); background: var(--paper); font-size: .8rem; }
+.catalogue-section h3 { margin: var(--jd-s-3) 0 var(--jd-s-1); color: var(--jd-ink-print); font: 700 1.15rem var(--jd-font-display); }
+.example { padding: var(--jd-s-2) 0; }
+.swatches { display: grid; grid-template-columns: repeat(auto-fit,minmax(7rem,1fr)); gap: var(--jd-s-1); }
+.swatch { border: 1px solid var(--jd-rule); background: var(--jd-paper); font-size: .8rem; }
 .swatch i { display: block; height: 4rem; background: var(--color); }
 .swatch span { display: block; padding: .4rem; }
-.demo-box { padding: var(--s-2); border: 1px solid var(--rule); background: var(--paper); }
+.demo-box { padding: var(--jd-s-2); border: 1px solid var(--jd-rule); background: var(--jd-paper); }
 .demo-form { max-width: 35rem; }
 .demo-form fieldset { border: 0; padding: 0; margin: 0; }
-.demo-form legend { margin-bottom: var(--s-1); }
-.preview code { font-family: var(--font-mono); font-size: .85em; }
+.demo-form legend { margin-bottom: var(--jd-s-1); }
+.overlap { position: relative; height: 6rem; max-width: 22rem; }
+.overlap i { position: absolute; width: 60%; height: 100%; }
+.overlap i:first-child { inset-inline-start: 0; background: var(--jd-ink-print); }
+.overlap i:last-child { inset-inline-start: 40%; background: var(--jd-ink-accent); }
+.effect-block { padding: var(--jd-s-3); margin: var(--jd-s-3) var(--jd-s-2); }
+.preview code { font-family: var(--jd-font-mono); font-size: .85em; }
 @media(max-width: 850px) { .shell { display: block; } .editor { border-right: 0; border-bottom: 1px solid #444; } .workspace { padding: .75rem; } }
 @media(prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .preview-frame { transition: none; } }
 </style>
@@ -309,11 +579,16 @@ body { margin: 0; background: #17171d; color: #f6f6f2; font: 15px/1.5 system-ui,
 <aside class="editor" aria-label="Design controls">
 <div class="editor-intro"><span class="editor-kicker">Jackdaw / Studio</span><h1>Explore the system</h1><p>Try different settings in the preview and copy your choices. Changes are temporary and do not edit the source.</p></div>
 <label>Preset <select id="preset"><option value="" hidden>Custom</option><option value="default">Jackdaw original</option><option value="compact">Compact print</option><option value="open">Open sheet</option><option value="warm">Warm paper</option></select></label>
+<fieldset><legend>Inks and stock</legend>
+<label>Ink pair <select id="inks"><option value="">Ultramarine and lime</option><option value="federal">Federal blue and orange</option><option value="burgundy">Burgundy and yellow</option><option value="forest">Forest and pink</option></select></label>
+<label>Paper stock <select id="stock"><option value="">Pale blue (default)</option><option value="newsprint">Newsprint</option><option value="cream">Cream</option></select></label>
+<p>A pair or stock fills the pickers below. Pickers then override it.</p>
+</fieldset>
 <fieldset><legend>Colour</legend>
 <label>Ground <input type="color" data-key="ground" value="#eef0f9"></label>
 <label>Paper <input type="color" data-key="paper" value="#ffffff"></label>
-<label>Ultramarine <input type="color" data-key="ultra" value="#2f17f0"></label>
-<label>Lime <input type="color" data-key="lime" value="#c4f01c"></label>
+<label>Print ink <input type="color" data-key="ultra" value="#2f17f0"></label>
+<label>Accent ink <input type="color" data-key="lime" value="#c4f01c"></label>
 <label>Text <input type="color" data-key="ink" value="#17161f"></label>
 <label>Muted <input type="color" data-key="muted" value="#4a4a63"></label>
 </fieldset>
@@ -325,34 +600,88 @@ body { margin: 0; background: #17171d; color: #f6f6f2; font: 15px/1.5 system-ui,
 </fieldset>
 <fieldset><legend>Your settings</legend><textarea id="prompt" readonly aria-label="Current preview settings"></textarea><div class="jd-cluster"><button id="copy" type="button">Copy settings</button><button id="reset" type="button">Reset</button></div><p id="copy-status" role="status"></p></fieldset>
 </aside>
-<main class="workspace"><div class="workspace-bar"><strong>COMPONENT CATALOGUE / 01</strong><span>Live preview · resize with the control</span></div><div class="preview-frame" id="frame"><div class="preview jd-paper-ground" id="preview">
-<header class="catalogue-header jd-container"><p class="catalogue-kicker">Jackdaw / Design system</p><h1 class="jd-headline"><span class="jd-ink">A system in two inks.</span></h1><p class="catalogue-intro">A practical set of foundations and components for interfaces with the character of a printed page.</p><div class="catalogue-principles"><p><strong>Ink &amp; paper</strong>Ultramarine gives structure. Lime marks the primary action.</p><p><strong>Built on HTML</strong>Native elements keep the interface familiar and accessible.</p><p><strong>Made to adapt</strong>Shared tokens carry the system across different projects.</p></div><nav class="jd-nav catalogue-nav" aria-label="Catalogue sections"><a href="#foundations">Foundations</a><a href="#actions">Actions</a><a href="#forms">Forms</a><a href="#navigation">Navigation</a><a href="#feedback">Feedback</a><a href="#data">Data</a><a href="#layout">Layout</a></nav></header>
+<main class="workspace"><div class="workspace-bar"><strong>COMPONENT CATALOGUE / 01</strong><span>Live preview · resize with the control</span></div><div class="preview-frame" id="frame"><div class="preview jd-scope jd-paper-ground" id="preview">
+<header class="catalogue-header jd-container"><p class="catalogue-kicker">Jackdaw / Design system</p><h1 class="jd-headline"><span class="jd-ink">A system in two inks.</span></h1><p class="catalogue-intro">A practical set of foundations and components for interfaces with the character of a printed page.</p><div class="catalogue-principles"><p><strong>Ink &amp; paper</strong>One ink gives structure. The other marks the primary action.</p><p><strong>Built on HTML</strong>Native elements keep the interface familiar and accessible.</p><p><strong>Made to adapt</strong>Shared tokens carry the system across different projects.</p></div><nav class="jd-nav catalogue-nav" aria-label="Catalogue sections"><a href="#foundations">Foundations</a><a href="#actions">Actions</a><a href="#forms">Forms</a><a href="#navigation">Navigation</a><a href="#feedback">Feedback</a><a href="#data">Data</a><a href="#layout">Layout</a><a href="#effects">Print effects</a><a href="#rtl">Right to left</a></nav></header>
 <div class="jd-container">
-<section class="catalogue-section" id="foundations"><h2 class="jd-heading">01 / Foundations</h2><p>Colour, type and the marks that hold the system together.</p><div class="swatches"><div class="swatch"><i style="--color:var(--ground)"></i><span>Ground</span></div><div class="swatch"><i style="--color:var(--paper)"></i><span>Paper</span></div><div class="swatch"><i style="--color:var(--ultra)"></i><span>Ultramarine</span></div><div class="swatch"><i style="--color:var(--lime)"></i><span>Lime</span></div><div class="swatch"><i style="--color:var(--ink)"></i><span>Ink</span></div><div class="swatch"><i style="--color:var(--muted)"></i><span>Muted</span></div></div><h3>Type hierarchy</h3><p class="jd-kicker">Section label / 01</p><p class="jd-headline">Headline</p><p class="jd-heading">Section heading</p><p class="jd-title">Title and label</p><p class="jd-prose">A reading column has room to breathe. <a class="jd-link" href="#actions">A link is always identifiable.</a> <code class="jd-code">Code uses mono.</code></p><p class="jd-note">A note about the example.</p><p class="jd-meta">Metadata · 9 November 2026</p><p><span class="jd-small">Small</span> · <span class="jd-secondary">Secondary</span> · <span class="jd-muted">Muted</span></p><span class="jd-tag">Research</span><div class="demo-box jd-paper-sheet"><strong>Paper surface</strong><p>A sheet raised from the ground by a small offset.</p></div><hr class="jd-rule"></section>
-<section class="catalogue-section" id="actions"><h2 class="jd-heading">02 / Actions</h2><div class="jd-cluster"><button type="button" class="jd-button jd-button--primary">Primary action</button><button type="button" class="jd-button">Secondary action</button><button type="button" class="jd-button" disabled>Unavailable</button><a class="jd-link" href="#forms">Text link</a></div><p class="jd-note">Use one primary action per screen. Buttons perform actions; links navigate.</p></section>
-<section class="catalogue-section" id="forms"><h2 class="jd-heading">03 / Forms</h2><p>Give each field a visible label. Connect hints and errors to the field, and explain errors in text.</p><form class="demo-form jd-stack" onsubmit="return false"><div class="jd-field"><label class="jd-label" for="demo-name">Name</label><p class="jd-hint" id="name-hint">The name you use in public.</p><input class="jd-input" id="demo-name" aria-describedby="name-hint" placeholder="Your name"></div><div class="jd-field"><label class="jd-label" for="demo-email">Email</label><input class="jd-input" id="demo-email" type="email" value="example" aria-invalid="true" aria-describedby="email-error"><p class="jd-error" id="email-error">Enter a valid email address.</p></div><div class="jd-field"><label class="jd-label" for="demo-select">Subject</label><select class="jd-input" id="demo-select"><option>Choose a subject</option><option>Design</option><option>Research</option></select></div><div class="jd-field"><label class="jd-label" for="demo-message">Message</label><textarea class="jd-input" id="demo-message"></textarea></div><fieldset><legend class="jd-label">Format</legend><div class="jd-cluster"><label class="jd-choice"><input class="jd-check" type="radio" name="format" checked> Email</label><label class="jd-choice"><input class="jd-check" type="radio" name="format"> Post</label></div></fieldset><label class="jd-choice"><input class="jd-check" type="checkbox"> Send me updates</label><div><button class="jd-button jd-button--primary" type="submit">Send message</button></div></form></section>
+<section class="catalogue-section" id="foundations"><h2 class="jd-heading">01 / Foundations</h2><p>Colour, type and the marks that hold the system together.</p><div class="swatches"><div class="swatch"><i style="--color:var(--jd-ground)"></i><span>Ground</span></div><div class="swatch"><i style="--color:var(--jd-paper)"></i><span>Paper</span></div><div class="swatch"><i style="--color:var(--jd-ink-print)"></i><span>Print ink</span></div><div class="swatch"><i style="--color:var(--jd-ink-accent)"></i><span>Accent ink</span></div><div class="swatch"><i style="--color:var(--jd-text)"></i><span>Ink</span></div><div class="swatch"><i style="--color:var(--jd-text-muted)"></i><span>Muted</span></div></div><h3>Type hierarchy</h3><p class="jd-kicker">Section label / 01</p><p class="jd-headline">Headline</p><p class="jd-heading">Section heading</p><p class="jd-title">Title and label</p><p class="jd-prose">A reading column has room to breathe. <a class="jd-link" href="#actions">A link is always identifiable.</a> <code class="jd-code">Code uses mono.</code></p><p class="jd-note">A note about the example.</p><p class="jd-meta">Metadata · 9 November 2026</p><p><span class="jd-small">Small</span> · <span class="jd-secondary">Secondary</span> · <span class="jd-muted">Muted</span></p><span class="jd-tag">Research</span><div class="demo-box jd-paper-sheet"><strong>Paper surface</strong><p>A sheet raised from the ground by a small offset.</p></div><hr class="jd-rule"></section>
+<section class="catalogue-section" id="actions"><h2 class="jd-heading">02 / Actions</h2><div class="jd-cluster"><button type="button" class="jd-button jd-button--primary">Primary action</button><button type="button" class="jd-button">Secondary action</button><button type="button" class="jd-button" disabled>Unavailable</button><a class="jd-link" href="#forms">Text link</a></div><p class="jd-note">Use one primary action per screen. Buttons perform actions; links navigate.</p>
+<h3>Chips</h3><div class="jd-cluster"><span class="jd-chip">Typography</span><a class="jd-chip" href="#actions">Printing</a><button type="button" class="jd-chip">Paper stocks</button></div><p class="jd-note">A chip is an outlined label. On a link or button it fills with paper on hover and underlines.</p>
+<h3>Copy button</h3><div class="jd-cluster"><button type="button" class="jd-copy" aria-label="Copy install command">Copy</button><code class="jd-code">npm install jackdaw</code></div><p class="jd-note">Style only. The application copies the text and announces the result.</p>
+<h3>Action strip</h3><div class="jd-action-strip"><p style="margin:0"><strong>Issue 02 goes out on Friday.</strong> One email, no feed.</p><a class="jd-button jd-button--primary" href="#actions">Get the next issue</a></div><p class="jd-note">The accent band holds the one primary action on the screen.</p></section>
+<section class="catalogue-section" id="forms"><h2 class="jd-heading">03 / Forms</h2><p>Give each field a visible label. Connect hints and errors to the field, and explain errors in text.</p><form class="demo-form jd-stack" onsubmit="return false"><div class="jd-field"><label class="jd-label" for="demo-name">Name</label><p class="jd-hint" id="name-hint">The name you use in public.</p><input class="jd-input" id="demo-name" aria-describedby="name-hint" placeholder="Your name"></div><div class="jd-field"><label class="jd-label" for="demo-email">Email</label><input class="jd-input" id="demo-email" type="email" value="example" aria-invalid="true" aria-describedby="email-error"><p class="jd-error" id="email-error">Enter a valid email address.</p></div><div class="jd-field"><label class="jd-label" for="demo-select">Subject</label><select class="jd-input" id="demo-select"><option>Choose a subject</option><option>Design</option><option>Research</option></select></div><div class="jd-field"><label class="jd-label" for="demo-message">Message</label><textarea class="jd-input" id="demo-message"></textarea></div><fieldset><legend class="jd-label">Format</legend><div class="jd-cluster"><label class="jd-choice"><input class="jd-check" type="radio" name="format" checked> Email</label><label class="jd-choice"><input class="jd-check" type="radio" name="format"> Post</label></div></fieldset><label class="jd-choice"><input class="jd-check" type="checkbox"> Send me updates</label><div class="jd-stack"><label class="jd-choice"><input class="jd-switch" type="checkbox" role="switch" checked> Show footnotes inline</label><label class="jd-choice"><input class="jd-switch" type="checkbox" role="switch"> Use the cream stock</label><label class="jd-choice"><input class="jd-switch" type="checkbox" role="switch" disabled> Sync across devices (unavailable)</label></div><div><button class="jd-button jd-button--primary" type="submit">Send message</button></div></form></section>
 <section class="catalogue-section" id="navigation"><h2 class="jd-heading">04 / Navigation</h2><p>Use navigation landmarks and mark the current page so people can keep their place.</p><h3>Primary navigation</h3><nav class="jd-nav" aria-label="Example primary"><a href="#navigation" aria-current="page">Overview</a><a href="#navigation">Projects</a><a href="#navigation">About</a></nav><h3>Breadcrumbs</h3><nav aria-label="Breadcrumb"><ol class="jd-breadcrumbs"><li><a href="#navigation">Home</a></li><li><a href="#navigation">Projects</a></li><li aria-current="page">Jackdaw</li></ol></nav><h3>Pagination</h3><nav class="jd-pagination" aria-label="Example pages"><a href="#navigation" aria-label="Page 1" aria-current="page">1</a><a href="#navigation" aria-label="Page 2">2</a><a href="#navigation" aria-label="Page 3">3</a><a href="#navigation">Next →</a></nav><p class="jd-note">A skip link is also available for page-level navigation.</p></section>
-<section class="catalogue-section" id="feedback"><h2 class="jd-heading">05 / Feedback</h2><p>Say what happened and what to do next. Status should be clear from the words as well as the mark.</p><div class="jd-stack"><div class="jd-notice"><p class="jd-notice__title">Information</p><p>Your changes will be saved locally.</p></div><div class="jd-notice jd-notice--success"><p class="jd-notice__title">Saved</p><p>Your changes are ready to review.</p></div><div class="jd-notice jd-notice--error"><p class="jd-notice__title">Unable to save</p><p>Check the highlighted fields and try again.</p></div><div class="jd-cluster"><span class="jd-status">Published</span><span class="jd-status jd-status--pending">Pending</span></div><div class="jd-empty"><h3>No results yet</h3><p>Try another search or clear the filters.</p><a class="jd-link" href="#feedback">Clear filters</a></div></div><h3>Disclosure</h3><details class="jd-disclosure jd-disclosure--marked"><summary><span class="jd-disclosure__label">More information</span></summary><p>Native details work with keyboard and pointer.</p></details></section>
-<section class="catalogue-section" id="data"><h2 class="jd-heading">06 / Data</h2><p>Use headings and labels to make data readable. Provide a text equivalent for visual comparisons.</p><div class="jd-table-wrap" tabindex="0" role="region" aria-label="Project activity table"><table class="jd-table"><caption>Project activity</caption><thead><tr><th scope="col">Project</th><th scope="col">Status</th><th scope="col" class="jd-table__number">Items</th></tr></thead><tbody><tr><th scope="row">Jackdaw</th><td>Active</td><td class="jd-table__number">24</td></tr><tr><th scope="row">Corvus</th><td>Published</td><td class="jd-table__number">12</td></tr></tbody></table></div><h3>Ruled rows</h3><ul class="jd-ruled jd-ruled--closed"><li>First row</li><li>Second row</li></ul><h3>Filled bar</h3><div class="jd-bar" role="img" aria-label="40 of 100, previous 65, target 75"><span class="jd-bar__fill jd-bar__fill--under" style="--v:65%"></span><span class="jd-bar__fill" style="--v:40%"></span><span class="jd-bar__mark" style="--v:75%"></span></div><ul class="jd-legend"><li><span class="jd-swatch"></span> Current 40</li><li><span class="jd-swatch jd-swatch--under"></span> Previous 65</li><li><span class="jd-swatch jd-swatch--mark"></span> Target 75</li></ul><div class="jd-tone--support"><h3>Segmented bar</h3><div class="jd-bar jd-bar--segmented" style="--v:80%" aria-hidden="true"><span class="jd-bar__segment" data-rank="0" style="--v:60">60</span><span class="jd-bar__segment" data-rank="1" style="--v:40">40</span></div><ul class="jd-legend"><li><span class="jd-swatch" data-rank="0"></span> First 60</li><li><span class="jd-swatch" data-rank="1"></span> Second 40</li></ul></div></section>
-<section class="catalogue-section" id="layout"><h2 class="jd-heading">07 / Layout</h2><p>Containers, stacks, clusters and grids adapt to the available width.</p><div class="jd-grid"><div class="demo-box"><strong>One</strong><p>A flexible column.</p></div><div class="demo-box"><strong>Two</strong><p>A flexible column.</p></div><div class="demo-box"><strong>Three</strong><p>A flexible column.</p></div></div></section>
+<section class="catalogue-section" id="feedback"><h2 class="jd-heading">05 / Feedback</h2><p>Say what happened and what to do next. Status should be clear from the words as well as the mark.</p><div class="jd-stack"><div class="jd-notice"><p class="jd-notice__title">Information</p><p>Your changes will be saved locally.</p></div><div class="jd-notice jd-notice--success"><p class="jd-notice__title">Saved</p><p>Your changes are ready to review.</p></div><div class="jd-notice jd-notice--error"><p class="jd-notice__title">Unable to save</p><p>Check the highlighted fields and try again.</p></div><div class="jd-cluster"><span class="jd-status">Published</span><span class="jd-status jd-status--pending">Pending</span></div><div class="jd-empty"><h3>No results yet</h3><p>Try another search or clear the filters.</p><a class="jd-link" href="#feedback">Clear filters</a></div></div><h3>Progress and meter</h3><div class="jd-stack"><div><label for="demo-progress">Proofs checked: 14 of 20</label><progress class="jd-progress" id="demo-progress" max="20" value="14">70%</progress></div><div><label for="demo-meter-ok">Press time left: 80%</label><meter class="jd-meter" id="demo-meter-ok" min="0" max="100" low="30" high="60" optimum="100" value="80">80%</meter></div><div><label for="demo-meter-mid">Ink in the tray: 45%</label><meter class="jd-meter" id="demo-meter-mid" min="0" max="100" low="30" high="60" optimum="100" value="45">45%</meter></div><div><label for="demo-meter-low">Paper in the feeder: 15%</label><meter class="jd-meter" id="demo-meter-low" min="0" max="100" low="30" high="60" optimum="100" value="15">15%</meter></div></div><p class="jd-note">Fill, fine hatch and coarse hatch separate good, middling and low values. Always write the value out.</p>
+<h3>Disclosure</h3><details class="jd-disclosure jd-disclosure--marked"><summary><span class="jd-disclosure__label">More information</span></summary><p>Native details work with keyboard and pointer.</p></details></section>
+<section class="catalogue-section" id="data"><h2 class="jd-heading">06 / Data</h2><p>Use headings and labels to make data readable. Provide a text equivalent for visual comparisons.</p><div class="jd-table-wrap" tabindex="0" role="region" aria-label="Project activity table"><table class="jd-table"><caption>Project activity</caption><thead><tr><th scope="col">Project</th><th scope="col">Status</th><th scope="col" class="jd-table__number">Items</th></tr></thead><tbody><tr><th scope="row">Jackdaw</th><td>Active</td><td class="jd-table__number">24</td></tr><tr><th scope="row">Corvus</th><td>Published</td><td class="jd-table__number">12</td></tr></tbody></table></div><h3>Ruled rows</h3><ul class="jd-ruled jd-ruled--closed"><li>First row</li><li>Second row</li></ul><h3>Filled bar</h3><div class="jd-bar" role="img" aria-label="40 of 100, previous 65, target 75"><span class="jd-bar__fill jd-bar__fill--under" style="--v:65%"></span><span class="jd-bar__fill" style="--v:40%"></span><span class="jd-bar__mark" style="--v:75%"></span></div><ul class="jd-legend"><li><span class="jd-swatch"></span> Current 40</li><li><span class="jd-swatch jd-swatch--under"></span> Previous 65</li><li><span class="jd-swatch jd-swatch--mark"></span> Target 75</li></ul><div class="jd-tone--support"><h3>Segmented bar</h3><div class="jd-bar jd-bar--segmented" style="--v:100%" aria-hidden="true"><span class="jd-bar__segment" data-rank="0" style="--v:40">40</span><span class="jd-bar__segment" data-rank="1" style="--v:30">30</span><span class="jd-bar__segment" data-rank="2" style="--v:20">20</span><span class="jd-bar__segment" data-rank="rest" style="--v:10">10</span></div><ul class="jd-legend"><li><span class="jd-swatch" data-rank="0"></span> First 40</li><li><span class="jd-swatch" data-rank="1"></span> Second 30</li><li><span class="jd-swatch" data-rank="2"></span> Third 20</li><li><span class="jd-swatch" data-rank="rest"></span> Rest 10</li></ul></div><div class="jd-tone--oppose"><h3>Segmented bar, oppose</h3><div class="jd-bar jd-bar--segmented" style="--v:100%" aria-hidden="true"><span class="jd-bar__segment" data-rank="0" style="--v:40">40</span><span class="jd-bar__segment" data-rank="1" style="--v:30">30</span><span class="jd-bar__segment" data-rank="2" style="--v:20">20</span><span class="jd-bar__segment" data-rank="rest" style="--v:10">10</span></div><ul class="jd-legend"><li><span class="jd-swatch" data-rank="0"></span> First 40</li><li><span class="jd-swatch" data-rank="1"></span> Second 30</li><li><span class="jd-swatch" data-rank="2"></span> Third 20</li><li><span class="jd-swatch" data-rank="rest"></span> Rest 10</li></ul></div></section>
+<section class="catalogue-section" id="editorial"><h2 class="jd-heading">07 / Editorial</h2><p>Figures, quotes, notes and cards for long reading.</p>
+<h3>Figure</h3><figure class="jd-figure"><svg viewBox="0 0 320 90" width="320" height="90" role="img" aria-label="Two overlapping rectangles in print ink and accent ink" style="display:block;max-width:100%;height:auto"><rect x="0" y="0" width="200" height="90" fill="var(--jd-ink-print)"/><rect x="120" y="0" width="200" height="90" fill="var(--jd-ink-accent)" style="mix-blend-mode:multiply"/></svg><figcaption>Fig. 1. Two inks overprinted. Where they overlap the press makes a third colour.</figcaption></figure>
+<h3>Quote</h3><blockquote class="jd-quote"><p>A good page does not shout. It decides what matters and sets that in the heavier ink.</p><footer>From the <cite>Fieldnotes style guide</cite>, 2026</footer></blockquote>
+<h3>Pull quote</h3><p class="jd-prose">Pull one line out of the text and set it large. It repeats the body, so hide it from assistive technology.</p><p class="jd-pullquote" aria-hidden="true">Set what matters in the heavier ink.</p>
+<h3>Footnotes</h3><p class="jd-prose">The press ran at four hundred sheets an hour<a class="jd-footnote-ref" id="fnref-rate" href="#fn-rate" aria-label="Footnote 1">1</a>, and the second ink went down after the first had dried<a class="jd-footnote-ref" id="fnref-dry" href="#fn-dry" aria-label="Footnote 2">2</a>.</p><ol class="jd-footnotes"><li id="fn-rate">Typical for a small duplicator. Larger machines run faster. <a href="#fnref-rate" aria-label="Back to footnote 1 in the text">Back</a></li><li id="fn-dry">Wet ink on wet ink smears, so each colour is a separate pass. <a href="#fnref-dry" aria-label="Back to footnote 2 in the text">Back</a></li></ol><p class="jd-note">Follow a footnote link to see the target note take a fill and an edge.</p>
+<h3>Keyboard keys</h3><p class="jd-prose">Press <kbd class="jd-kbd">Ctrl</kbd> + <kbd class="jd-kbd">P</kbd> to print, or <kbd class="jd-kbd">Esc</kbd> to close the dialog.</p>
+<h3>Card</h3><div class="jd-grid"><article class="jd-card"><h4 class="jd-card__title">Setting type</h4><p>Choose the heading level for the outline, then the visual class for the look.</p></article><article class="jd-card jd-paper-sheet"><h4 class="jd-card__title">With a paper sheet</h4><p>The offset shadow sits on the same edge.</p></article><article class="jd-card jd-paper-sheet jd-crop"><h4 class="jd-card__title">With crop marks</h4><p>Marks sit outside the four corners.</p></article></div></section>
+<section class="catalogue-section" id="code"><h2 class="jd-heading">08 / Code</h2><p>A code block is a scrolling region. When it can scroll, give it focus and a label.</p>
+<h3>Code block</h3><pre class="jd-codeblock" tabindex="0" aria-label="Import example"><code>import "jackdaw/index.css";
+import "./styles.css";</code></pre>
+<h3>With a caption</h3><figure class="jd-codeblock-figure"><figcaption class="jd-codeblock__caption">decision-record.md</figcaption><pre class="jd-codeblock" tabindex="0" aria-label="decision-record.md"><code>## Decision
+Use a plain text log for decisions, not a database, because anyone can read and diff it, and it still opens in ten years, whatever tool we use by then.
+
+## What would change our mind
+More than a hundred entries a month.</code></pre></figure></section>
+<section class="catalogue-section" id="overlays"><h2 class="jd-heading">09 / Overlays</h2><p>Style only. The application opens a dialog with <code class="jd-code">showModal()</code> and a popover with <code class="jd-code">popovertarget</code>. Give a dialog an accessible name.</p>
+<h3>Dialog</h3><button type="button" class="jd-button" onclick="document.querySelector('#demo-dialog').showModal()">Open dialog</button>
+<dialog class="jd-dialog" id="demo-dialog" aria-labelledby="demo-dialog-title"><form method="dialog"><h4 class="jd-dialog__title" id="demo-dialog-title">Discard this draft?</h4><p>The draft has 412 unsaved words. You cannot undo this.</p><div class="jd-dialog__actions"><button class="jd-button" value="keep">Keep editing</button><button class="jd-button jd-button--primary" value="discard">Discard</button></div></form></dialog>
+<h3>Popover</h3><button type="button" class="jd-button" popovertarget="demo-popover">Paper stock help</button><div popover class="jd-popover" id="demo-popover"><p style="margin:0">Newsprint is grey and matt. Cream is warm. Both keep the same inks.</p></div></section>
+<section class="catalogue-section" id="layout"><h2 class="jd-heading">10 / Layout</h2><p>Containers, stacks, clusters and grids adapt to the available width.</p><div class="jd-grid"><div class="demo-box"><strong>One</strong><p>A flexible column.</p></div><div class="demo-box"><strong>Two</strong><p>A flexible column.</p></div><div class="demo-box"><strong>Three</strong><p>A flexible column.</p></div></div></section>
+<section class="catalogue-section" id="effects"><h2 class="jd-heading">11 / Print effects</h2><p>Opt-in marks that borrow from the press. Each works with any ink pair and stock.</p>
+<h3>Mark and overprint</h3><p class="jd-prose">A highlighter pass: <mark class="jd-mark">the accent ink prints over the words</mark> and the text stays readable.</p><div class="overlap" aria-hidden="true"><i></i><i class="jd-overprint"></i></div><p class="jd-note">Where two inks overlap, multiply gives the third colour a press would.</p>
+<h3>Halftone</h3><div class="demo-box jd-halftone" style="min-height:4rem"><strong class="jd-paper-sheet" style="padding:.25rem .5rem">Halftone surface</strong></div>
+<div class="jd-bar" role="img" aria-label="Three series: 30, 55 and 80"><span class="jd-bar__fill jd-bar__fill--under" style="--v:80%"></span><span class="jd-bar__fill jd-bar__fill--halftone" style="--v:55%"></span><span class="jd-bar__fill" style="--v:30%"></span></div><ul class="jd-legend"><li><span class="jd-swatch"></span> Solid 30</li><li><span class="jd-swatch jd-swatch--halftone"></span> Halftone 55</li><li><span class="jd-swatch jd-swatch--under"></span> Hatch 80</li></ul>
+<h3>Inked block</h3><div class="demo-box jd-inked" style="background:var(--jd-ink-print);color:var(--jd-paper)"><strong>Uneven ink on a solid block</strong></div>
+<h3>Crop marks</h3><div class="effect-block jd-crop jd-paper-sheet"><strong>Trim here</strong><p>Marks sit outside the block at all four corners.</p></div>
+<h3>Perforation</h3><hr class="jd-perforation">
+<h3>Stamp</h3><span class="jd-tag jd-tag--stamp">Approved</span> <span class="jd-tag jd-tag--stamp">Draft</span>
+<h3>Press motion</h3><div class="jd-cluster"><button type="button" class="jd-button jd-button--primary">Press me</button></div><p class="jd-note">The primary button steps into its shadow. Reduced motion turns this off.</p></section>
+<section class="catalogue-section" id="rtl"><h2 class="jd-heading">12 / Right to left</h2><p>Components use logical properties, so they mirror when a container sets <code class="jd-code">dir="rtl"</code>.</p><div dir="rtl" lang="ar" class="jd-stack"><div class="jd-bar" role="img" aria-label="40 من 100، الهدف 75"><span class="jd-bar__fill" style="--v:40%"></span><span class="jd-bar__mark" style="--v:75%"></span></div><div class="jd-notice"><p class="jd-notice__title">تم الحفظ</p><p>التغييرات جاهزة للمراجعة.</p></div><div class="jd-table-wrap"><table class="jd-table"><caption>نشاط المشروع</caption><thead><tr><th scope="col">المشروع</th><th scope="col" class="jd-table__number">العناصر</th></tr></thead><tbody><tr><th scope="row">جاكداو</th><td class="jd-table__number">24</td></tr></tbody></table></div><blockquote class="jd-quote"><p>الطباعة بحبرين تكفي لصفحة واضحة.</p></blockquote><select class="jd-input" aria-label="اللغة"><option>العربية</option><option>English</option></select><label class="jd-choice"><input class="jd-switch" type="checkbox" role="switch" checked> إظهار الحواشي</label></div></section>
 </div></div></div></main></div>
 <script>
-const defaults = {ground:'#eef0f9',paper:'#ffffff',ultra:'#2f17f0',lime:'#c4f01c',ink:'#17161f',muted:'#4a4a63',spacing:1,radius:2,body:17,width:1400};
+const defaults = {inks:'',stock:'',ground:'#eef0f9',paper:'#ffffff',ultra:'#2f17f0',lime:'#c4f01c',ink:'#17161f',muted:'#4a4a63',spacing:1,radius:2,body:17,width:1400};
 const presets = {default:defaults,compact:{...defaults,spacing:.8,body:16,radius:0},open:{...defaults,spacing:1.25,body:18},warm:{...defaults,ground:'#f4f0e7',paper:'#fffdf8',ultra:'#3023ad',lime:'#d9e85b',ink:'#24211e',muted:'#585452'}};
 let state = {...defaults};
+const props = {ground:'jd-ground',paper:'jd-paper',ultra:'jd-ink-print',lime:'jd-ink-accent',ink:'jd-text',muted:'jd-text-muted'};
+const groups = {inks:['ultra','lime'], stock:['ground','paper']};
 const preview = document.querySelector('#preview'), frame = document.querySelector('#frame'), prompt = document.querySelector('#prompt');
+// A pair or stock class sets the base, then its colours are copied into the pickers; the pickers set inline values, so they have the last word.
+function applyClasses() {
+  for (const group in groups) {
+    const prefix = group === 'inks' ? 'jd-inks-' : 'jd-stock-';
+    [...preview.classList].filter(name => name.startsWith(prefix)).forEach(name => preview.classList.remove(name));
+    if (state[group]) preview.classList.add(prefix + state[group]);
+    document.querySelector('#' + group).value = state[group];
+  }
+}
+function choose(group, name) {
+  state[group] = name; document.querySelector('#preset').value = '';
+  groups[group].forEach(key => preview.style.removeProperty('--' + props[key]));
+  applyClasses();
+  const computed = getComputedStyle(preview);
+  groups[group].forEach(key => { state[key] = computed.getPropertyValue('--' + props[key]).trim(); });
+  render();
+}
 function render() {
-  for (const key of ['ground','paper','ultra','lime','ink','muted']) preview.style.setProperty('--'+key,state[key]);
-  [0.5,1,1.5,2.5,4,6.5].forEach((n,i)=>preview.style.setProperty('--s-'+(i+1),(n*state.spacing)+'rem'));
-  preview.style.setProperty('--radius',state.radius+'px'); preview.style.fontSize=state.body+'px'; frame.style.width=state.width+'px';
+  applyClasses();
+  for (const key in props) preview.style.setProperty('--'+props[key],state[key]);
+  [0.5,1,1.5,2.5,4,6.5].forEach((n,i)=>preview.style.setProperty('--jd-s-'+(i+1),(n*state.spacing)+'rem'));
+  preview.style.setProperty('--jd-radius',state.radius+'px'); preview.style.fontSize=state.body+'px'; frame.style.width=state.width+'px';
   document.querySelectorAll('[data-key]').forEach(el=>{el.value=state[el.dataset.key];});
   document.querySelectorAll('[data-output]').forEach(el=>{const k=el.dataset.output; el.textContent=state[k]+(k==='spacing'?'×':'px');});
-  prompt.value = `Jackdaw preview settings\nGround: ${state.ground}\nPaper: ${state.paper}\nUltramarine: ${state.ultra}\nLime: ${state.lime}\nText: ${state.ink}\nMuted: ${state.muted}\nSpacing: ${state.spacing}×\nControl radius: ${state.radius}px\nBody size: ${state.body}px\nPreview width: ${state.width}px`;
+  prompt.value = `Jackdaw preview settings\nGround: ${state.ground}\nPaper: ${state.paper}\nUltramarine: ${state.ultra}\nLime: ${state.lime}\nText: ${state.ink}\nMuted: ${state.muted}\nInk pair: ${state.inks || 'ultramarine and lime'}\nPaper stock: ${state.stock || 'default'}\nSpacing: ${state.spacing}×\nControl radius: ${state.radius}px\nBody size: ${state.body}px\nPreview width: ${state.width}px`;
 }
 document.querySelectorAll('[data-key]').forEach(el=>el.addEventListener('input',()=>{state[el.dataset.key]=el.type==='range'?Number(el.value):el.value; document.querySelector('#preset').value=''; render();}));
 document.querySelector('#preset').addEventListener('change',e=>{if(presets[e.target.value]) {state={...presets[e.target.value]}; render();}});
 document.querySelector('#reset').addEventListener('click',()=>{state={...defaults}; document.querySelector('#preset').value='default'; render();});
 document.querySelector('#preset').value='default';
+for (const group in groups) document.querySelector('#' + group).addEventListener('change', e => choose(group, e.target.value));
 document.querySelector('#copy').addEventListener('click',async()=>{try {await navigator.clipboard.writeText(prompt.value); document.querySelector('#copy-status').textContent='Settings copied.';} catch {prompt.focus(); prompt.select(); document.querySelector('#copy-status').textContent='Copy the selected settings above.';}});
 render();
 </script>

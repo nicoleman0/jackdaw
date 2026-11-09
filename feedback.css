@@ -1,14 +1,28 @@
 @layer jackdaw.components {
-  .jd-notice { padding: var(--s-2) var(--s-3); border-left: 3px solid var(--ultra); background: var(--paper); color: var(--ink); }
+  .jd-notice { padding: var(--jd-s-2) var(--jd-s-3); border-inline-start: 3px solid var(--jd-ink-print); background: var(--jd-paper); color: var(--jd-text); }
   .jd-notice > :first-child { margin-top: 0; }
   .jd-notice > :last-child { margin-bottom: 0; }
-  .jd-notice__title { font: 700 1.05rem/1.3 var(--font-display); }
-  .jd-notice--error { border-left-style: double; border-left-width: 6px; border-left-color: var(--ink); }
-  .jd-notice--success { border-left-color: var(--ink); }
-  .jd-status { display: inline-flex; align-items: center; gap: 0.4em; font-size: 0.9rem; font-weight: 700; }
+  .jd-notice__title { font: 700 var(--jd-size-lg)/1.3 var(--jd-font-display); }
+  .jd-notice--error { border-inline-start-style: double; border-inline-start-width: 6px; border-inline-start-color: var(--jd-text); }
+  .jd-notice--success { border-inline-start-color: var(--jd-text); }
+  .jd-status { display: inline-flex; align-items: center; gap: 0.4em; font-size: var(--jd-size-sm); font-weight: 700; }
   .jd-status::before { content: ""; width: 0.55em; height: 0.55em; border: 1px solid currentColor; border-radius: 50%; background: currentColor; }
   .jd-status--pending::before { background: transparent; }
-  .jd-empty { padding: var(--s-3); border: 1px solid var(--rule); }
+  .jd-empty { padding: var(--jd-s-3); border: 1px solid var(--jd-rule); }
   .jd-empty > :first-child { margin-top: 0; }
   .jd-empty > :last-child { margin-bottom: 0; }
+  /* Same track and fill as jd-bar. The track is painted once, on the element; the WebKit bars stay clear. */
+  .jd-progress, .jd-meter { --_track: color-mix(in srgb, var(--jd-ink-print) 10%, transparent); appearance: none; display: block; box-sizing: border-box; inline-size: 100%; block-size: 0.75rem; overflow: hidden; border: 0; border-radius: var(--jd-radius); background: var(--_track); box-shadow: var(--jd-edge-print); color: var(--jd-ink-print); }
+  .jd-progress::-webkit-progress-bar { background: transparent; }
+  .jd-progress::-webkit-progress-value { background: var(--jd-ink-print); }
+  .jd-progress::-moz-progress-bar { background: var(--jd-ink-print); }
+  .jd-meter::-webkit-meter-bar { block-size: 100%; border: 0; background: transparent; }
+  /* Separate rules: an engine that drops one pseudo-element would drop the whole list. */
+  .jd-meter::-webkit-meter-optimum-value { background: var(--jd-ink-print); }
+  .jd-meter::-moz-meter-bar { background: var(--jd-ink-print); }
+  /* Worse values change texture, not hue. */
+  .jd-meter::-webkit-meter-suboptimum-value { background: var(--jd-hatch-fine); box-shadow: var(--jd-edge-print); }
+  .jd-meter::-webkit-meter-even-less-good-value { background: var(--jd-hatch-coarse); box-shadow: var(--jd-edge-print); }
+  .jd-meter:-moz-meter-sub-optimum::-moz-meter-bar { background: var(--jd-hatch-fine); box-shadow: var(--jd-edge-print); }
+  .jd-meter:-moz-meter-sub-sub-optimum::-moz-meter-bar { background: var(--jd-hatch-coarse); box-shadow: var(--jd-edge-print); }
 }
