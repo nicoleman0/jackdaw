@@ -1,0 +1,13 @@
+{
+  "name": "jackdaw",
+  "version": "0.1.0",
+  "description": "Shared two-ink riso design system for corvus-dev.com and Gracchi.",
+  "private": true,
+  "style": "index.css",
+  "exports": {
+    ".": "./index.css",
+    "./index.css": "./index.css",
+    "./tokens.css": "./tokens.css"
+  },
+  "files": ["index.css", "tokens.css"]
+}
