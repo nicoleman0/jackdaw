@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jackdaw specimen</title>
+  <link rel="stylesheet" href="index.css">
+  <style>
+    body { max-width: 52rem; margin: 2rem auto; padding: 0 1rem; background: var(--ground); color: var(--ink); font-family: var(--font-body); }
+    section { margin: var(--s-4) 0; }
+  </style>
+</head>
+<body>
+  <h1>Jackdaw specimen</h1>
+  <section>
+    <h2>Filled bar</h2>
+    <div class="jd-bar" role="img" aria-label="40 of 100, with 65 under and a mark at 75">
+      <span class="jd-bar__fill jd-bar__fill--under" style="--v: 65%"></span>
+      <span class="jd-bar__fill" style="--v: 40%"></span>
+      <span class="jd-bar__mark" style="--v: 75%"></span>
+    </div>
+    <ul class="jd-legend">
+      <li><span class="jd-swatch"></span> 40</li>
+      <li><span class="jd-swatch jd-swatch--under"></span> 65</li>
+      <li><span class="jd-swatch jd-swatch--mark"></span> 75</li>
+    </ul>
+  </section>
+  <section class="jd-tone--oppose">
+    <h2>Oppose</h2>
+    <div class="jd-bar jd-bar--segmented" style="--v: 100%" aria-hidden="true">
+      <span class="jd-bar__segment" data-rank="0" style="--v: 40">40</span>
+      <span class="jd-bar__segment" data-rank="1" style="--v: 30">30</span>
+      <span class="jd-bar__segment" data-rank="2" style="--v: 20">20</span>
+      <span class="jd-bar__segment" data-rank="rest" style="--v: 10"></span>
+    </div>
+    <ul class="jd-legend">
+      <li><span class="jd-swatch" data-rank="0"></span> First 40</li>
+      <li><span class="jd-swatch" data-rank="1"></span> Second 30</li>
+      <li><span class="jd-swatch" data-rank="2"></span> Third 20</li>
+      <li><span class="jd-swatch" data-rank="rest"></span> Rest 10</li>
+    </ul>
+  </section>
+  <section class="jd-tone--support">
+    <h2>Support</h2>
+    <div class="jd-bar jd-bar--segmented" style="--v: 65%" aria-hidden="true">
+      <span class="jd-bar__segment" data-rank="0" style="--v: 40">40</span>
+      <span class="jd-bar__segment" data-rank="1" style="--v: 30">30</span>
+      <span class="jd-bar__segment" data-rank="2" style="--v: 20">20</span>
+      <span class="jd-bar__segment" data-rank="rest" style="--v: 10"></span>
+    </div>
+    <ul class="jd-legend">
+      <li><span class="jd-swatch" data-rank="0"></span> First 40</li>
+      <li><span class="jd-swatch" data-rank="1"></span> Second 30</li>
+      <li><span class="jd-swatch" data-rank="2"></span> Third 20</li>
+      <li><span class="jd-swatch" data-rank="rest"></span> Rest 10</li>
+    </ul>
+  </section>
+</body>
+</html>
