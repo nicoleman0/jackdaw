@@ -1,0 +1,7 @@
+@layer jackdaw.base {
+  .jd-ink {
+    text-shadow: max(2px, 0.03em) max(1px, 0.02em) 0 var(--lime);
+    -webkit-mask: var(--ink-mask) 0 0 / 260px 260px repeat;
+    mask: var(--ink-mask) 0 0 / 260px 260px repeat;
+  }
+}
