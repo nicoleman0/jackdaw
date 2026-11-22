@@ -2,6 +2,13 @@
 
 All notable changes to Jackdaw are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions follow [Semantic Versioning](https://semver.org/).
 
+## Unreleased
+
+### Changed
+
+- `jd-ruled` rows get `--jd-s-1` block padding so text clears the rules.
+- Catalogue labels use sentence case instead of tracked capitals.
+
 ## 0.9.2 - 2026-11-09
 
 ### Changed
