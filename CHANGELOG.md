@@ -2,7 +2,7 @@
 
 All notable changes to Jackdaw are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions follow [Semantic Versioning](https://semver.org/).
 
-## Unreleased
+## 0.9.3 - 2026-11-22
 
 ### Changed
 
